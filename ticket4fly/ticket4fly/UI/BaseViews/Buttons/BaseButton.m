@@ -1,32 +1,29 @@
 //
-//  RootNavigationController.m
+//  BaseButton.m
 //  ticket4fly
 //
-//  Created by Igor on 11/09/2019.
+//  Created by Igor on 15/09/2019.
 //  Copyright © 2019 Igorlab. All rights reserved.
 //
 
-#import "RootNavigationController.h"
-#import "ThemeManager.h"
+#import "BaseButton.h"
 
-@interface RootNavigationController ()
+@interface BaseButton ()
 
 @property (nonatomic, weak, readwrite) ThemeManager* themeManager;
 
 @end
 
-@implementation RootNavigationController
+@implementation BaseButton
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame: frame];
+    
     self.themeManager = [ThemeManager shared];
-    
     [self addNotifications];
-    
     [self updateTheme];
     
-    self.navigationBar.translucent = NO;
+    return self;
 }
 
 - (void)dealloc {
@@ -36,14 +33,7 @@
 #pragma mark - Theme
 
 - (void) updateTheme {
-    BaseTheme* activeTheme = [self.themeManager activeTheme];
-    
-    self.view.backgroundColor = [activeTheme backgroundColor];
-    
-    self.navigationBar.tintColor = [activeTheme activeColor];
-    
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
+
 }
 
 #pragma mark - Notifications

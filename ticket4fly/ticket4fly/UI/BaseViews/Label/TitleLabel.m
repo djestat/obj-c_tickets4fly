@@ -1,32 +1,32 @@
 //
-//  RootNavigationController.m
+//  TitleLabel.m
 //  ticket4fly
 //
-//  Created by Igor on 11/09/2019.
+//  Created by Igor on 15/09/2019.
 //  Copyright © 2019 Igorlab. All rights reserved.
 //
 
-#import "RootNavigationController.h"
+#import "TitleLabel.h"
 #import "ThemeManager.h"
 
-@interface RootNavigationController ()
 
-@property (nonatomic, weak, readwrite) ThemeManager* themeManager;
+@interface TitleLabel ()
+
+@property (nonatomic, weak) ThemeManager* themeManager;
 
 @end
 
-@implementation RootNavigationController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.themeManager = [ThemeManager shared];
-    
-    [self addNotifications];
-    
-    [self updateTheme];
-    
-    self.navigationBar.translucent = NO;
+@implementation TitleLabel
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.themeManager = [ThemeManager shared];
+        [self addNotifications];
+        [self updateTheme];
+    }
+    return self;
 }
 
 - (void)dealloc {
@@ -38,12 +38,10 @@
 - (void) updateTheme {
     BaseTheme* activeTheme = [self.themeManager activeTheme];
     
-    self.view.backgroundColor = [activeTheme backgroundColor];
+    UIColor* activeColor = [activeTheme activeColor];
+    self.textColor = activeColor;
     
-    self.navigationBar.tintColor = [activeTheme activeColor];
-    
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
+    self.font = [activeTheme titleFont];
 }
 
 #pragma mark - Notifications

@@ -1,8 +1,8 @@
 //
-//  MainViewController.h
+//  SettingsViewController.h
 //  ticket4fly
 //
-//  Created by Igor on 11/09/2019.
+//  Created by Igor on 15/09/2019.
 //  Copyright © 2019 Igorlab. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainViewController : BaseViewController
+@interface SettingsViewController : BaseViewController
 
 @end
 
