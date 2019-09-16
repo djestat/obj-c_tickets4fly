@@ -34,6 +34,9 @@
 		CED130D8232E6D44007FBE47 /* DefaultLightTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130D7232E6D44007FBE47 /* DefaultLightTheme.m */; };
 		CED130DC232E6E1A007FBE47 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130DB232E6E1A007FBE47 /* SettingsViewController.m */; };
 		CED130DF232E6F7C007FBE47 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130DE232E6F7C007FBE47 /* BaseViewController.m */; };
+		CED3B24823301F82007CCABE /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = CED130B2232E6679007FBE47 /* Countries.json */; };
+		CED3B24923301F82007CCABE /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = CED130B3232E681A007FBE47 /* Cities.json */; };
+		CED3B24A23301F82007CCABE /* Airports.json in Resources */ = {isa = PBXBuildFile; fileRef = CED130B4232E6837007FBE47 /* Airports.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -393,7 +396,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED3B24923301F82007CCABE /* Cities.json in Resources */,
 				CE8AA2DD232984810075786A /* LaunchScreen.storyboard in Resources */,
+				CED3B24A23301F82007CCABE /* Airports.json in Resources */,
+				CED3B24823301F82007CCABE /* Countries.json in Resources */,
 				CE8AA2DA232984810075786A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

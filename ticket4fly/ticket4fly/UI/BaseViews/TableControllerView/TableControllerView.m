@@ -63,7 +63,8 @@
     
     UITableView* tableView = [UITableView new];
     [self addSubview: tableView];
-    
+    self.tableView = tableView;
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
