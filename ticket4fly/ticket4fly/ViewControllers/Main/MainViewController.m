@@ -11,12 +11,18 @@
 #import "DataManager.h"
 #import "TravelDirectionsView.h"
 
+#import "NewsButton.h"
+#import "NewsTableViewController.h"
+
 
 @interface MainViewController () <TravelDirectionsViewDelegate>
 
 @property (nonatomic, weak, readwrite) DataManager* dataManager;
 @property (nonatomic, weak, readwrite) UIBarButtonItem* settingsButton;
 @property (nonatomic, weak, readwrite) TravelDirectionsView* travelDirectionsView;
+
+@property (nonatomic, weak, readwrite) NewsButton* newsButton;
+@property (nonatomic, weak, readwrite) NewsTableViewController* newsTableViewController;
 
 @end
 
@@ -49,6 +55,14 @@
     CGFloat travelDirectionsViewX = (width - travelDirectionsViewSize.width) / 2;
     CGFloat travelDirectionsViewY = (height - travelDirectionsViewSize.height) / 2;
     self.travelDirectionsView.frame = CGRectMake(travelDirectionsViewX, travelDirectionsViewY, travelDirectionsViewSize.width, travelDirectionsViewSize.height);
+    
+    //News Button
+    CGFloat widthNewsButton = 70;
+    CGFloat heightNewsButton = 70;
+    CGFloat newsButtonX = ((width - widthNewsButton) / 2);
+    CGFloat newsButtonY = (height * 0.1);
+    self.newsButton.frame = CGRectMake(newsButtonX, newsButtonY, widthNewsButton, heightNewsButton);
+
 }
 
 #pragma mark - Subviews
@@ -59,6 +73,9 @@
     [self addSettingsButton];
     
     [self addTravelDirectionsView];
+    
+    //News Button - Custon Work
+    [self addNewsButton];
 }
 
 - (void) addTravelDirectionsView {
@@ -71,6 +88,21 @@
     self.travelDirectionsView = view;
     
     view.delegate = self;
+}
+
+- (void) addNewsButton {
+    if (nil != self.newsButton) {
+        return;
+    }
+    
+    NewsButton* button = [NewsButton buttonWithType: UIButtonTypeCustom];
+    [self.view addSubview: button];
+    self.newsButton = button;
+    
+    [button setTitle: @"!!" forState: UIControlStateNormal];
+    [button setBackgroundImage: [UIImage imageNamed:@"NewsIcon"]  forState: UIControlStateNormal];
+    button.showsTouchWhenHighlighted = YES;
+    [button addTarget: self action: @selector(openNewsController) forControlEvents: UIControlEventTouchUpInside];
 }
 
 - (void) addSettingsButton {
@@ -110,6 +142,12 @@
     NSLog(@"searchButtonAction");
 }
 
+#pragma mark - News Button Action
+
+- (void) openNewsController {
+    NewsTableViewController* tableViewController = [NewsTableViewController new];
+    [self.navigationController pushViewController: tableViewController animated:YES];
+}
 
 #pragma mark - Actions
 

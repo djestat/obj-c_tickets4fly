@@ -16,6 +16,11 @@
 		CE0A30AB232ED12A00527281 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A30AA232ED12A00527281 /* CellModel.m */; };
 		CE0A30AE232EDCA300527281 /* PlaceCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A30AD232EDCA300527281 /* PlaceCellModel.m */; };
 		CE0A30B2232EDEB400527281 /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A30B1232EDEB400527281 /* PlaceTableViewCell.m */; };
+		CE425497233175D5003C5519 /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE425496233175D5003C5519 /* NewsTableViewController.m */; };
+		CE42549A23317604003C5519 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE42549923317604003C5519 /* NewsCell.m */; };
+		CE42549D2331764C003C5519 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = CE42549C2331764C003C5519 /* News.m */; };
+		CE4254A0233176FC003C5519 /* NetworkingService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE42549F233176FC003C5519 /* NetworkingService.m */; };
+		CE4254A823317F0E003C5519 /* NewsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4254A723317F0E003C5519 /* NewsButton.m */; };
 		CE8AA2D2232984800075786A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2D1232984800075786A /* AppDelegate.m */; };
 		CE8AA2DA232984810075786A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8AA2D9232984810075786A /* Assets.xcassets */; };
 		CE8AA2DD232984810075786A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8AA2DB232984810075786A /* LaunchScreen.storyboard */; };
@@ -58,6 +63,16 @@
 		CE0A30AD232EDCA300527281 /* PlaceCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceCellModel.m; sourceTree = "<group>"; };
 		CE0A30B0232EDEB400527281 /* PlaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableViewCell.h; sourceTree = "<group>"; };
 		CE0A30B1232EDEB400527281 /* PlaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableViewCell.m; sourceTree = "<group>"; };
+		CE425495233175D5003C5519 /* NewsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
+		CE425496233175D5003C5519 /* NewsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
+		CE42549823317604003C5519 /* NewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
+		CE42549923317604003C5519 /* NewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		CE42549B2331764C003C5519 /* News.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		CE42549C2331764C003C5519 /* News.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		CE42549E233176FC003C5519 /* NetworkingService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingService.h; sourceTree = "<group>"; };
+		CE42549F233176FC003C5519 /* NetworkingService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingService.m; sourceTree = "<group>"; };
+		CE4254A623317F0E003C5519 /* NewsButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsButton.h; sourceTree = "<group>"; };
+		CE4254A723317F0E003C5519 /* NewsButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsButton.m; sourceTree = "<group>"; };
 		CE8AA2CD232984800075786A /* ticket4fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticket4fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8AA2D0232984800075786A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE8AA2D1232984800075786A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -150,6 +165,71 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CE425490233174C3003C5519 /* News SubApp */ = {
+			isa = PBXGroup;
+			children = (
+				CE4254912331750A003C5519 /* Services */,
+				CE4254922331751A003C5519 /* Models */,
+				CE4254932331752E003C5519 /* ViewController */,
+				CE42549423317548003C5519 /* UI */,
+			);
+			path = "News SubApp";
+			sourceTree = "<group>";
+		};
+		CE4254912331750A003C5519 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE42549E233176FC003C5519 /* NetworkingService.h */,
+				CE42549F233176FC003C5519 /* NetworkingService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CE4254922331751A003C5519 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE42549B2331764C003C5519 /* News.h */,
+				CE42549C2331764C003C5519 /* News.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE4254932331752E003C5519 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE425495233175D5003C5519 /* NewsTableViewController.h */,
+				CE425496233175D5003C5519 /* NewsTableViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE42549423317548003C5519 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CE4254A223317A18003C5519 /* Button */,
+				CE4254A123317A0A003C5519 /* Cell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CE4254A123317A0A003C5519 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE42549823317604003C5519 /* NewsCell.h */,
+				CE42549923317604003C5519 /* NewsCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE4254A223317A18003C5519 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				CE4254A623317F0E003C5519 /* NewsButton.h */,
+				CE4254A723317F0E003C5519 /* NewsButton.m */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		CE8AA2C4232984800075786A = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +259,7 @@
 				CED130AD232E6419007FBE47 /* Models */,
 				CE8AA2E6232989450075786A /* ViewControllers */,
 				CED130AC232E63EA007FBE47 /* UI */,
+				CE425490233174C3003C5519 /* News SubApp */,
 			);
 			path = ticket4fly;
 			sourceTree = "<group>";
@@ -413,13 +494,16 @@
 			files = (
 				CED130D8232E6D44007FBE47 /* DefaultLightTheme.m in Sources */,
 				CED130D2232E6C82007FBE47 /* BaseTheme.m in Sources */,
+				CE42549A23317604003C5519 /* NewsCell.m in Sources */,
 				CED130C7232E6B3B007FBE47 /* TitleLabel.m in Sources */,
 				CE0A30A8232ED0ED00527281 /* TableControllerView.m in Sources */,
 				CE0A30A4232ECC7E00527281 /* PlaceViewController.m in Sources */,
 				CED130C0232E69FE007FBE47 /* Country.m in Sources */,
 				CE8AA2E0232984810075786A /* main.m in Sources */,
 				CE0A30A0232EC91D00527281 /* SubmitButton.m in Sources */,
+				CE425497233175D5003C5519 /* NewsTableViewController.m in Sources */,
 				CED130B1232E65CC007FBE47 /* DataManager.m in Sources */,
+				CE4254A823317F0E003C5519 /* NewsButton.m in Sources */,
 				CED130D5232E6CFA007FBE47 /* DefaultDarkTheme.m in Sources */,
 				CE8AA2E92329898A0075786A /* RootNavigationController.m in Sources */,
 				CED130BA232E68E5007FBE47 /* Airport.m in Sources */,
@@ -431,10 +515,12 @@
 				CED130DC232E6E1A007FBE47 /* SettingsViewController.m in Sources */,
 				CE0A30AE232EDCA300527281 /* PlaceCellModel.m in Sources */,
 				CE0A309D232EB9E500527281 /* BaseButton.m in Sources */,
+				CE42549D2331764C003C5519 /* News.m in Sources */,
 				CED130CF232E6C1E007FBE47 /* ThemeManager.m in Sources */,
 				CE0A309A232EB80600527281 /* DirectionButton.m in Sources */,
 				CE8AA2EE23298BE00075786A /* MainViewController.m in Sources */,
 				CE0A30AB232ED12A00527281 /* CellModel.m in Sources */,
+				CE4254A0233176FC003C5519 /* NetworkingService.m in Sources */,
 				CE0A3097232EA31A00527281 /* TravelDirectionsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
