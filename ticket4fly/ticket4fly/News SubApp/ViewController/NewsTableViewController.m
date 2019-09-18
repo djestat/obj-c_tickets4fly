@@ -8,11 +8,13 @@
 
 #import "NewsTableViewController.h"
 #import "NewsCell.h"
+#import "NetworkingService.h"
+#import "News.h"
 
 @interface NewsTableViewController ()
 
-@property (nonatomic, strong) NSMutableArray *newsArray;
-@property (nonatomic, strong) UITableViewCell *newsCell;
+@property (nonatomic, strong) NSArray<News *> *newsArray;
+@property (nonatomic, strong) NetworkingService* networkingService;
 
 @end
 
@@ -20,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = @"News";
     [self.tableView registerClass:[NewsCell class] forCellReuseIdentifier:@"NewsCell"];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -28,36 +30,58 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    __weak typeof(self) weakSelf = self;
+    [self.networkingService getNews:^(NSArray<News *> * _Nonnull newsArray) {
+        weakSelf.newsArray = newsArray;
+        [self.tableView reloadData];
+    }];
+}
+
+- (NetworkingService *)networkingService {
+    if (nil == _networkingService) {
+        _networkingService = [NetworkingService new];
+    }
+    return _networkingService;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows
-    return 20;
+    return _newsArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: _newsCell forIndexPath:indexPath];
     
     // Configure the cell...
-//    CellModel* model = [self.models objectAtIndex: indexPath.row];
+    NewsCell* cell = [tableView dequeueReusableCellWithIdentifier: @"NewsCell" forIndexPath: indexPath];
+    
+    cell = [cell initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: @"NewsCell"];
 
-    NSString* newsCellID = NSStringFromClass([NewsCell class]);
-    NewsCell* cell = [tableView dequeueReusableCellWithIdentifier: newsCellID forIndexPath: indexPath];
-//    [cell configureWith: (PlaceCellModel*)model];
+    cell.textLabel.text = [_newsArray objectAtIndex:indexPath.row].name;
+    cell.detailTextLabel.text = [_newsArray objectAtIndex:indexPath.row].title;
+    
+    NSString* strPath = [_newsArray objectAtIndex:indexPath.row].urlToImage;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:strPath]]];
+        cell.imageView.image = img;
+    });
+    cell.imageView.frame = CGRectMake(0, 0, 70, 70);
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 50;
+    return 70;
 }
 
 /*

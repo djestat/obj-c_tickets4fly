@@ -168,7 +168,7 @@
 		CE425490233174C3003C5519 /* News SubApp */ = {
 			isa = PBXGroup;
 			children = (
-				CE4254912331750A003C5519 /* Services */,
+				CE4254912331750A003C5519 /* API Services */,
 				CE4254922331751A003C5519 /* Models */,
 				CE4254932331752E003C5519 /* ViewController */,
 				CE42549423317548003C5519 /* UI */,
@@ -176,13 +176,13 @@
 			path = "News SubApp";
 			sourceTree = "<group>";
 		};
-		CE4254912331750A003C5519 /* Services */ = {
+		CE4254912331750A003C5519 /* API Services */ = {
 			isa = PBXGroup;
 			children = (
 				CE42549E233176FC003C5519 /* NetworkingService.h */,
 				CE42549F233176FC003C5519 /* NetworkingService.m */,
 			);
-			path = Services;
+			path = "API Services";
 			sourceTree = "<group>";
 		};
 		CE4254922331751A003C5519 /* Models */ = {

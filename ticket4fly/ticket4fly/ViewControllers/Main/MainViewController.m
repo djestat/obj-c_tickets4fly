@@ -100,7 +100,7 @@
     self.newsButton = button;
     
     [button setTitle: @"!!" forState: UIControlStateNormal];
-    [button setBackgroundImage: [UIImage imageNamed:@"NewsIcon"]  forState: UIControlStateNormal];
+    [button setBackgroundImage: [UIImage imageNamed:@"NewsIcon"] forState: UIControlStateNormal];
     button.showsTouchWhenHighlighted = YES;
     [button addTarget: self action: @selector(openNewsController) forControlEvents: UIControlEventTouchUpInside];
 }

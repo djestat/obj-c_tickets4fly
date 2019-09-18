@@ -7,10 +7,9 @@
 //
 
 #import "NewsCell.h"
+#import "News.h"
 
 @interface NewsCell ()
-
-@property (nonatomic, strong) NSString *reuseID;
 
 @end
 
@@ -25,10 +24,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle: UITableViewCellStyleDefault reuseIdentifier: _reuseID];
-    return self;
 }
 
 @end

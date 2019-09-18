@@ -10,8 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class News;
+
+typedef void (^NewsApi_GetNewssCompletion)(NSArray<News*>*);
+
 @interface NetworkingService : NSObject
+
+- (void) getNews: (NewsApi_GetNewssCompletion) completion;
 
 @end
 
 NS_ASSUME_NONNULL_END
+
