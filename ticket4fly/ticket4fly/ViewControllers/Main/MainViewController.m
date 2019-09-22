@@ -14,6 +14,9 @@
 #import "NewsButton.h"
 #import "NewsTableViewController.h"
 
+#import "MapButton.h"
+#import "MapViewController.h"
+
 
 @interface MainViewController () <TravelDirectionsViewDelegate>
 
@@ -23,6 +26,10 @@
 
 @property (nonatomic, weak, readwrite) NewsButton* newsButton;
 @property (nonatomic, weak, readwrite) NewsTableViewController* newsTableViewController;
+
+@property (nonatomic, weak, readwrite) MapButton* mapButton;
+@property (nonatomic, weak, readwrite) MapViewController* mapViewController;
+
 
 @end
 
@@ -61,7 +68,15 @@
     CGFloat heightNewsButton = 70;
     CGFloat newsButtonX = ((width - widthNewsButton) / 2);
     CGFloat newsButtonY = (height * 0.1);
-    self.newsButton.frame = CGRectMake(newsButtonX, newsButtonY, widthNewsButton, heightNewsButton);
+    self.newsButton.frame = CGRectMake(newsButtonX - 40, newsButtonY, widthNewsButton, heightNewsButton);
+    
+    //Map Button
+    CGFloat widthMapButton = 70;
+    CGFloat heightMapButton = 70;
+    CGFloat mapButtonX = ((width - widthMapButton) / 2);
+    CGFloat mapButtonY = (height * 0.1);
+    self.mapButton.frame = CGRectMake(mapButtonX + 40, mapButtonY, widthMapButton, heightMapButton);
+    
 
 }
 
@@ -76,6 +91,9 @@
     
     //News Button - Custon Work
     [self addNewsButton];
+    
+    //Map Button - Custon Work
+    [self addMapButton];
 }
 
 - (void) addTravelDirectionsView {
@@ -99,10 +117,25 @@
     [self.view addSubview: button];
     self.newsButton = button;
     
-    [button setTitle: @"!!" forState: UIControlStateNormal];
+    [button setTitle: @"" forState: UIControlStateNormal];
     [button setBackgroundImage: [UIImage imageNamed:@"NewsIcon"] forState: UIControlStateNormal];
     button.showsTouchWhenHighlighted = YES;
     [button addTarget: self action: @selector(openNewsController) forControlEvents: UIControlEventTouchUpInside];
+}
+
+- (void) addMapButton {
+    if (nil != self.mapButton) {
+        return;
+    }
+    
+    MapButton* button = [MapButton buttonWithType: UIButtonTypeCustom];
+    [self.view addSubview: button];
+    self.mapButton = button;
+    
+    [button setTitle: @"" forState: UIControlStateNormal];
+    [button setBackgroundImage: [UIImage imageNamed:@"location"] forState: UIControlStateNormal];
+    button.showsTouchWhenHighlighted = YES;
+    [button addTarget: self action: @selector(openMapController) forControlEvents: UIControlEventTouchUpInside];
 }
 
 - (void) addSettingsButton {
@@ -148,6 +181,14 @@
     NewsTableViewController* tableViewController = [NewsTableViewController new];
     [self.navigationController pushViewController: tableViewController animated:YES];
 }
+
+#pragma mark - Map Button Action
+
+- (void) openMapController {
+    MapViewController* mapViewController = [MapViewController new];
+    [self.navigationController pushViewController: mapViewController animated:YES];
+}
+
 
 #pragma mark - Actions
 

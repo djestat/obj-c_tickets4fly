@@ -21,6 +21,9 @@
 		CE42549D2331764C003C5519 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = CE42549C2331764C003C5519 /* News.m */; };
 		CE4254A0233176FC003C5519 /* NetworkingService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE42549F233176FC003C5519 /* NetworkingService.m */; };
 		CE4254A823317F0E003C5519 /* NewsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4254A723317F0E003C5519 /* NewsButton.m */; };
+		CE49EC422337A3AB00070AC0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC412337A3AB00070AC0 /* MapViewController.m */; };
+		CE49EC452337A54800070AC0 /* MapButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC442337A54800070AC0 /* MapButton.m */; };
+		CE49EC4A2337AD5900070AC0 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC492337AD5900070AC0 /* LocationService.m */; };
 		CE8AA2D2232984800075786A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2D1232984800075786A /* AppDelegate.m */; };
 		CE8AA2DA232984810075786A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8AA2D9232984810075786A /* Assets.xcassets */; };
 		CE8AA2DD232984810075786A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8AA2DB232984810075786A /* LaunchScreen.storyboard */; };
@@ -73,6 +76,12 @@
 		CE42549F233176FC003C5519 /* NetworkingService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingService.m; sourceTree = "<group>"; };
 		CE4254A623317F0E003C5519 /* NewsButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsButton.h; sourceTree = "<group>"; };
 		CE4254A723317F0E003C5519 /* NewsButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsButton.m; sourceTree = "<group>"; };
+		CE49EC402337A3AB00070AC0 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		CE49EC412337A3AB00070AC0 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		CE49EC432337A54800070AC0 /* MapButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapButton.h; sourceTree = "<group>"; };
+		CE49EC442337A54800070AC0 /* MapButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapButton.m; sourceTree = "<group>"; };
+		CE49EC482337AD5900070AC0 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		CE49EC492337AD5900070AC0 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		CE8AA2CD232984800075786A /* ticket4fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticket4fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8AA2D0232984800075786A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE8AA2D1232984800075786A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -230,6 +239,31 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		CE49EC3F2337A35A00070AC0 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				CE49EC402337A3AB00070AC0 /* MapViewController.h */,
+				CE49EC412337A3AB00070AC0 /* MapViewController.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		CE49EC462337A95600070AC0 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		CE49EC472337AD2100070AC0 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				CE49EC482337AD5900070AC0 /* LocationService.h */,
+				CE49EC492337AD5900070AC0 /* LocationService.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		CE8AA2C4232984800075786A = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +308,7 @@
 				CED130D9232E6DDE007FBE47 /* Settings */,
 				CE8AA2EB23298BCF0075786A /* Main */,
 				CE0A30A1232ECC1D00527281 /* Place */,
+				CE49EC3F2337A35A00070AC0 /* Map */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -309,6 +344,7 @@
 		CED130AE232E6421007FBE47 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CE49EC472337AD2100070AC0 /* Location */,
 				CED130AF232E65CC007FBE47 /* DataManager.h */,
 				CED130B0232E65CC007FBE47 /* DataManager.m */,
 				CED130B2232E6679007FBE47 /* Countries.json */,
@@ -361,6 +397,7 @@
 		CED130C2232E6AC2007FBE47 /* BaseViews */ = {
 			isa = PBXGroup;
 			children = (
+				CE49EC462337A95600070AC0 /* MapView */,
 				CE0A30A5232ED0C800527281 /* TableControllerView */,
 				CE0A3091232EA28600527281 /* Travel Directions */,
 				CED130C4232E6AE0007FBE47 /* Label */,
@@ -380,6 +417,8 @@
 				CE0A309C232EB9E500527281 /* BaseButton.m */,
 				CE0A309E232EC91D00527281 /* SubmitButton.h */,
 				CE0A309F232EC91D00527281 /* SubmitButton.m */,
+				CE49EC432337A54800070AC0 /* MapButton.h */,
+				CE49EC442337A54800070AC0 /* MapButton.m */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -492,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE49EC452337A54800070AC0 /* MapButton.m in Sources */,
 				CED130D8232E6D44007FBE47 /* DefaultLightTheme.m in Sources */,
 				CED130D2232E6C82007FBE47 /* BaseTheme.m in Sources */,
 				CE42549A23317604003C5519 /* NewsCell.m in Sources */,
@@ -506,12 +546,14 @@
 				CE4254A823317F0E003C5519 /* NewsButton.m in Sources */,
 				CED130D5232E6CFA007FBE47 /* DefaultDarkTheme.m in Sources */,
 				CE8AA2E92329898A0075786A /* RootNavigationController.m in Sources */,
+				CE49EC422337A3AB00070AC0 /* MapViewController.m in Sources */,
 				CED130BA232E68E5007FBE47 /* Airport.m in Sources */,
 				CE0A30B2232EDEB400527281 /* PlaceTableViewCell.m in Sources */,
 				CED130DF232E6F7C007FBE47 /* BaseViewController.m in Sources */,
 				CE8AA2D2232984800075786A /* AppDelegate.m in Sources */,
 				CED130BD232E698F007FBE47 /* City.m in Sources */,
 				CED130CA232E6BA2007FBE47 /* SegmentedControl.m in Sources */,
+				CE49EC4A2337AD5900070AC0 /* LocationService.m in Sources */,
 				CED130DC232E6E1A007FBE47 /* SettingsViewController.m in Sources */,
 				CE0A30AE232EDCA300527281 /* PlaceCellModel.m in Sources */,
 				CE0A309D232EB9E500527281 /* BaseButton.m in Sources */,

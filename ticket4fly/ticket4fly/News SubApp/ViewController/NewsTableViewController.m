@@ -73,6 +73,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:strPath]]];
         cell.imageView.image = img;
+        [cell setNeedsLayout];
+        [cell layoutIfNeeded];
     });
     cell.imageView.frame = CGRectMake(0, 0, 70, 70);
     

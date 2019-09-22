@@ -37,5 +37,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Say Yes</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Say Yes</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Say Yes</string>
 </dict>
 </plist>
