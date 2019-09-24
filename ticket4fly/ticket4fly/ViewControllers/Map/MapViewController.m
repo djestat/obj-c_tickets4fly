@@ -26,6 +26,7 @@
     //Map View
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_mapView];
+    [_mapView.delegate self];
     
     //Location Manager
     
@@ -68,7 +69,6 @@
 #pragma mark - Annotation
 
 - (void) addPin: (CLLocation *) currentLocation {
-    [self.mapView removeAnnotations: self.mapView.annotations];
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     
@@ -93,10 +93,10 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    [self.mapView removeAnnotations: self.mapView.annotations];
     
     static NSString *identifier = @"My Place";
     MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    
     annotationView = [[MKMarkerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
     annotationView.canShowCallout = YES;
     annotationView.calloutOffset = CGPointMake(-5.0, 5.0);
@@ -107,7 +107,7 @@
 }
 
 
-
+/*
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
 
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
@@ -125,6 +125,6 @@
     }
     annotationView.annotation = annotation;
     
-}
+}*/
 
 @end

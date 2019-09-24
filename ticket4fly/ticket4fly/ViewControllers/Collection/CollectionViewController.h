@@ -1,8 +1,8 @@
 //
-//  NewsCell.h
+//  CollectionViewController.h
 //  ticket4fly
 //
-//  Created by Igor on 17/09/2019.
+//  Created by Igor on 24/09/2019.
 //  Copyright © 2019 Igorlab. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NewsCell : UITableViewCell
+@interface CollectionViewController : UIViewController
 
 @end
 
