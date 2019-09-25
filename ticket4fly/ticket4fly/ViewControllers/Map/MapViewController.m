@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Мое местоположение!";
+    self.title = @"Price map";
     //Map View
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_mapView];

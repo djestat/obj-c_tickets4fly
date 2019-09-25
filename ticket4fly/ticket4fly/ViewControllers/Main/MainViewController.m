@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle: @"Search tickets!"];
+    [self setTitle: @"Tickets"];
     
     self.dataManager = [DataManager shared];
 }

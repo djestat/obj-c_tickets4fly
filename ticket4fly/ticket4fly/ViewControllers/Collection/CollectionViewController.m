@@ -10,8 +10,9 @@
 #import "CollectionViewCell.h"
 
 
-@interface CollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface CollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UISearchResultsUpdating>
 
+@property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) NSMutableArray* imageCollection;
 @property (strong, nonatomic) UICollectionView *collectionView;
 
@@ -22,12 +23,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Collection";
 
+//    UICollectionReusableView *searchView = [UICollectionReusableView new];
+//    [_collectionView addSubview: searchView];
+    _searchController = [[UISearchController alloc] initWithSearchResultsController: self];
+    _searchController.searchResultsUpdater = self;
+    _searchController.searchBar.delegate = self;
+//    _searchController.searchBar setish
+//    self.collectionView.uicollectioreu = _searchController.searchBar;
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 10.0;
     layout.minimumInteritemSpacing = 10.0;
     layout.sectionInset = UIEdgeInsetsMake(10.0, 0, 0, 0);
-    layout.itemSize = CGSizeMake(self.view.bounds.size.width / 3.2, self.view.bounds.size.width / 3.2);
+    layout.itemSize = CGSizeMake((self.view.bounds.size.width - 20.0) / 3, (self.view.bounds.size.width - 20.0) / 3);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
@@ -37,6 +48,7 @@
 
 
     [self.view addSubview: _collectionView];
+    
     
 }
 
@@ -73,6 +85,25 @@
 
 #pragma mark <UICollectionViewDelegate>
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+   
+    UICollectionReusableView *reusableview = nil;
+    
+       if (kind == UICollectionElementKindSectionFooter) {
+           UICollectionReusableView *footerview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+    
+           reusableview = footerview;
+       }
+           
+       return reusableview;
+}
+
+- (void)updateSearchResultsForSearchController:(nonnull UISearchController *)searchController {
+    if (searchController.searchBar.text) {
+        NSLog(@"type...");
+
+    }
+}
 
 
 @end
