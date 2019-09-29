@@ -19,6 +19,7 @@
 		CE0A30AB232ED12A00527281 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A30AA232ED12A00527281 /* CellModel.m */; };
 		CE0A30AE232EDCA300527281 /* PlaceCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A30AD232EDCA300527281 /* PlaceCellModel.m */; };
 		CE0A30B2232EDEB400527281 /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A30B1232EDEB400527281 /* PlaceTableViewCell.m */; };
+		CE0CC5332340C18000B1344D /* FavoritesController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0CC5322340C18000B1344D /* FavoritesController.m */; };
 		CE49EC422337A3AB00070AC0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC412337A3AB00070AC0 /* MapViewController.m */; };
 		CE49EC452337A54800070AC0 /* MapButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC442337A54800070AC0 /* MapButton.m */; };
 		CE49EC4A2337AD5900070AC0 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC492337AD5900070AC0 /* LocationService.m */; };
@@ -70,6 +71,8 @@
 		CE0A30AD232EDCA300527281 /* PlaceCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceCellModel.m; sourceTree = "<group>"; };
 		CE0A30B0232EDEB400527281 /* PlaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableViewCell.h; sourceTree = "<group>"; };
 		CE0A30B1232EDEB400527281 /* PlaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableViewCell.m; sourceTree = "<group>"; };
+		CE0CC5312340C18000B1344D /* FavoritesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FavoritesController.h; path = ticket4fly/ViewControllers/Favorites/FavoritesController.h; sourceTree = SOURCE_ROOT; };
+		CE0CC5322340C18000B1344D /* FavoritesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FavoritesController.m; path = ticket4fly/ViewControllers/Favorites/FavoritesController.m; sourceTree = SOURCE_ROOT; };
 		CE49EC402337A3AB00070AC0 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		CE49EC412337A3AB00070AC0 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		CE49EC432337A54800070AC0 /* MapButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapButton.h; sourceTree = "<group>"; };
@@ -195,6 +198,16 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CE0CC52E2340C08B00B1344D /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				CE0CC5312340C18000B1344D /* FavoritesController.h */,
+				CE0CC5322340C18000B1344D /* FavoritesController.m */,
+			);
+			name = Favorites;
+			path = Collection;
+			sourceTree = "<group>";
+		};
 		CE49EC3F2337A35A00070AC0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +279,7 @@
 				CE49EC3F2337A35A00070AC0 /* Map */,
 				CE019007233AA5C10028A1BB /* Tab Bar */,
 				CE01900B233AA89B0028A1BB /* Collection */,
+				CE0CC52E2340C08B00B1344D /* Favorites */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -448,6 +462,7 @@
 				TargetAttributes = {
 					CE8AA2CC232984800075786A = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -496,6 +511,7 @@
 				CE0A30A8232ED0ED00527281 /* TableControllerView.m in Sources */,
 				CE0A30A4232ECC7E00527281 /* PlaceViewController.m in Sources */,
 				CED130C0232E69FE007FBE47 /* Country.m in Sources */,
+				CE0CC5332340C18000B1344D /* FavoritesController.m in Sources */,
 				CE01900E233AA8CF0028A1BB /* CollectionViewController.m in Sources */,
 				CE8AA2E0232984810075786A /* main.m in Sources */,
 				CE0A30A0232EC91D00527281 /* SubmitButton.m in Sources */,
@@ -653,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JR32BVRSKV;
 				INFOPLIST_FILE = ticket4fly/Info.plist;
@@ -662,6 +679,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = igorlab.www.root.my.ticket4fly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -670,6 +689,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JR32BVRSKV;
 				INFOPLIST_FILE = ticket4fly/Info.plist;
@@ -679,6 +699,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = igorlab.www.root.my.ticket4fly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
