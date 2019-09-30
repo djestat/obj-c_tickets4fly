@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MapViewController : UIViewController
 
+- (void) addToFavorites;
+
 @end
 
 NS_ASSUME_NONNULL_END

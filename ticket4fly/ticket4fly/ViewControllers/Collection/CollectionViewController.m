@@ -43,6 +43,7 @@
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     _collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"ReuseIdentifier"];
 
@@ -66,13 +67,13 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 #warning Incomplete implementation, return the number of sections
-    return 3;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of items
-    return 5;
+    return 25;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

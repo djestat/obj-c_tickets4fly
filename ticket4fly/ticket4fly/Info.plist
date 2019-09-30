@@ -38,10 +38,12 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Say Yes</string>
+    <string>Show tickets price on map</string>
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Say Yes</string>
+    <string>Show tickets price on map</string>
     <key>NSLocationAlwaysUsageDescription</key>
-    <string>Say Yes</string>
+    <string>Show tickets price on map</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>NSPhotoLibraryUsageDescription</string>
 </dict>
 </plist>

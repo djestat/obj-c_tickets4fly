@@ -1,14 +1,14 @@
 //
-//  MapButton.m
+//  MapView.m
 //  ticket4fly
 //
-//  Created by Igor on 22/09/2019.
+//  Created by Igor on 29/09/2019.
 //  Copyright © 2019 Igorlab. All rights reserved.
 //
 
-#import "MapButton.h"
+#import "MapView.h"
 
-@implementation MapButton
+@implementation MapView
 
 /*
 // Only override drawRect: if you perform custom drawing.

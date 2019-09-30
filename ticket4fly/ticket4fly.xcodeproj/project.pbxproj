@@ -20,8 +20,8 @@
 		CE0A30AE232EDCA300527281 /* PlaceCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A30AD232EDCA300527281 /* PlaceCellModel.m */; };
 		CE0A30B2232EDEB400527281 /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A30B1232EDEB400527281 /* PlaceTableViewCell.m */; };
 		CE0CC5332340C18000B1344D /* FavoritesController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0CC5322340C18000B1344D /* FavoritesController.m */; };
+		CE0CC53A2340D48F00B1344D /* FavoriteTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0CC5392340D48F00B1344D /* FavoriteTicketCell.m */; };
 		CE49EC422337A3AB00070AC0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC412337A3AB00070AC0 /* MapViewController.m */; };
-		CE49EC452337A54800070AC0 /* MapButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC442337A54800070AC0 /* MapButton.m */; };
 		CE49EC4A2337AD5900070AC0 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC492337AD5900070AC0 /* LocationService.m */; };
 		CE8AA2D2232984800075786A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2D1232984800075786A /* AppDelegate.m */; };
 		CE8AA2DA232984810075786A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8AA2D9232984810075786A /* Assets.xcassets */; };
@@ -29,6 +29,11 @@
 		CE8AA2E0232984810075786A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2DF232984810075786A /* main.m */; };
 		CE8AA2E92329898A0075786A /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2E82329898A0075786A /* RootNavigationController.m */; };
 		CE8AA2EE23298BE00075786A /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2ED23298BE00075786A /* MainViewController.m */; };
+		CE8E5EC123410F270009425F /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EC023410F270009425F /* MapView.m */; };
+		CE8E5EC4234124780009425F /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EC3234124780009425F /* DataBaseManager.m */; };
+		CE8E5ED52341397B0009425F /* DataBaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5ED32341397B0009425F /* DataBaseModel.xcdatamodeld */; };
+		CE8E5EDF23413A790009425F /* FavotitesEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */; };
+		CE8E5EE023413A790009425F /* FavotitesEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDE23413A790009425F /* FavotitesEntity+CoreDataProperties.m */; };
 		CED130B1232E65CC007FBE47 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130B0232E65CC007FBE47 /* DataManager.m */; };
 		CED130BA232E68E5007FBE47 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130B9232E68E5007FBE47 /* Airport.m */; };
 		CED130BD232E698F007FBE47 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130BC232E698F007FBE47 /* City.m */; };
@@ -73,10 +78,10 @@
 		CE0A30B1232EDEB400527281 /* PlaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableViewCell.m; sourceTree = "<group>"; };
 		CE0CC5312340C18000B1344D /* FavoritesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FavoritesController.h; path = ticket4fly/ViewControllers/Favorites/FavoritesController.h; sourceTree = SOURCE_ROOT; };
 		CE0CC5322340C18000B1344D /* FavoritesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FavoritesController.m; path = ticket4fly/ViewControllers/Favorites/FavoritesController.m; sourceTree = SOURCE_ROOT; };
+		CE0CC5382340D48F00B1344D /* FavoriteTicketCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FavoriteTicketCell.h; path = FavoriteTicket/FavoriteTicketCell.h; sourceTree = "<group>"; };
+		CE0CC5392340D48F00B1344D /* FavoriteTicketCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FavoriteTicketCell.m; path = FavoriteTicket/FavoriteTicketCell.m; sourceTree = "<group>"; };
 		CE49EC402337A3AB00070AC0 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		CE49EC412337A3AB00070AC0 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		CE49EC432337A54800070AC0 /* MapButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapButton.h; sourceTree = "<group>"; };
-		CE49EC442337A54800070AC0 /* MapButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapButton.m; sourceTree = "<group>"; };
 		CE49EC482337AD5900070AC0 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		CE49EC492337AD5900070AC0 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		CE8AA2CD232984800075786A /* ticket4fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticket4fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +95,16 @@
 		CE8AA2E82329898A0075786A /* RootNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		CE8AA2EC23298BE00075786A /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CE8AA2ED23298BE00075786A /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		CE8E5EBF23410F270009425F /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		CE8E5EC023410F270009425F /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		CE8E5EC2234124780009425F /* DataBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseManager.h; sourceTree = "<group>"; };
+		CE8E5EC3234124780009425F /* DataBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataBaseManager.m; sourceTree = "<group>"; };
+		CE8E5ED42341397B0009425F /* DataBaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBaseModel.xcdatamodel; sourceTree = "<group>"; };
+		CE8E5ED6234139F00009425F /* ticket4fly-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ticket4fly-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE8E5EDB23413A790009425F /* FavotitesEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavotitesEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		CE8E5EDC23413A790009425F /* FavotitesEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavotitesEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavotitesEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		CE8E5EDE23413A790009425F /* FavotitesEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavotitesEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CED130AF232E65CC007FBE47 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		CED130B0232E65CC007FBE47 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		CED130B2232E6679007FBE47 /* Countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
@@ -208,6 +223,15 @@
 			path = Collection;
 			sourceTree = "<group>";
 		};
+		CE0CC5372340D41800B1344D /* FavoritesTickets */ = {
+			isa = PBXGroup;
+			children = (
+				CE0CC5382340D48F00B1344D /* FavoriteTicketCell.h */,
+				CE0CC5392340D48F00B1344D /* FavoriteTicketCell.m */,
+			);
+			name = FavoritesTickets;
+			sourceTree = "<group>";
+		};
 		CE49EC3F2337A35A00070AC0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +244,8 @@
 		CE49EC462337A95600070AC0 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				CE8E5EBF23410F270009425F /* MapView.h */,
+				CE8E5EC023410F270009425F /* MapView.m */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -238,6 +264,7 @@
 			children = (
 				CE8AA2CF232984800075786A /* ticket4fly */,
 				CE8AA2CE232984800075786A /* Products */,
+				CE8E5ED6234139F00009425F /* ticket4fly-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -293,6 +320,36 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		CE8E5EBB23410CD80009425F /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				CE8E5EC5234133CE0009425F /* Entities */,
+				CE8E5EC2234124780009425F /* DataBaseManager.h */,
+				CE8E5ED32341397B0009425F /* DataBaseModel.xcdatamodeld */,
+				CE8E5EC3234124780009425F /* DataBaseManager.m */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		CE8E5EC5234133CE0009425F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				CE8E5EC6234133E20009425F /* Favorites */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		CE8E5EC6234133E20009425F /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				CE8E5EDB23413A790009425F /* FavotitesEntity+CoreDataProperties.h */,
+				CE8E5EDC23413A790009425F /* FavotitesEntity+CoreDataClass.h */,
+				CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */,
+				CE8E5EDE23413A790009425F /* FavotitesEntity+CoreDataProperties.m */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		CED130AC232E63EA007FBE47 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +372,7 @@
 		CED130AE232E6421007FBE47 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CE8E5EBB23410CD80009425F /* DataBase */,
 				CE49EC472337AD2100070AC0 /* Location */,
 				CED130AF232E65CC007FBE47 /* DataManager.h */,
 				CED130B0232E65CC007FBE47 /* DataManager.m */,
@@ -368,6 +426,7 @@
 		CED130C2232E6AC2007FBE47 /* BaseViews */ = {
 			isa = PBXGroup;
 			children = (
+				CE0CC5372340D41800B1344D /* FavoritesTickets */,
 				CE01900F233AA9CB0028A1BB /* Collection */,
 				CE49EC462337A95600070AC0 /* MapView */,
 				CE0A30A5232ED0C800527281 /* TableControllerView */,
@@ -389,8 +448,6 @@
 				CE0A309C232EB9E500527281 /* BaseButton.m */,
 				CE0A309E232EC91D00527281 /* SubmitButton.h */,
 				CE0A309F232EC91D00527281 /* SubmitButton.m */,
-				CE49EC432337A54800070AC0 /* MapButton.h */,
-				CE49EC442337A54800070AC0 /* MapButton.m */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -504,13 +561,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE49EC452337A54800070AC0 /* MapButton.m in Sources */,
 				CED130D8232E6D44007FBE47 /* DefaultLightTheme.m in Sources */,
 				CED130D2232E6C82007FBE47 /* BaseTheme.m in Sources */,
 				CED130C7232E6B3B007FBE47 /* TitleLabel.m in Sources */,
+				CE8E5EC123410F270009425F /* MapView.m in Sources */,
+				CE8E5EC4234124780009425F /* DataBaseManager.m in Sources */,
 				CE0A30A8232ED0ED00527281 /* TableControllerView.m in Sources */,
 				CE0A30A4232ECC7E00527281 /* PlaceViewController.m in Sources */,
 				CED130C0232E69FE007FBE47 /* Country.m in Sources */,
+				CE0CC53A2340D48F00B1344D /* FavoriteTicketCell.m in Sources */,
 				CE0CC5332340C18000B1344D /* FavoritesController.m in Sources */,
 				CE01900E233AA8CF0028A1BB /* CollectionViewController.m in Sources */,
 				CE8AA2E0232984810075786A /* main.m in Sources */,
@@ -525,14 +584,17 @@
 				CE8AA2D2232984800075786A /* AppDelegate.m in Sources */,
 				CED130BD232E698F007FBE47 /* City.m in Sources */,
 				CED130CA232E6BA2007FBE47 /* SegmentedControl.m in Sources */,
+				CE8E5ED52341397B0009425F /* DataBaseModel.xcdatamodeld in Sources */,
 				CE49EC4A2337AD5900070AC0 /* LocationService.m in Sources */,
 				CED130DC232E6E1A007FBE47 /* SettingsViewController.m in Sources */,
 				CE0A30AE232EDCA300527281 /* PlaceCellModel.m in Sources */,
 				CE0A309D232EB9E500527281 /* BaseButton.m in Sources */,
 				CED130CF232E6C1E007FBE47 /* ThemeManager.m in Sources */,
+				CE8E5EE023413A790009425F /* FavotitesEntity+CoreDataProperties.m in Sources */,
 				CE0A309A232EB80600527281 /* DirectionButton.m in Sources */,
 				CE019012233AAA030028A1BB /* CollectionViewCell.m in Sources */,
 				CE8AA2EE23298BE00075786A /* MainViewController.m in Sources */,
+				CE8E5EDF23413A790009425F /* FavotitesEntity+CoreDataClass.m in Sources */,
 				CE0A30AB232ED12A00527281 /* CellModel.m in Sources */,
 				CE01900A233AA65F0028A1BB /* TabBarController.m in Sources */,
 				CE0A3097232EA31A00527281 /* TravelDirectionsView.m in Sources */,
@@ -679,6 +741,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = igorlab.www.root.my.ticket4fly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ticket4fly-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -699,6 +762,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = igorlab.www.root.my.ticket4fly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ticket4fly-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -726,6 +790,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE8E5ED32341397B0009425F /* DataBaseModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE8E5ED42341397B0009425F /* DataBaseModel.xcdatamodel */,
+			);
+			currentVersion = CE8E5ED42341397B0009425F /* DataBaseModel.xcdatamodel */;
+			path = DataBaseModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE8AA2C5232984800075786A /* Project object */;
 }

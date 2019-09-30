@@ -25,8 +25,8 @@
     self.title = @"Price map";
     //Map View
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_mapView];
-    [_mapView.delegate self];
+    [self.view addSubview: _mapView];
+    _mapView.delegate = self;
     
     //Location Manager
     
@@ -38,9 +38,13 @@
 }
 
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+#pragma mark - Add To Favorites
+
+- (void) addToFavorites {
+    NSLog(@"Action ADD!");
+
 }
+
 
 #pragma mark - Update Location
 
@@ -94,37 +98,21 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
-    static NSString *identifier = @"My Place";
+    mapView = _mapView;
+
+    NSString *identifier = @"Map View";
     MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
     
     annotationView = [[MKMarkerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
     annotationView.canShowCallout = YES;
     annotationView.calloutOffset = CGPointMake(-5.0, 5.0);
-    annotationView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [(UIImageView *)annotationView.leftCalloutAccessoryView setImage: [UIImage imageNamed:@"satellite"]];
+    
+    UIButton *addToFavoriteButoon = [UIButton buttonWithType: UIButtonTypeContactAdd];
+    annotationView.rightCalloutAccessoryView = addToFavoriteButoon;
+    [addToFavoriteButoon addTarget: self action: @selector(addToFavorites) forControlEvents: UIControlEventTouchUpInside];
     annotationView.annotation = annotation;
     return annotationView;
-}
-
-
-/*
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-
-    static NSString *identifier = @"My Place";
-    MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-    if (!annotationView) {
-        annotationView = [[MKMarkerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-        annotationView.canShowCallout = YES;
-        annotationView.calloutOffset = CGPointMake(-5.0, 5.0);
-        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        annotationView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [(UIImageView *)annotationView.leftCalloutAccessoryView setImage: [UIImage imageNamed:@"satellite"]];
-        
-    }
-    annotationView.annotation = annotation;
     
-}*/
+}
 
 @end

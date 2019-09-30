@@ -35,11 +35,11 @@
         CollectionViewController *collectionViewController = [[CollectionViewController alloc] init];
         collectionViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Collection" image: [UIImage imageNamed: @"collection"] tag: 2];
         
-        FavoritesController *favoritesViewController = [[FavoritesController alloc] init];
-        favoritesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Favorites" image: [UIImage imageNamed: @"favorites"] tag: 3];
+        FavoritesController *favoritesController = [[FavoritesController alloc] init];
+        favoritesController.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Favorites" image: [UIImage imageNamed: @"favorites"] tag: 3];
         
-        self.viewControllers = @[rootNavigationController, mapViewController, collectionViewController, favoritesViewController];
-        self.tabBar.tintColor = [UIColor blackColor];
+        self.viewControllers = @[rootNavigationController, mapViewController, collectionViewController, favoritesController];
+        self.tabBar.tintColor = [UIColor redColor];
         self.selectedIndex = 0;
     }
     return self;

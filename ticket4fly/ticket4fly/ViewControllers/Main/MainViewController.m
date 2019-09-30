@@ -47,7 +47,7 @@
     BaseTheme* activeTheme = [ThemeManager.shared activeTheme];
     CGSize travelDirectionsViewSize = [activeTheme travelDirectionsViewSize];
     CGFloat travelDirectionsViewX = (width - travelDirectionsViewSize.width) / 2;
-    CGFloat travelDirectionsViewY = (height - travelDirectionsViewSize.height) / 3;
+    CGFloat travelDirectionsViewY = (height - travelDirectionsViewSize.height) / 4;
     self.travelDirectionsView.frame = CGRectMake(travelDirectionsViewX, travelDirectionsViewY, travelDirectionsViewSize.width, travelDirectionsViewSize.height);
             
 
