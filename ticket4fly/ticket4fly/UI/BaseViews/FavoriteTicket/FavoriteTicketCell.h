@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FavoriteTicketCell : UITableViewCell
+@interface FavoriteTicketCell : UICollectionViewCell
 
 @end
 

@@ -9,7 +9,6 @@
 #import "TabBarController.h"
 #import "RootNavigationController.h"
 #import "MainViewController.h"
-#import "CollectionViewController.h"
 #import "MapViewController.h"
 #import "FavoritesController.h"
 
@@ -32,13 +31,13 @@
         MapViewController *mapViewController = [[MapViewController alloc] init];
         mapViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Price map" image: [UIImage imageNamed: @"map"] tag: 1];
         
-        CollectionViewController *collectionViewController = [[CollectionViewController alloc] init];
-        collectionViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Collection" image: [UIImage imageNamed: @"collection"] tag: 2];
+//        CollectionViewController *collectionViewController = [[CollectionViewController alloc] init];
+//        collectionViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Collection" image: [UIImage imageNamed: @"collection"] tag: 2];
         
         FavoritesController *favoritesController = [[FavoritesController alloc] init];
-        favoritesController.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Favorites" image: [UIImage imageNamed: @"favorites"] tag: 3];
+        favoritesController.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Favorites" image: [UIImage imageNamed: @"favorites"] tag: 2];
         
-        self.viewControllers = @[rootNavigationController, mapViewController, collectionViewController, favoritesController];
+        self.viewControllers = @[rootNavigationController, mapViewController, favoritesController];
         self.tabBar.tintColor = [UIColor redColor];
         self.selectedIndex = 0;
     }

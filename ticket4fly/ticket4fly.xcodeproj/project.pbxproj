@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CE01900A233AA65F0028A1BB /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019009233AA65F0028A1BB /* TabBarController.m */; };
-		CE01900E233AA8CF0028A1BB /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01900D233AA8CF0028A1BB /* CollectionViewController.m */; };
-		CE019012233AAA030028A1BB /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE019011233AAA030028A1BB /* CollectionViewCell.m */; };
 		CE0A3097232EA31A00527281 /* TravelDirectionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A3096232EA31A00527281 /* TravelDirectionsView.m */; };
 		CE0A309A232EB80600527281 /* DirectionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A3099232EB80600527281 /* DirectionButton.m */; };
 		CE0A309D232EB9E500527281 /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A309C232EB9E500527281 /* BaseButton.m */; };
@@ -54,10 +52,6 @@
 /* Begin PBXFileReference section */
 		CE019008233AA65F0028A1BB /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		CE019009233AA65F0028A1BB /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
-		CE01900C233AA8CF0028A1BB /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
-		CE01900D233AA8CF0028A1BB /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
-		CE019010233AAA030028A1BB /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
-		CE019011233AAA030028A1BB /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		CE0A3095232EA31A00527281 /* TravelDirectionsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TravelDirectionsView.h; sourceTree = "<group>"; };
 		CE0A3096232EA31A00527281 /* TravelDirectionsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelDirectionsView.m; sourceTree = "<group>"; };
 		CE0A3098232EB80600527281 /* DirectionButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectionButton.h; sourceTree = "<group>"; };
@@ -152,24 +146,6 @@
 				CE019009233AA65F0028A1BB /* TabBarController.m */,
 			);
 			path = "Tab Bar";
-			sourceTree = "<group>";
-		};
-		CE01900B233AA89B0028A1BB /* Collection */ = {
-			isa = PBXGroup;
-			children = (
-				CE01900C233AA8CF0028A1BB /* CollectionViewController.h */,
-				CE01900D233AA8CF0028A1BB /* CollectionViewController.m */,
-			);
-			path = Collection;
-			sourceTree = "<group>";
-		};
-		CE01900F233AA9CB0028A1BB /* Collection */ = {
-			isa = PBXGroup;
-			children = (
-				CE019010233AAA030028A1BB /* CollectionViewCell.h */,
-				CE019011233AAA030028A1BB /* CollectionViewCell.m */,
-			);
-			path = Collection;
 			sourceTree = "<group>";
 		};
 		CE0A3091232EA28600527281 /* Travel Directions */ = {
@@ -305,7 +281,6 @@
 				CE0A30A1232ECC1D00527281 /* Place */,
 				CE49EC3F2337A35A00070AC0 /* Map */,
 				CE019007233AA5C10028A1BB /* Tab Bar */,
-				CE01900B233AA89B0028A1BB /* Collection */,
 				CE0CC52E2340C08B00B1344D /* Favorites */,
 			);
 			path = ViewControllers;
@@ -427,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				CE0CC5372340D41800B1344D /* FavoritesTickets */,
-				CE01900F233AA9CB0028A1BB /* Collection */,
 				CE49EC462337A95600070AC0 /* MapView */,
 				CE0A30A5232ED0C800527281 /* TableControllerView */,
 				CE0A3091232EA28600527281 /* Travel Directions */,
@@ -571,7 +545,6 @@
 				CED130C0232E69FE007FBE47 /* Country.m in Sources */,
 				CE0CC53A2340D48F00B1344D /* FavoriteTicketCell.m in Sources */,
 				CE0CC5332340C18000B1344D /* FavoritesController.m in Sources */,
-				CE01900E233AA8CF0028A1BB /* CollectionViewController.m in Sources */,
 				CE8AA2E0232984810075786A /* main.m in Sources */,
 				CE0A30A0232EC91D00527281 /* SubmitButton.m in Sources */,
 				CED130B1232E65CC007FBE47 /* DataManager.m in Sources */,
@@ -592,7 +565,6 @@
 				CED130CF232E6C1E007FBE47 /* ThemeManager.m in Sources */,
 				CE8E5EE023413A790009425F /* FavotitesEntity+CoreDataProperties.m in Sources */,
 				CE0A309A232EB80600527281 /* DirectionButton.m in Sources */,
-				CE019012233AAA030028A1BB /* CollectionViewCell.m in Sources */,
 				CE8AA2EE23298BE00075786A /* MainViewController.m in Sources */,
 				CE8E5EDF23413A790009425F /* FavotitesEntity+CoreDataClass.m in Sources */,
 				CE0A30AB232ED12A00527281 /* CellModel.m in Sources */,

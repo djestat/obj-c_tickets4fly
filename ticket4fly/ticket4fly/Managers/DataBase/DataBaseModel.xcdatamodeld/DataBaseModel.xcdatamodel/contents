@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="FavotitesEntity" representedClassName="FavotitesEntity" syncable="YES">
+        <attribute name="airlines" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="fromCity" optional="YES" attributeType="String"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="toCity" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="FavotitesEntity" positionX="-4957.45703125" positionY="-1938.82421875" width="128" height="88"/>
+        <element name="FavotitesEntity" positionX="-4957.45703125" positionY="-1938.82421875" width="128" height="118"/>
     </elements>
 </model>

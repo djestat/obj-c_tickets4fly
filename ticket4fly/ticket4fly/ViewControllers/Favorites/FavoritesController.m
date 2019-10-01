@@ -10,12 +10,11 @@
 #import "FavoriteTicketCell.h"
 
 
-@interface FavoritesController () <UITableViewDelegate, UITableViewDataSource>
+@interface FavoritesController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (nonatomic, strong) UISegmentedControl* segmentedControl;
 @property (nonatomic, strong) NSMutableArray* ticketsCollection;
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) FavoriteTicketCell *cell;
-
+@property (strong, nonatomic) UICollectionView *collectionView;
 
 @end
 
@@ -26,59 +25,103 @@
     // Do any additional setup after loading the view.
     self.title = @"Favorites";
     
-    _tableView = [[UITableView alloc] initWithFrame: self.view.frame];
-    _tableView.backgroundColor = [UIColor whiteColor];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.tableFooterView = [UIView new];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumLineSpacing = 20.0;
+    layout.minimumInteritemSpacing = 20.0;
+    layout.sectionInset = UIEdgeInsetsMake(10.0, 0, 0, 0);
+    layout.itemSize = CGSizeMake((self.view.bounds.size.width - 40.0), (self.view.bounds.size.height / 5));
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
-    [self.view addSubview: self.tableView];
+    _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    _collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    [_collectionView registerClass:[FavoriteTicketCell class] forCellWithReuseIdentifier:@"ReuseIdentifier"];
 
-    // Register Cell
-//    [_tableView registerClass: [FavoriteTicketCell class] forCellReuseIdentifier: @"ReuseIdentifier"];
-    NSString* baseCellID = NSStringFromClass([FavoriteTicketCell class]);
-    [self.tableView registerClass: [FavoriteTicketCell class] forCellReuseIdentifier: baseCellID];
+    [self.view addSubview: _collectionView];
     
+    [self addSubviews];
 }
 
 #pragma mark - Subviews
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-#pragma mark - UITableViewDelegate
-
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+-(void) addSubviews {
+    [self addHeader];
 }
 
-#pragma mark - UITableViewDataSource
+-(void) addHeader {
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.ticketsCollection.count + 5;
+    CGFloat headerHeight = 50;
+    UIView *headerView = ({
+        UIView *view = [[UIView alloc] init];
+        view.frame = CGRectMake(0, -headerHeight, self.collectionView.frame.size.width, headerHeight);
+        view;
+    });
+        
+    [_collectionView addSubview: headerView];
+    _collectionView.contentInset = UIEdgeInsetsMake(headerHeight, 0, 0, 0);
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All", @"Searched", @"MAP", nil]];
+    CGFloat segmentedControlWidth = 220;
+    CGFloat segmentedControlHeight = 30;
+    CGFloat segmentedControlX = (self.collectionView.frame.size.width - segmentedControlWidth) / 2;
+    CGFloat segmentedControlY = (headerHeight - segmentedControlHeight) / 2;
+
+    _segmentedControl.frame = CGRectMake(segmentedControlX, segmentedControlY, segmentedControlWidth, segmentedControlHeight);
+    _segmentedControl.selectedSegmentIndex = 0;
+    [_segmentedControl addTarget:self action:@selector(sortingSegmentControl) forControlEvents: UIControlEventValueChanged];
+    [headerView addSubview: _segmentedControl];
 }
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+-(void) sortingSegmentControl {
     
-    NSString* baseCellID = NSStringFromClass([FavoriteTicketCell class]);
-    [self.tableView registerClass: [FavoriteTicketCell class] forCellReuseIdentifier: baseCellID];
-    FavoriteTicketCell* cell = [[tableView dequeueReusableCellWithIdentifier: baseCellID forIndexPath: indexPath] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier: baseCellID];
+    switch (_segmentedControl.selectedSegmentIndex) {
+    case 1:
+        //Do something for Orange
+            NSLog(@"Sort by search");
+
+            break;
+    case 2:
+        //Do something for Grapes
+            NSLog(@"Sort by map");
+            break;
+
+    default:
+        //Do something for All Fruits
+            NSLog(@"Sort for all");
+
+            break;
+    }
+
+}
+
+
+
+
+#pragma mark Collection ViewData Source
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.ticketsCollection.count + 15;
+}
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    FavoriteTicketCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"ReuseIdentifier" forIndexPath:indexPath];
     
-    cell.textLabel.text = @"From _ - To _";
-    cell.detailTextLabel.text = @"Date: ";
-    cell.imageView.frame = CGRectMake(5, 5, 40, 40);
-    cell.imageView.image = [UIImage imageNamed:@"logo-objectiveC"];
+    // Configure the cell
+    cell.layer.cornerRadius = 10;
+    cell.backgroundColor = [UIColor lightGrayColor];
     
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+#warning add user notification in calendar
+
+    
+    NSLog(@"Don't touch me");
+    
+}
+
+#warning segment controller sort All/Search/Map
+
 
 @end
