@@ -74,6 +74,35 @@
     self.travelDirectionsView = view;
     
     view.delegate = self;
+    
+
+        CGFloat width = view.frame.size.width;
+        CGFloat height = view.frame.size.height;
+        
+        CGFloat positionX = view.frame.origin.x;
+        CGFloat positionY = view.frame.origin.y;
+        
+        CGFloat newPositionX = self.view.frame.size.width;
+        CGFloat newPositionY = self.view.frame.size.height;
+
+        [UIView animateWithDuration:1.0
+             delay:0.0
+           options:UIViewAnimationOptionCurveEaseIn
+        animations:^{
+            view.alpha = 0.0;
+            view.frame = CGRectMake(newPositionX, newPositionY, width, height);
+        } completion:^(BOOL finished) {
+            view.alpha = 0.1;
+            view.frame = CGRectMake(positionX, positionY, width, height);
+            [UIView animateWithDuration:1.0
+                                  delay:1.0
+                                options:UIViewAnimationOptionCurveEaseOut
+                             animations:^{
+                view.alpha = 1.0;
+                view.frame = CGRectMake(positionX, positionY, width, height);
+                             } completion:nil];
+            
+        }];
 }
 
 

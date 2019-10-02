@@ -9,6 +9,9 @@
 #import "FavoritesController.h"
 #import "FavoriteTicketCell.h"
 
+#import "LocalNotificationManager.h"
+
+
 
 @interface FavoritesController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -72,6 +75,8 @@
     [headerView addSubview: _segmentedControl];
 }
 
+
+#warning segment controller sort All/Search/Map
 -(void) sortingSegmentControl {
     
     switch (_segmentedControl.selectedSegmentIndex) {
@@ -114,14 +119,16 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-#warning add user notification in calendar
-
+#warning notification - change TimeInterval to Date
     
+    NSString *text = [NSString stringWithFormat: @"Your ticket with row %ld", indexPath.item];
+    NSTimeInterval time = 5;
+    
+    [[LocalNotificationManager shared] requestPermissionsWithText: text after: time];
+
     NSLog(@"Don't touch me");
     
 }
-
-#warning segment controller sort All/Search/Map
 
 
 @end

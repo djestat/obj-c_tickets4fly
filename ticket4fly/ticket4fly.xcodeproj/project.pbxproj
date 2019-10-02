@@ -32,6 +32,7 @@
 		CE8E5ED52341397B0009425F /* DataBaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5ED32341397B0009425F /* DataBaseModel.xcdatamodeld */; };
 		CE8E5EDF23413A790009425F /* FavotitesEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */; };
 		CE8E5EE023413A790009425F /* FavotitesEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDE23413A790009425F /* FavotitesEntity+CoreDataProperties.m */; };
+		CEAC93362345328500AF1DD2 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAC93352345328500AF1DD2 /* LocalNotificationManager.m */; };
 		CED130B1232E65CC007FBE47 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130B0232E65CC007FBE47 /* DataManager.m */; };
 		CED130BA232E68E5007FBE47 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130B9232E68E5007FBE47 /* Airport.m */; };
 		CED130BD232E698F007FBE47 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130BC232E698F007FBE47 /* City.m */; };
@@ -99,6 +100,8 @@
 		CE8E5EDC23413A790009425F /* FavotitesEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavotitesEntity+CoreDataClass.h"; sourceTree = "<group>"; };
 		CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavotitesEntity+CoreDataClass.m"; sourceTree = "<group>"; };
 		CE8E5EDE23413A790009425F /* FavotitesEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavotitesEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		CEAC93342345328500AF1DD2 /* LocalNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
+		CEAC93352345328500AF1DD2 /* LocalNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
 		CED130AF232E65CC007FBE47 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		CED130B0232E65CC007FBE47 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		CED130B2232E6679007FBE47 /* Countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
@@ -325,6 +328,15 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		CEAC93332345326400AF1DD2 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC93342345328500AF1DD2 /* LocalNotificationManager.h */,
+				CEAC93352345328500AF1DD2 /* LocalNotificationManager.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		CED130AC232E63EA007FBE47 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +359,7 @@
 		CED130AE232E6421007FBE47 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CEAC93332345326400AF1DD2 /* Notification */,
 				CE8E5EBB23410CD80009425F /* DataBase */,
 				CE49EC472337AD2100070AC0 /* Location */,
 				CED130AF232E65CC007FBE47 /* DataManager.h */,
@@ -545,6 +558,7 @@
 				CED130C0232E69FE007FBE47 /* Country.m in Sources */,
 				CE0CC53A2340D48F00B1344D /* FavoriteTicketCell.m in Sources */,
 				CE0CC5332340C18000B1344D /* FavoritesController.m in Sources */,
+				CEAC93362345328500AF1DD2 /* LocalNotificationManager.m in Sources */,
 				CE8AA2E0232984810075786A /* main.m in Sources */,
 				CE0A30A0232EC91D00527281 /* SubmitButton.m in Sources */,
 				CED130B1232E65CC007FBE47 /* DataManager.m in Sources */,

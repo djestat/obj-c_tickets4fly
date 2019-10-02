@@ -15,6 +15,8 @@
 @property (nonatomic, strong) CLLocation *currentLocation;
 @property (nonatomic, strong) CLGeocoder *place;
 
+@property (nonatomic, strong) MKMarkerAnnotationView *annotationView;
+
 @end
 
 @implementation MapViewController
@@ -42,7 +44,27 @@
 
 - (void) addToFavorites {
 #warning Save to Core Data
+    
+//    MKAnnotationView* view =  (MKAnnotationView *) self.mapView.selectedAnnotations.lastObject;
+    
+//    UIView* animationView = [_annotationView copy];
+    
+//    view.backgroundColor = [UIColor blueColor];
+     /*
+    CABasicAnimation *theAnimation;
 
+    theAnimation=[CABasicAnimation animationWithKeyPath:@"position"];
+    theAnimation.duration = 3.0;
+    theAnimation.repeatCount = 2;
+    theAnimation.autoreverses = NO;
+    theAnimation.fromValue= [NSValue valueWithCGPoint:CGPointMake(_annotationView.frame.origin.x
+                                                                  , _annotationView.frame.origin.y)];
+    theAnimation.toValue= [NSValue valueWithCGPoint:CGPointMake(100, 100)];
+    [_annotationView.layer addAnimation:theAnimation forKey:@"animatePosition"];
+    */
+
+//    [_mapView.layer removeAllAnimations];
+    
     NSLog(@"Action ADD!");
 
 }
@@ -98,22 +120,27 @@
     [_mapView addAnnotation:annotation];
 }
 
+#pragma mark - Annotation View
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
     mapView = _mapView;
 
     NSString *identifier = @"Map View";
-    MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+//    MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
     
-    annotationView = [[MKMarkerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-    annotationView.canShowCallout = YES;
-    annotationView.calloutOffset = CGPointMake(-5.0, 5.0);
+    _annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+
+    _annotationView = [[MKMarkerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+    _annotationView.canShowCallout = YES;
+    _annotationView.calloutOffset = CGPointMake(-5.0, 5.0);
     
     UIButton *addToFavoriteButoon = [UIButton buttonWithType: UIButtonTypeContactAdd];
-    annotationView.rightCalloutAccessoryView = addToFavoriteButoon;
+    _annotationView.rightCalloutAccessoryView = addToFavoriteButoon;
     [addToFavoriteButoon addTarget: self action: @selector(addToFavorites) forControlEvents: UIControlEventTouchUpInside];
-    annotationView.annotation = annotation;
-    return annotationView;
+    
+    _annotationView.annotation = annotation;
+    return _annotationView;
     
 }
 
