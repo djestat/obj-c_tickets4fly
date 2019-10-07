@@ -73,7 +73,7 @@
     
     NSString* placeCellID = NSStringFromClass([PlaceTableViewCell class]);
     [self.tableView registerClass: [PlaceTableViewCell class] forCellReuseIdentifier: placeCellID];
-    
+        
 }
 
 #pragma mark - Theme
@@ -126,11 +126,12 @@
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
+        
     CellModel* model = [self.models objectAtIndex: indexPath.row];
     
     if ([model isKindOfClass: [PlaceCellModel class]]) {
         NSString* placeCellID = NSStringFromClass([PlaceTableViewCell class]);
+        
         PlaceTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: placeCellID forIndexPath: indexPath];
         [cell configureWith: (PlaceCellModel*)model];
         return cell;

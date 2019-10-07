@@ -14,7 +14,6 @@
 @interface PlaceTableViewCell ()
 
 @property (nonatomic, weak) ThemeManager* themeManager;
-@property (nonatomic, weak) TitleLabel* placeNameLabel;
 
 @end
 
@@ -22,7 +21,8 @@
 @implementation PlaceTableViewCell
 
 - (void) configureWith: (PlaceCellModel*) cellModel {
-    self.placeNameLabel.text = [cellModel placeName];
+    self.textLabel.text = [cellModel placeName];
+    self.detailTextLabel.text = [cellModel placeName];
 }
 
 #pragma mark - Layout
@@ -30,31 +30,19 @@
 - (void) layoutSubviews {
     [super layoutSubviews];
     
-    self.placeNameLabel.frame = self.contentView.bounds;
 }
 
 #pragma mark - Style
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle: style reuseIdentifier: reuseIdentifier];
-    [self addSubviews];
+    self = [super initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier: reuseIdentifier];
     return self;
 }
 
 #pragma mark - Subviews
 
 - (void) addSubviews {
-    [self addPlaceNameLabel];
 }
 
-- (void) addPlaceNameLabel {
-    if (nil != self.placeNameLabel) {
-        return;
-    }
-    
-    TitleLabel* label = [TitleLabel new];
-    [self.contentView addSubview: label];
-    self.placeNameLabel = label;
-}
 
 @end
