@@ -81,17 +81,14 @@
     
     switch (_segmentedControl.selectedSegmentIndex) {
     case 1:
-        //Do something for Orange
             NSLog(@"Sort by search");
 
             break;
     case 2:
-        //Do something for Grapes
             NSLog(@"Sort by map");
             break;
 
     default:
-        //Do something for All Fruits
             NSLog(@"Sort for all");
 
             break;

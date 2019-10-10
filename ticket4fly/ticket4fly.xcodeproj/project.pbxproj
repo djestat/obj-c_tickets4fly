@@ -32,6 +32,11 @@
 		CE8E5ED52341397B0009425F /* DataBaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5ED32341397B0009425F /* DataBaseModel.xcdatamodeld */; };
 		CE8E5EDF23413A790009425F /* FavotitesEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */; };
 		CE8E5EE023413A790009425F /* FavotitesEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDE23413A790009425F /* FavotitesEntity+CoreDataProperties.m */; };
+		CE9F9273234FC16800A7354E /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F9272234FC16800A7354E /* APIManager.m */; };
+		CE9F9277234FC25F00A7354E /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F9276234FC25F00A7354E /* Route.m */; };
+		CE9F927B234FC31200A7354E /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F927A234FC31100A7354E /* MapPrice.m */; };
+		CE9F927F234FC9B200A7354E /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F927E234FC9B200A7354E /* Ticket.m */; };
+		CE9F9282234FCB4A00A7354E /* APIManagerV2.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F9281234FCB4A00A7354E /* APIManagerV2.m */; };
 		CEAC93362345328500AF1DD2 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAC93352345328500AF1DD2 /* LocalNotificationManager.m */; };
 		CED130B1232E65CC007FBE47 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130B0232E65CC007FBE47 /* DataManager.m */; };
 		CED130BA232E68E5007FBE47 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130B9232E68E5007FBE47 /* Airport.m */; };
@@ -100,6 +105,16 @@
 		CE8E5EDC23413A790009425F /* FavotitesEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavotitesEntity+CoreDataClass.h"; sourceTree = "<group>"; };
 		CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavotitesEntity+CoreDataClass.m"; sourceTree = "<group>"; };
 		CE8E5EDE23413A790009425F /* FavotitesEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavotitesEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		CE9F9271234FC16800A7354E /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		CE9F9272234FC16800A7354E /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		CE9F9275234FC25F00A7354E /* Route.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		CE9F9276234FC25F00A7354E /* Route.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		CE9F9279234FC31100A7354E /* MapPrice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPrice.h; sourceTree = "<group>"; };
+		CE9F927A234FC31100A7354E /* MapPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPrice.m; sourceTree = "<group>"; };
+		CE9F927D234FC9B200A7354E /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		CE9F927E234FC9B200A7354E /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		CE9F9280234FCB4A00A7354E /* APIManagerV2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManagerV2.h; sourceTree = "<group>"; };
+		CE9F9281234FCB4A00A7354E /* APIManagerV2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManagerV2.m; sourceTree = "<group>"; };
 		CEAC93342345328500AF1DD2 /* LocalNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
 		CEAC93352345328500AF1DD2 /* LocalNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
 		CED130AF232E65CC007FBE47 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -328,6 +343,44 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		CE9F9270234FC13800A7354E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F9271234FC16800A7354E /* APIManager.h */,
+				CE9F9272234FC16800A7354E /* APIManager.m */,
+				CE9F9280234FCB4A00A7354E /* APIManagerV2.h */,
+				CE9F9281234FCB4A00A7354E /* APIManagerV2.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CE9F9274234FC23600A7354E /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F9275234FC25F00A7354E /* Route.h */,
+				CE9F9276234FC25F00A7354E /* Route.m */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		CE9F9278234FC2F700A7354E /* MapPrice */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F9279234FC31100A7354E /* MapPrice.h */,
+				CE9F927A234FC31100A7354E /* MapPrice.m */,
+			);
+			path = MapPrice;
+			sourceTree = "<group>";
+		};
+		CE9F927C234FC98F00A7354E /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F927D234FC9B200A7354E /* Ticket.h */,
+				CE9F927E234FC9B200A7354E /* Ticket.m */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
 		CEAC93332345326400AF1DD2 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +402,9 @@
 		CED130AD232E6419007FBE47 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE9F927C234FC98F00A7354E /* Ticket */,
+				CE9F9278234FC2F700A7354E /* MapPrice */,
+				CE9F9274234FC23600A7354E /* Route */,
 				CED130B5232E68A0007FBE47 /* Airport */,
 				CED130B6232E68AD007FBE47 /* City */,
 				CED130B7232E68C3007FBE47 /* Country */,
@@ -359,6 +415,7 @@
 		CED130AE232E6421007FBE47 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CE9F9270234FC13800A7354E /* API */,
 				CEAC93332345326400AF1DD2 /* Notification */,
 				CE8E5EBB23410CD80009425F /* DataBase */,
 				CE49EC472337AD2100070AC0 /* Location */,
@@ -549,18 +606,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED130D8232E6D44007FBE47 /* DefaultLightTheme.m in Sources */,
+				CE9F9277234FC25F00A7354E /* Route.m in Sources */,
 				CED130D2232E6C82007FBE47 /* BaseTheme.m in Sources */,
 				CED130C7232E6B3B007FBE47 /* TitleLabel.m in Sources */,
 				CE8E5EC123410F270009425F /* MapView.m in Sources */,
 				CE8E5EC4234124780009425F /* DataBaseManager.m in Sources */,
 				CE0A30A8232ED0ED00527281 /* TableControllerView.m in Sources */,
 				CE0A30A4232ECC7E00527281 /* PlaceViewController.m in Sources */,
+				CE9F9273234FC16800A7354E /* APIManager.m in Sources */,
 				CED130C0232E69FE007FBE47 /* Country.m in Sources */,
 				CE0CC53A2340D48F00B1344D /* FavoriteTicketCell.m in Sources */,
 				CE0CC5332340C18000B1344D /* FavoritesController.m in Sources */,
 				CEAC93362345328500AF1DD2 /* LocalNotificationManager.m in Sources */,
 				CE8AA2E0232984810075786A /* main.m in Sources */,
 				CE0A30A0232EC91D00527281 /* SubmitButton.m in Sources */,
+				CE9F927F234FC9B200A7354E /* Ticket.m in Sources */,
 				CED130B1232E65CC007FBE47 /* DataManager.m in Sources */,
 				CED130D5232E6CFA007FBE47 /* DefaultDarkTheme.m in Sources */,
 				CE8AA2E92329898A0075786A /* RootNavigationController.m in Sources */,
@@ -570,6 +630,7 @@
 				CED130DF232E6F7C007FBE47 /* BaseViewController.m in Sources */,
 				CE8AA2D2232984800075786A /* AppDelegate.m in Sources */,
 				CED130BD232E698F007FBE47 /* City.m in Sources */,
+				CE9F927B234FC31200A7354E /* MapPrice.m in Sources */,
 				CED130CA232E6BA2007FBE47 /* SegmentedControl.m in Sources */,
 				CE8E5ED52341397B0009425F /* DataBaseModel.xcdatamodeld in Sources */,
 				CE49EC4A2337AD5900070AC0 /* LocationService.m in Sources */,
@@ -578,6 +639,7 @@
 				CE0A309D232EB9E500527281 /* BaseButton.m in Sources */,
 				CED130CF232E6C1E007FBE47 /* ThemeManager.m in Sources */,
 				CE8E5EE023413A790009425F /* FavotitesEntity+CoreDataProperties.m in Sources */,
+				CE9F9282234FCB4A00A7354E /* APIManagerV2.m in Sources */,
 				CE0A309A232EB80600527281 /* DirectionButton.m in Sources */,
 				CE8AA2EE23298BE00075786A /* MainViewController.m in Sources */,
 				CE8E5EDF23413A790009425F /* FavotitesEntity+CoreDataClass.m in Sources */,
