@@ -47,4 +47,14 @@
     return @"";
 }
 
+- (void)didSelect {
+    [super didSelect];
+    
+    if (nil != self.airport && [self.delegate respondsToSelector: @selector(didSelectAirport:)]) {
+        [self.delegate didSelectAirport: self.airport];
+    } else if (nil != self.city && [self.delegate respondsToSelector: @selector(didSelectCity:)]) {
+        [self.delegate didSelectCity: self.city];
+    }
+}
+
 @end

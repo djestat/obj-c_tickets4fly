@@ -10,16 +10,16 @@
 
 @interface City ()
 
-@property (nonatomic, strong, nonnull, readwrite) NSString* code;
-@property (nonatomic, strong, nonnull, readwrite) NSString* name;
-
-@property (nonatomic, strong, nonnull, readwrite) NSString* timeZone;
-@property (nonatomic, strong, nonnull, readwrite) NSString* countryCode;
-
-@property (nonatomic, strong, nonnull, readwrite) NSDictionary* translations;
-
-@property (nonatomic, strong, nonnull, readwrite) NSNumber* lon;
-@property (nonatomic, strong, nonnull, readwrite) NSNumber* lat;
+//@property (nonatomic, strong, nonnull, readwrite) NSString* code;
+//@property (nonatomic, strong, nonnull, readwrite) NSString* name;
+//
+//@property (nonatomic, strong, nonnull, readwrite) NSString* timeZone;
+//@property (nonatomic, strong, nonnull, readwrite) NSString* countryCode;
+//
+//@property (nonatomic, strong, nonnull, readwrite) NSDictionary* translations;
+//
+//@property (nonatomic, strong, nonnull, readwrite) NSNumber* lon;
+//@property (nonatomic, strong, nonnull, readwrite) NSNumber* lat;
 
 @end
 

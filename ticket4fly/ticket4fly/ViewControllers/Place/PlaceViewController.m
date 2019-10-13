@@ -8,14 +8,21 @@
 
 #import "PlaceViewController.h"
 #import "TableControllerView.h"
+#import "SegmentedControl.h"
+
 #import "DataManager.h"
+#import "DataBaseManager.h"
+
 #import "PlaceCellModel.h"
 
 
-@interface PlaceViewController ()
+@interface PlaceViewController ()  <PlaceCellModelDelegate, UISearchControllerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, weak, readwrite) DataManager* dataManager;
+@property (nonatomic, weak, readwrite) DataBaseManager* dataBaseManager;
+
 @property (nonatomic, weak) TableControllerView* tableControllerView;
+@property (nonatomic, weak) SegmentedControl* placeTypeSegment;
 
 @end
 
@@ -40,24 +47,64 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.dataManager = [DataManager shared];
+    self.dataBaseManager = [DataBaseManager shared];
+
+    [self reloadData];
+
 }
 
 #pragma mark - ReloadData
 
 - (void) reloadData {
+    
+    NSString* text = self.navigationItem.searchController.searchBar.text;
+    [self.dataBaseManager loadCitiesWithQuery: text completiom:^(NSArray<City *> * cities) {
+        NSMutableArray<CellModel*>* cellModels = [NSMutableArray new];
+        for (City* city in cities) {
+            PlaceCellModel* placeCellModel = [PlaceCellModel createWithCity: city];
+            placeCellModel.delegate = self;
+            [cellModels addObject: placeCellModel];
+        }
+        [self.tableControllerView reload: cellModels];
+    }];
+}
+
+- (void) _reloadData {
     NSMutableArray<CellModel*>* cellModels = [NSMutableArray new];
-    
-    for (Airport* airport in self.dataManager.airports) {
-        PlaceCellModel* placeCellModel = [PlaceCellModel createWithAirport: airport];
-        [cellModels addObject: placeCellModel];
+
+    switch (self.placeTypeSegment.selectedSegmentIndex) {
+        case 0:
+            for (City* city in self.dataManager.cities) {
+                PlaceCellModel* placeCellModel = [PlaceCellModel createWithCity: city];
+                placeCellModel.delegate = self;
+                [cellModels addObject: placeCellModel];
+            }
+            break;
+            
+        case 1:
+            for (Airport* airport in self.dataManager.airports) {
+                PlaceCellModel* placeCellModel = [PlaceCellModel createWithAirport: airport];
+                placeCellModel.delegate = self;
+                [cellModels addObject: placeCellModel];
+            }
+            break;
     }
     
-    for (City* city in self.dataManager.cities) {
-        PlaceCellModel* placeCellModel = [PlaceCellModel createWithCity: city];
-        [cellModels addObject: placeCellModel];
+    NSString* text = self.navigationItem.searchController.searchBar.text;
+    if (nil == text || text.length <= 0) {
+        [self.tableControllerView reload: cellModels];
+    } else {
+        NSMutableArray<CellModel*>* filteredCellModels = [NSMutableArray new];
+        
+        for (CellModel* cellModel in cellModels) {
+            PlaceCellModel* placeCellModel = (PlaceCellModel*) cellModel;
+            if (NO == [placeCellModel isKindOfClass: [PlaceCellModel class]]) { continue; }
+            if (NO == [[placeCellModel placeName] containsString: text]) { continue; }
+            [filteredCellModels addObject: cellModel];
+        }
+        
+        [self.tableControllerView reload: filteredCellModels];
     }
-    
-    [self.tableControllerView reload: cellModels];
 }
 
 #pragma mark - Layout
@@ -73,6 +120,14 @@
 - (void) addSubviews {
     [super addSubviews];
     [self addTableControllerView];
+    
+    [self addPlaceTypeSegment];
+    
+    UISearchController* searchController = [[UISearchController alloc] initWithSearchResultsController: nil];
+    searchController.obscuresBackgroundDuringPresentation = NO;
+    searchController.searchBar.delegate = self;
+    
+    self.navigationItem.searchController = searchController;
 }
 
 - (void) addTableControllerView {
@@ -85,33 +140,26 @@
     self.tableControllerView = tableControllerView;
 }
 
+- (void) addPlaceTypeSegment {
+    if (nil != self.placeTypeSegment) { return; }
+    
+    SegmentedControl* placeTypeSegment = [[SegmentedControl alloc] initWithFrame: CGRectMake(0, 0, 100, 50)];
+    //[self.view addSubview: placeTypeSegment];
+    self.placeTypeSegment = placeTypeSegment;
+    self.navigationItem.titleView = placeTypeSegment;
+    
+    
+    [placeTypeSegment addTarget: self
+                               action: @selector(placeTypeSegmentAction)
+                     forControlEvents: UIControlEventValueChanged];
+    
+    [placeTypeSegment insertSegmentWithTitle: @"Cities" atIndex: 0 animated: NO];
+    [placeTypeSegment insertSegmentWithTitle: @"Airports" atIndex: 1 animated: NO];
+
+    placeTypeSegment.selectedSegmentIndex = 0;
+}
+
 #pragma mark - Notifications
-
-- (void) addNotifications {
-    [super addNotifications];
-    
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(didReceiveCities)
-                                                 name: [self.dataManager didLoadCitiesNotificationName]
-                                               object: nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(didReceiveAirports)
-                                                 name: [self.dataManager didLoadAirportsNotificationName]
-                                               object: nil];
-}
-
-- (void) removeNotifications {
-    [super removeNotifications];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver: self
-                                                    name: [self.dataManager didLoadCitiesNotificationName]
-                                                  object: nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver: self
-                                                    name: [self.dataManager didLoadAirportsNotificationName]
-                                                  object: nil];
-}
 
 - (void) didReceiveCities {
     //NSLog(@"%@", [NSThread callStackSymbols]);
@@ -124,6 +172,30 @@
     //NSLog(@"%@", [NSThread callStackSymbols]);
     
     //    NSLog(@"didReceiveAirports %@", self.dataManager.airports);
+    [self reloadData];
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self reloadData];
+}
+
+#pragma mark - PlaceCellModelDelegate
+
+- (void) didSelectCity: (nonnull City*) city {
+    NSLog(@"didSelectCity %@", city);
+    [self.delegate didSelectCity: city reason: self.reason];
+}
+
+- (void) didSelectAirport: (nonnull Airport*) airport {
+    NSLog(@"didSelectAirport %@", airport);
+    [self.delegate didSelectAirport: airport reason: self.reason];
+}
+
+#pragma mark - Actions
+
+- (void) placeTypeSegmentAction {
     [self reloadData];
 }
 

@@ -19,8 +19,25 @@
 		CE0A30B2232EDEB400527281 /* PlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0A30B1232EDEB400527281 /* PlaceTableViewCell.m */; };
 		CE0CC5332340C18000B1344D /* FavoritesController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0CC5322340C18000B1344D /* FavoritesController.m */; };
 		CE0CC53A2340D48F00B1344D /* FavoriteTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0CC5392340D48F00B1344D /* FavoriteTicketCell.m */; };
+		CE0D32672353AB7200316486 /* AirportEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBEA22353A6FE001C9AC3 /* AirportEntity+CoreDataProperties.m */; };
+		CE0D32682353AC9500316486 /* AirportEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBEA12353A6FE001C9AC3 /* AirportEntity+CoreDataClass.m */; };
+		CE0D32692353AC9C00316486 /* CityEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBEA72353A749001C9AC3 /* CityEntity+CoreDataClass.m */; };
+		CE0D326A2353AC9E00316486 /* CityEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBEA82353A749001C9AC3 /* CityEntity+CoreDataProperties.m */; };
+		CE0D326B2353ACA200316486 /* TranslationEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBEB32353A7A8001C9AC3 /* TranslationEntity+CoreDataClass.m */; };
+		CE0D326C2353ACA400316486 /* TranslationEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBEB42353A7A8001C9AC3 /* TranslationEntity+CoreDataProperties.m */; };
+		CE0D326D2353ACAF00316486 /* FavotitesEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDE23413A790009425F /* FavotitesEntity+CoreDataProperties.m */; };
+		CE0D326E2353ACB100316486 /* FavotitesEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */; };
+		CE2EBE90235379ED001C9AC3 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBE8F235379ED001C9AC3 /* LocationManager.m */; };
+		CE2EBE9323537AFB001C9AC3 /* MapViewControllerContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBE9223537AFB001C9AC3 /* MapViewControllerContext.m */; };
+		CE2EBE9623537B6B001C9AC3 /* MapPriceAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBE9523537B6B001C9AC3 /* MapPriceAnnotationView.m */; };
+		CE2EBE9A23537EEC001C9AC3 /* ticket4fly.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE2EBE9923537EE4001C9AC3 /* ticket4fly.sqlite */; };
+		CE2EBE9B23537EEF001C9AC3 /* ticket4fly.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = CE2EBE9823537EE4001C9AC3 /* ticket4fly.sqlite-wal */; };
 		CE49EC422337A3AB00070AC0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC412337A3AB00070AC0 /* MapViewController.m */; };
-		CE49EC4A2337AD5900070AC0 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC492337AD5900070AC0 /* LocationService.m */; };
+		CE793154235349AC00D02622 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE793153235349AC00D02622 /* SearchViewController.m */; };
+		CE79315723534AF800D02622 /* RouteCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79315623534AF800D02622 /* RouteCellModel.m */; };
+		CE79315A23534BB500D02622 /* RouteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79315923534BB500D02622 /* RouteTableViewCell.m */; };
+		CE79315D23534E1100D02622 /* SearchViewControllerContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79315C23534E1100D02622 /* SearchViewControllerContext.m */; };
+		CE793163235355F400D02622 /* PlaceViewControllerContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CE793162235355F400D02622 /* PlaceViewControllerContext.m */; };
 		CE8AA2D2232984800075786A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2D1232984800075786A /* AppDelegate.m */; };
 		CE8AA2DA232984810075786A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8AA2D9232984810075786A /* Assets.xcassets */; };
 		CE8AA2DD232984810075786A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8AA2DB232984810075786A /* LaunchScreen.storyboard */; };
@@ -30,13 +47,10 @@
 		CE8E5EC123410F270009425F /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EC023410F270009425F /* MapView.m */; };
 		CE8E5EC4234124780009425F /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EC3234124780009425F /* DataBaseManager.m */; };
 		CE8E5ED52341397B0009425F /* DataBaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5ED32341397B0009425F /* DataBaseModel.xcdatamodeld */; };
-		CE8E5EDF23413A790009425F /* FavotitesEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */; };
-		CE8E5EE023413A790009425F /* FavotitesEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EDE23413A790009425F /* FavotitesEntity+CoreDataProperties.m */; };
 		CE9F9273234FC16800A7354E /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F9272234FC16800A7354E /* APIManager.m */; };
 		CE9F9277234FC25F00A7354E /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F9276234FC25F00A7354E /* Route.m */; };
 		CE9F927B234FC31200A7354E /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F927A234FC31100A7354E /* MapPrice.m */; };
 		CE9F927F234FC9B200A7354E /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F927E234FC9B200A7354E /* Ticket.m */; };
-		CE9F9282234FCB4A00A7354E /* APIManagerV2.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F9281234FCB4A00A7354E /* APIManagerV2.m */; };
 		CEAC93362345328500AF1DD2 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAC93352345328500AF1DD2 /* LocalNotificationManager.m */; };
 		CED130B1232E65CC007FBE47 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130B0232E65CC007FBE47 /* DataManager.m */; };
 		CED130BA232E68E5007FBE47 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = CED130B9232E68E5007FBE47 /* Airport.m */; };
@@ -80,10 +94,39 @@
 		CE0CC5322340C18000B1344D /* FavoritesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FavoritesController.m; path = ticket4fly/ViewControllers/Favorites/FavoritesController.m; sourceTree = SOURCE_ROOT; };
 		CE0CC5382340D48F00B1344D /* FavoriteTicketCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FavoriteTicketCell.h; path = FavoriteTicket/FavoriteTicketCell.h; sourceTree = "<group>"; };
 		CE0CC5392340D48F00B1344D /* FavoriteTicketCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FavoriteTicketCell.m; path = FavoriteTicket/FavoriteTicketCell.m; sourceTree = "<group>"; };
+		CE2EBE8E235379ED001C9AC3 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		CE2EBE8F235379ED001C9AC3 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		CE2EBE9123537AFB001C9AC3 /* MapViewControllerContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewControllerContext.h; sourceTree = "<group>"; };
+		CE2EBE9223537AFB001C9AC3 /* MapViewControllerContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewControllerContext.m; sourceTree = "<group>"; };
+		CE2EBE9423537B6B001C9AC3 /* MapPriceAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPriceAnnotationView.h; sourceTree = "<group>"; };
+		CE2EBE9523537B6B001C9AC3 /* MapPriceAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPriceAnnotationView.m; sourceTree = "<group>"; };
+		CE2EBE9823537EE4001C9AC3 /* ticket4fly.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ticket4fly.sqlite-wal"; sourceTree = "<group>"; };
+		CE2EBE9923537EE4001C9AC3 /* ticket4fly.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket4fly.sqlite; sourceTree = "<group>"; };
+		CE2EBE9F2353A6FE001C9AC3 /* AirportEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirportEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		CE2EBEA02353A6FE001C9AC3 /* AirportEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirportEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		CE2EBEA12353A6FE001C9AC3 /* AirportEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AirportEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		CE2EBEA22353A6FE001C9AC3 /* AirportEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AirportEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		CE2EBEA52353A749001C9AC3 /* CityEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CityEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		CE2EBEA62353A749001C9AC3 /* CityEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CityEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		CE2EBEA72353A749001C9AC3 /* CityEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CityEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		CE2EBEA82353A749001C9AC3 /* CityEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CityEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		CE2EBEB12353A7A8001C9AC3 /* TranslationEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TranslationEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		CE2EBEB22353A7A8001C9AC3 /* TranslationEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TranslationEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		CE2EBEB32353A7A8001C9AC3 /* TranslationEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TranslationEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		CE2EBEB42353A7A8001C9AC3 /* TranslationEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TranslationEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CE49EC402337A3AB00070AC0 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		CE49EC412337A3AB00070AC0 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		CE49EC482337AD5900070AC0 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
-		CE49EC492337AD5900070AC0 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		CE793152235349AC00D02622 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		CE793153235349AC00D02622 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		CE79315523534AF800D02622 /* RouteCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteCellModel.h; sourceTree = "<group>"; };
+		CE79315623534AF800D02622 /* RouteCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteCellModel.m; sourceTree = "<group>"; };
+		CE79315823534BB500D02622 /* RouteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteTableViewCell.h; sourceTree = "<group>"; };
+		CE79315923534BB500D02622 /* RouteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteTableViewCell.m; sourceTree = "<group>"; };
+		CE79315B23534E1100D02622 /* SearchViewControllerContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewControllerContext.h; sourceTree = "<group>"; };
+		CE79315C23534E1100D02622 /* SearchViewControllerContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewControllerContext.m; sourceTree = "<group>"; };
+		CE79315E23534F4F00D02622 /* ViewControllerContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerContext.h; sourceTree = "<group>"; };
+		CE793161235355F400D02622 /* PlaceViewControllerContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewControllerContext.h; sourceTree = "<group>"; };
+		CE793162235355F400D02622 /* PlaceViewControllerContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewControllerContext.m; sourceTree = "<group>"; };
 		CE8AA2CD232984800075786A /* ticket4fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ticket4fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8AA2D0232984800075786A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE8AA2D1232984800075786A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -113,8 +156,6 @@
 		CE9F927A234FC31100A7354E /* MapPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPrice.m; sourceTree = "<group>"; };
 		CE9F927D234FC9B200A7354E /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
 		CE9F927E234FC9B200A7354E /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
-		CE9F9280234FCB4A00A7354E /* APIManagerV2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManagerV2.h; sourceTree = "<group>"; };
-		CE9F9281234FCB4A00A7354E /* APIManagerV2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManagerV2.m; sourceTree = "<group>"; };
 		CEAC93342345328500AF1DD2 /* LocalNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
 		CEAC93352345328500AF1DD2 /* LocalNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
 		CED130AF232E65CC007FBE47 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -180,6 +221,8 @@
 			children = (
 				CE0A30A2232ECC7E00527281 /* PlaceViewController.h */,
 				CE0A30A3232ECC7E00527281 /* PlaceViewController.m */,
+				CE793161235355F400D02622 /* PlaceViewControllerContext.h */,
+				CE793162235355F400D02622 /* PlaceViewControllerContext.m */,
 			);
 			path = Place;
 			sourceTree = "<group>";
@@ -193,6 +236,8 @@
 				CE0A30AA232ED12A00527281 /* CellModel.m */,
 				CE0A30AC232EDCA300527281 /* PlaceCellModel.h */,
 				CE0A30AD232EDCA300527281 /* PlaceCellModel.m */,
+				CE79315523534AF800D02622 /* RouteCellModel.h */,
+				CE79315623534AF800D02622 /* RouteCellModel.m */,
 				CE0A30AF232EDE6E00527281 /* Cell */,
 			);
 			path = TableControllerView;
@@ -203,6 +248,8 @@
 			children = (
 				CE0A30B0232EDEB400527281 /* PlaceTableViewCell.h */,
 				CE0A30B1232EDEB400527281 /* PlaceTableViewCell.m */,
+				CE79315823534BB500D02622 /* RouteTableViewCell.h */,
+				CE79315923534BB500D02622 /* RouteTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -226,11 +273,57 @@
 			name = FavoritesTickets;
 			sourceTree = "<group>";
 		};
+		CE2EBE9723537ECD001C9AC3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CE2EBE9923537EE4001C9AC3 /* ticket4fly.sqlite */,
+				CE2EBE9823537EE4001C9AC3 /* ticket4fly.sqlite-wal */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CE2EBE9C23538042001C9AC3 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				CE2EBEA62353A749001C9AC3 /* CityEntity+CoreDataClass.h */,
+				CE2EBEA72353A749001C9AC3 /* CityEntity+CoreDataClass.m */,
+				CE2EBEA52353A749001C9AC3 /* CityEntity+CoreDataProperties.h */,
+				CE2EBEA82353A749001C9AC3 /* CityEntity+CoreDataProperties.m */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
+		CE2EBE9D2353805F001C9AC3 /* Airport */ = {
+			isa = PBXGroup;
+			children = (
+				CE2EBE9F2353A6FE001C9AC3 /* AirportEntity+CoreDataProperties.h */,
+				CE2EBEA02353A6FE001C9AC3 /* AirportEntity+CoreDataClass.h */,
+				CE2EBEA12353A6FE001C9AC3 /* AirportEntity+CoreDataClass.m */,
+				CE2EBEA22353A6FE001C9AC3 /* AirportEntity+CoreDataProperties.m */,
+			);
+			path = Airport;
+			sourceTree = "<group>";
+		};
+		CE2EBE9E23538089001C9AC3 /* Translation */ = {
+			isa = PBXGroup;
+			children = (
+				CE2EBEB22353A7A8001C9AC3 /* TranslationEntity+CoreDataClass.h */,
+				CE2EBEB32353A7A8001C9AC3 /* TranslationEntity+CoreDataClass.m */,
+				CE2EBEB12353A7A8001C9AC3 /* TranslationEntity+CoreDataProperties.h */,
+				CE2EBEB42353A7A8001C9AC3 /* TranslationEntity+CoreDataProperties.m */,
+			);
+			path = Translation;
+			sourceTree = "<group>";
+		};
 		CE49EC3F2337A35A00070AC0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				CE49EC402337A3AB00070AC0 /* MapViewController.h */,
 				CE49EC412337A3AB00070AC0 /* MapViewController.m */,
+				CE2EBE9123537AFB001C9AC3 /* MapViewControllerContext.h */,
+				CE2EBE9223537AFB001C9AC3 /* MapViewControllerContext.m */,
+				CE2EBE9423537B6B001C9AC3 /* MapPriceAnnotationView.h */,
+				CE2EBE9523537B6B001C9AC3 /* MapPriceAnnotationView.m */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -247,10 +340,21 @@
 		CE49EC472337AD2100070AC0 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				CE49EC482337AD5900070AC0 /* LocationService.h */,
-				CE49EC492337AD5900070AC0 /* LocationService.m */,
+				CE2EBE8E235379ED001C9AC3 /* LocationManager.h */,
+				CE2EBE8F235379ED001C9AC3 /* LocationManager.m */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		CE7931512353495C00D02622 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CE793152235349AC00D02622 /* SearchViewController.h */,
+				CE793153235349AC00D02622 /* SearchViewController.m */,
+				CE79315B23534E1100D02622 /* SearchViewControllerContext.h */,
+				CE79315C23534E1100D02622 /* SearchViewControllerContext.m */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		CE8AA2C4232984800075786A = {
@@ -294,9 +398,11 @@
 				CE8AA2E82329898A0075786A /* RootNavigationController.m */,
 				CED130DD232E6F7C007FBE47 /* BaseViewController.h */,
 				CED130DE232E6F7C007FBE47 /* BaseViewController.m */,
+				CE79315E23534F4F00D02622 /* ViewControllerContext.h */,
 				CED130D9232E6DDE007FBE47 /* Settings */,
 				CE8AA2EB23298BCF0075786A /* Main */,
 				CE0A30A1232ECC1D00527281 /* Place */,
+				CE7931512353495C00D02622 /* Search */,
 				CE49EC3F2337A35A00070AC0 /* Map */,
 				CE019007233AA5C10028A1BB /* Tab Bar */,
 				CE0CC52E2340C08B00B1344D /* Favorites */,
@@ -316,9 +422,10 @@
 		CE8E5EBB23410CD80009425F /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				CE2EBE9723537ECD001C9AC3 /* Data */,
 				CE8E5EC5234133CE0009425F /* Entities */,
-				CE8E5EC2234124780009425F /* DataBaseManager.h */,
 				CE8E5ED32341397B0009425F /* DataBaseModel.xcdatamodeld */,
+				CE8E5EC2234124780009425F /* DataBaseManager.h */,
 				CE8E5EC3234124780009425F /* DataBaseManager.m */,
 			);
 			path = DataBase;
@@ -328,6 +435,9 @@
 			isa = PBXGroup;
 			children = (
 				CE8E5EC6234133E20009425F /* Favorites */,
+				CE2EBE9D2353805F001C9AC3 /* Airport */,
+				CE2EBE9C23538042001C9AC3 /* City */,
+				CE2EBE9E23538089001C9AC3 /* Translation */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -348,8 +458,6 @@
 			children = (
 				CE9F9271234FC16800A7354E /* APIManager.h */,
 				CE9F9272234FC16800A7354E /* APIManager.m */,
-				CE9F9280234FCB4A00A7354E /* APIManagerV2.h */,
-				CE9F9281234FCB4A00A7354E /* APIManagerV2.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -590,9 +698,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2EBE9A23537EEC001C9AC3 /* ticket4fly.sqlite in Resources */,
 				CED3B24923301F82007CCABE /* Cities.json in Resources */,
 				CE8AA2DD232984810075786A /* LaunchScreen.storyboard in Resources */,
 				CED3B24A23301F82007CCABE /* Airports.json in Resources */,
+				CE2EBE9B23537EEF001C9AC3 /* ticket4fly.sqlite-wal in Resources */,
 				CED3B24823301F82007CCABE /* Countries.json in Resources */,
 				CE8AA2DA232984810075786A /* Assets.xcassets in Resources */,
 			);
@@ -605,44 +715,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0D326D2353ACAF00316486 /* FavotitesEntity+CoreDataProperties.m in Sources */,
 				CED130D8232E6D44007FBE47 /* DefaultLightTheme.m in Sources */,
 				CE9F9277234FC25F00A7354E /* Route.m in Sources */,
 				CED130D2232E6C82007FBE47 /* BaseTheme.m in Sources */,
 				CED130C7232E6B3B007FBE47 /* TitleLabel.m in Sources */,
 				CE8E5EC123410F270009425F /* MapView.m in Sources */,
+				CE793163235355F400D02622 /* PlaceViewControllerContext.m in Sources */,
 				CE8E5EC4234124780009425F /* DataBaseManager.m in Sources */,
+				CE79315A23534BB500D02622 /* RouteTableViewCell.m in Sources */,
 				CE0A30A8232ED0ED00527281 /* TableControllerView.m in Sources */,
 				CE0A30A4232ECC7E00527281 /* PlaceViewController.m in Sources */,
 				CE9F9273234FC16800A7354E /* APIManager.m in Sources */,
 				CED130C0232E69FE007FBE47 /* Country.m in Sources */,
 				CE0CC53A2340D48F00B1344D /* FavoriteTicketCell.m in Sources */,
+				CE793154235349AC00D02622 /* SearchViewController.m in Sources */,
 				CE0CC5332340C18000B1344D /* FavoritesController.m in Sources */,
+				CE0D32692353AC9C00316486 /* CityEntity+CoreDataClass.m in Sources */,
 				CEAC93362345328500AF1DD2 /* LocalNotificationManager.m in Sources */,
 				CE8AA2E0232984810075786A /* main.m in Sources */,
 				CE0A30A0232EC91D00527281 /* SubmitButton.m in Sources */,
 				CE9F927F234FC9B200A7354E /* Ticket.m in Sources */,
+				CE0D326B2353ACA200316486 /* TranslationEntity+CoreDataClass.m in Sources */,
+				CE79315D23534E1100D02622 /* SearchViewControllerContext.m in Sources */,
+				CE0D326E2353ACB100316486 /* FavotitesEntity+CoreDataClass.m in Sources */,
 				CED130B1232E65CC007FBE47 /* DataManager.m in Sources */,
 				CED130D5232E6CFA007FBE47 /* DefaultDarkTheme.m in Sources */,
+				CE2EBE9323537AFB001C9AC3 /* MapViewControllerContext.m in Sources */,
+				CE0D32672353AB7200316486 /* AirportEntity+CoreDataProperties.m in Sources */,
 				CE8AA2E92329898A0075786A /* RootNavigationController.m in Sources */,
+				CE0D326C2353ACA400316486 /* TranslationEntity+CoreDataProperties.m in Sources */,
 				CE49EC422337A3AB00070AC0 /* MapViewController.m in Sources */,
+				CE79315723534AF800D02622 /* RouteCellModel.m in Sources */,
 				CED130BA232E68E5007FBE47 /* Airport.m in Sources */,
 				CE0A30B2232EDEB400527281 /* PlaceTableViewCell.m in Sources */,
+				CE0D32682353AC9500316486 /* AirportEntity+CoreDataClass.m in Sources */,
 				CED130DF232E6F7C007FBE47 /* BaseViewController.m in Sources */,
 				CE8AA2D2232984800075786A /* AppDelegate.m in Sources */,
 				CED130BD232E698F007FBE47 /* City.m in Sources */,
 				CE9F927B234FC31200A7354E /* MapPrice.m in Sources */,
 				CED130CA232E6BA2007FBE47 /* SegmentedControl.m in Sources */,
 				CE8E5ED52341397B0009425F /* DataBaseModel.xcdatamodeld in Sources */,
-				CE49EC4A2337AD5900070AC0 /* LocationService.m in Sources */,
 				CED130DC232E6E1A007FBE47 /* SettingsViewController.m in Sources */,
 				CE0A30AE232EDCA300527281 /* PlaceCellModel.m in Sources */,
+				CE0D326A2353AC9E00316486 /* CityEntity+CoreDataProperties.m in Sources */,
 				CE0A309D232EB9E500527281 /* BaseButton.m in Sources */,
 				CED130CF232E6C1E007FBE47 /* ThemeManager.m in Sources */,
-				CE8E5EE023413A790009425F /* FavotitesEntity+CoreDataProperties.m in Sources */,
-				CE9F9282234FCB4A00A7354E /* APIManagerV2.m in Sources */,
 				CE0A309A232EB80600527281 /* DirectionButton.m in Sources */,
 				CE8AA2EE23298BE00075786A /* MainViewController.m in Sources */,
-				CE8E5EDF23413A790009425F /* FavotitesEntity+CoreDataClass.m in Sources */,
+				CE2EBE9623537B6B001C9AC3 /* MapPriceAnnotationView.m in Sources */,
+				CE2EBE90235379ED001C9AC3 /* LocationManager.m in Sources */,
 				CE0A30AB232ED12A00527281 /* CellModel.m in Sources */,
 				CE01900A233AA65F0028A1BB /* TabBarController.m in Sources */,
 				CE0A3097232EA31A00527281 /* TravelDirectionsView.m in Sources */,

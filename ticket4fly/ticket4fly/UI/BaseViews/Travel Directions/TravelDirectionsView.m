@@ -39,6 +39,19 @@
     [self removeNotifications];
 }
 
+#pragma mark -
+
+- (void) enableSearchButton {
+
+}
+- (void) disableSearchButton {
+    
+}
+
+- (void) setFromTitle: (NSString*) title {
+    
+}
+
 #pragma mark - Layout
 
 - (void) layoutSubviews {

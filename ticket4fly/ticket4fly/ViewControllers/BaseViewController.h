@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ThemeManager.h"
 
-typedef enum : NSUInteger {
-    PlaceReasonFrom,
-    PlaceReasonTo,
-} PlaceReason;
+#import "ViewControllerContext.h"
+
+#import "PlaceViewControllerContext.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) addNotifications;
 - (void) removeNotifications;
 
-- (void) openPlaceViewControllerWith: (PlaceReason) reason;
+- (void) push: (NSObject<ViewControllerContext>*) context;
 
 @end
 

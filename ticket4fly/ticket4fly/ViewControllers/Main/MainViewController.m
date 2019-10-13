@@ -11,16 +11,34 @@
 #import "DataManager.h"
 #import "TravelDirectionsView.h"
 
+#import "SearchViewControllerContext.h"
 
-@interface MainViewController () <TravelDirectionsViewDelegate>
+#import "LocationManager.h"
+#import "MapViewControllerContext.h"
+
+
+@interface MainViewController () <TravelDirectionsViewDelegate, PlaceViewControllerDelegate, DataManagerDelegate>
 
 @property (nonatomic, weak, readwrite) DataManager* dataManager;
 @property (nonatomic, weak, readwrite) UIBarButtonItem* settingsButton;
-@property (nonatomic, weak, readwrite) TravelDirectionsView* travelDirectionsView;
+@property (nonatomic, strong, readwrite) SearchViewControllerContext* searchViewControllerContext;
+@property (nonatomic, weak, readwrite) TravelDirectionsView* travelDirectionView;
+
+@property (nonatomic, weak, readwrite) LocationManager* locationManager;
 
 @end
 
 @implementation MainViewController
+
+- (SearchViewControllerContext *)searchViewControllerContext {
+    if (nil == _searchViewControllerContext) {
+        _searchViewControllerContext = [SearchViewControllerContext new];
+    }
+    
+    return _searchViewControllerContext;
+}
+
+#pragma mark - Laod ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,12 +46,11 @@
     [self setTitle: @"Tickets"];
     
     self.dataManager = [DataManager shared];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear: animated];
-    
+    self.dataManager.delegate = self;
     [self.dataManager loadData];
+    
+    self.locationManager = [LocationManager shared];
+    
 }
 
 #pragma mark - Layout
@@ -48,7 +65,7 @@
     CGSize travelDirectionsViewSize = [activeTheme travelDirectionsViewSize];
     CGFloat travelDirectionsViewX = (width - travelDirectionsViewSize.width) / 2;
     CGFloat travelDirectionsViewY = (height - travelDirectionsViewSize.height) / 4;
-    self.travelDirectionsView.frame = CGRectMake(travelDirectionsViewX, travelDirectionsViewY, travelDirectionsViewSize.width, travelDirectionsViewSize.height);
+    self.travelDirectionView.frame = CGRectMake(travelDirectionsViewX, travelDirectionsViewY, travelDirectionsViewSize.width, travelDirectionsViewSize.height);
             
 
 }
@@ -65,13 +82,13 @@
 }
 
 - (void) addTravelDirectionsView {
-    if (nil != self.travelDirectionsView) {
+    if (nil != self.travelDirectionView) {
         return;
     }
     
     TravelDirectionsView* view = [TravelDirectionsView new];
     [self.view addSubview: view];
-    self.travelDirectionsView = view;
+    self.travelDirectionView = view;
     
     view.delegate = self;
     
@@ -112,15 +129,69 @@
     self.settingsButton = settingsButton;
 }
 
+- (void) updateDirectionView {
+    [self.travelDirectionView setFromTitle: self.searchViewControllerContext.fromCity.name];
+    
+    [self.travelDirectionView enableSearchButton];
+}
+
+#pragma mark - DataManagerDelegate
+
+- (void)didReceivedCities {
+    NSLog(@"didReceiveCities %lu", (unsigned long)[self.dataManager.cities count]);
+    
+    [self.locationManager requestCurrentLocation];
+}
+
+#pragma mark - PlaceViewControllerDelegate
+
+- (void) didSelectCity: (nonnull City*) city reason: (PlaceReason) reason {
+    NSLog(@"didSelectCity %@", city);
+    
+    switch (reason) {
+        case PlaceReasonFrom:
+            self.searchViewControllerContext.fromCity = city;
+            self.searchViewControllerContext.fromAirport = nil;
+            break;
+            
+        case PlaceReasonTo:
+            self.searchViewControllerContext.toCity = city;
+            self.searchViewControllerContext.toAirport = nil;
+            break;
+    }
+    
+    [self updateDirectionView];
+}
+
+- (void) didSelectAirport: (nonnull Airport*) airport reason: (PlaceReason) reason {
+    NSLog(@"didSelectAirport %@", airport);
+    
+    switch (reason) {
+        case PlaceReasonFrom:
+            self.searchViewControllerContext.fromCity = nil;
+            self.searchViewControllerContext.fromAirport = airport;
+            break;
+            
+        case PlaceReasonTo:
+            self.searchViewControllerContext.toCity = nil;
+            self.searchViewControllerContext.toAirport = airport;
+            break;
+    }
+    
+    [self updateDirectionView];
+}
+
 #pragma mark - TravelDirectionsView
 
 
 - (void) fromButtonAction {
-    [self openPlaceViewControllerWith: PlaceReasonFrom];
+    NSObject<ViewControllerContext>* context = [PlaceViewControllerContext create: PlaceReasonFrom delegate: self];
+    [self push: context];
 }
 
 - (void) toButtonAction {
-    [self openPlaceViewControllerWith: PlaceReasonTo];
+    NSObject<ViewControllerContext>* context = [PlaceViewControllerContext create: PlaceReasonTo delegate: self];
+    [self push: context];
 }
 
 - (void) departureDate {
@@ -133,6 +204,9 @@
 
 - (void) searchButtonAction {
     NSLog(@"searchButtonAction");
+    
+    [self push: self.searchViewControllerContext];
+
 }
 
 
@@ -198,6 +272,10 @@
     //NSLog(@"%@", [NSThread callStackSymbols]);
     
 //    NSLog(@"didReceiveAirports %@", self.dataManager.airports);
+}
+
+- (void) receiveLocation {
+
 }
 
 @end

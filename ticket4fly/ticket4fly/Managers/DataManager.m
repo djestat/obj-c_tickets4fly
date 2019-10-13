@@ -8,6 +8,8 @@
 
 #import "DataManager.h"
 
+#import "DataBaseManager.h"
+
 @interface DataManager ()
 
 @property (nonatomic, strong, readwrite) NSArray<Country*>* countries;
@@ -41,17 +43,17 @@
 }
 
 - (void) loadData {
-    //    dispatch_async(dispatch_get_global_queue( QOS_CLASS_UTILITY, 0), ^(void){
-    //        [self loadCountries];
-    //    });
-    //
-    //    dispatch_async(dispatch_get_global_queue( QOS_CLASS_UTILITY, 0), ^(void){
-    //        [self loadCities];
-    //    });
-    
-    dispatch_async(dispatch_get_global_queue( QOS_CLASS_UTILITY, 0), ^(void){
-        [self loadAirports];
-    });
+     dispatch_async(dispatch_get_global_queue( QOS_CLASS_UTILITY, 0), ^(void){
+           [self loadCountries];
+       });
+
+       dispatch_async(dispatch_get_global_queue( QOS_CLASS_UTILITY, 0), ^(void){
+           [self loadCities];
+       });
+       
+       dispatch_async(dispatch_get_global_queue( QOS_CLASS_UTILITY, 0), ^(void){
+           [self loadAirports];
+       });
 }
 
 - (void) loadAirports {
@@ -74,33 +76,43 @@
     self.airports = airports;
     
     dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"postNotificationName %@", [self didLoadAirportsNotificationName]);
         [[NSNotificationCenter defaultCenter] postNotificationName: [self didLoadAirportsNotificationName] object: nil];
     });
 }
 
 - (void) loadCities {
-    NSString* fileName = @"Cities";
+    [[DataBaseManager shared] loadCitiesWithQuery: nil completiom:^(NSArray<City *> * cities) {
+        self.cities = cities;
+        [self.delegate didReceivedCities];
+    }];
     
-    NSMutableArray<City*>* cities = [NSMutableArray new];
-    NSArray* json = [self jsonFromFileName: fileName];
-    if ([json isKindOfClass: [NSArray class]]) {
-        for (NSDictionary* dictionary in json) {
-            if (NO == [dictionary isKindOfClass: [NSDictionary class]]) { continue; }
-            City* city = [City createWithDictionary: dictionary];
-            if (nil != city) {
-                [cities addObject: city];
-            }
-        }
-    } else {
-        NSLog(@"Wrong data in %@: %@", fileName, json);
-    }
-    
-    self.cities = cities;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"postNotificationName %@", [self didLoadCountriesNotificationName]);
-        [[NSNotificationCenter defaultCenter] postNotificationName: [self didLoadCitiesNotificationName] object: nil];
-    });
+    //    NSString* fileName = @"Cities";
+    //
+    //    NSMutableArray<City*>* cities = [NSMutableArray new];
+    //    NSArray* json = [self jsonFromFileName: fileName];
+    //    if ([json isKindOfClass: [NSArray class]]) {
+    //        for (NSDictionary* dictionary in json) {
+    //            if (NO == [dictionary isKindOfClass: [NSDictionary class]]) { continue; }
+    //            City* city = [City createWithDictionary: dictionary];
+    //            if (nil != city) {
+    //                [cities addObject: city];
+    //            }
+    //        }
+    //    } else {
+    //        NSLog(@"Wrong data in %@: %@", fileName, json);
+    //    }
+    //
+    //    self.cities = cities;
+    //
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //        //NSLog(@"postNotificationName %@", [self didLoadCitiesNotificationName]);
+    //        //[[NSNotificationCenter defaultCenter] postNotificationName: [self didLoadCitiesNotificationName] object: nil];
+    //
+    //        [self.delegate didReceivedCities];
+    //    });
+    //
+    //    [[DataBaseManager shared] saveCities: cities];
 }
 
 - (void) loadCountries {

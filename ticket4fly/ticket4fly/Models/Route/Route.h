@@ -16,7 +16,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSNumber* aTime;
 @property (nonatomic, strong, readonly) NSNumber* dTime;
 
+@property (nonatomic, strong, readonly) NSNumber *price;
+@property (nonatomic, strong, readonly) NSString *airline;
+@property (nonatomic, strong, readonly) NSDate *departure;
+@property (nonatomic, strong, readonly) NSDate *expires;
+@property (nonatomic, strong, readonly) NSNumber *flightNumber;
+@property (nonatomic, strong, readonly) NSDate *returnDate;
+@property (nonatomic, strong) NSString *from;
+@property (nonatomic, strong) NSString *to;
+
 + (nullable Route*) createWithDictionary: (NSDictionary*) dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 - (NSDictionary*) dictionary;
 

@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A583" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="AirportEntity" representedClassName="AirportEntity" syncable="YES">
+        <attribute name="cityCode" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="countryCode" optional="YES" attributeType="String"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="timeZone" optional="YES" attributeType="String"/>
+        <relationship name="translations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TranslationEntity" inverseName="airport" inverseEntity="TranslationEntity"/>
+    </entity>
+    <entity name="CityEntity" representedClassName="CityEntity" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="countryCode" optional="YES" attributeType="String"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="timeZone" optional="YES" attributeType="String"/>
+        <relationship name="translations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TranslationEntity" inverseName="city" inverseEntity="TranslationEntity"/>
+    </entity>
     <entity name="FavotitesEntity" representedClassName="FavotitesEntity" syncable="YES">
         <attribute name="airlines" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -7,7 +26,16 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="toCity" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="TranslationEntity" representedClassName="TranslationEntity" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
+        <relationship name="airport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AirportEntity" inverseName="translations" inverseEntity="AirportEntity"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CityEntity" inverseName="translations" inverseEntity="CityEntity"/>
+    </entity>
     <elements>
+        <element name="AirportEntity" positionX="-4959" positionY="-1899" width="128" height="163"/>
+        <element name="CityEntity" positionX="-4950" positionY="-1890" width="128" height="148"/>
         <element name="FavotitesEntity" positionX="-4957.45703125" positionY="-1938.82421875" width="128" height="118"/>
+        <element name="TranslationEntity" positionX="-4932" positionY="-1881" width="128" height="103"/>
     </elements>
 </model>

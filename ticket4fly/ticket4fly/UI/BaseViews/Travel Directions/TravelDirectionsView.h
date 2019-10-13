@@ -24,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<TravelDirectionsViewDelegate> delegate;
 
+- (void) enableSearchButton;
+- (void) disableSearchButton;
+
+- (void) setFromTitle: (NSString*) title;
+
 @end
 
 NS_ASSUME_NONNULL_END
