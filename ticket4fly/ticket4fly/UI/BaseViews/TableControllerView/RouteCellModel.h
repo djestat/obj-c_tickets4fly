@@ -14,7 +14,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RouteCellModel : CellModel
 
-@property (nonatomic, strong, readonly) NSString* info;
+@property (nonatomic, strong, readonly) NSNumber *price;
+@property (nonatomic, strong, readonly) NSString *airline;
+@property (nonatomic, strong, readonly) NSDate *departure;
+@property (nonatomic, strong, readonly) NSDate *expires;
+@property (nonatomic, strong, readonly) NSNumber *flightNumber;
+@property (nonatomic, strong, readonly) NSDate *returnDate;
+@property (nonatomic, strong, readonly) NSString *from;
+@property (nonatomic, strong, readonly) NSString *to;
 
 + (RouteCellModel*) createWith: (Route*) route;
 

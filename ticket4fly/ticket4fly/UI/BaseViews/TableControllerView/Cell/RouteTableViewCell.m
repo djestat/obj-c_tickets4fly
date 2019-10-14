@@ -23,7 +23,25 @@
 @implementation RouteTableViewCell
 
 - (void) configureWith: (RouteCellModel*) cellModel {
-    self.textLabel.text = cellModel.info;
+    _priceLabel.text = [NSString stringWithFormat:@"%@ руб.", cellModel.price];
+    _placesLabel.text = [NSString stringWithFormat:@"%@ - %@", cellModel.from, cellModel.to];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"dd MMMM yyyy hh:mm";
+    _dateLabel.text = [dateFormatter stringFromDate:cellModel.departure];
+    
+    
+    NSString *airline = [NSString stringWithFormat:@"https://pics.avs.io/80/80/%@.png", cellModel.airline];
+    NSURL *url = [NSURL URLWithString: airline];
+
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [UIImage imageWithData:data];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self.airlineLogoView setImage:image];
+        });
+    });
+
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -67,18 +85,5 @@
     _placesLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_priceLabel.frame) + 16.0, 100.0, 20.0);
     _dateLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_placesLabel.frame) + 8.0, self.contentView.frame.size.width - 20.0, 20.0);
 }
-/*
-- (void)setTicket:(Ticket *)ticket {
-    _ticket = ticket;
-    
-    _priceLabel.text = [NSString stringWithFormat:@"%@ руб.", ticket.price];
-    _placesLabel.text = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"dd MMMM yyyy hh:mm";
-    _dateLabel.text = [dateFormatter stringFromDate:ticket.departure];
-    NSURL *urlLogo = AirlineLogo(ticket.airline);
-    [_airlineLogoView yy_setImageWithURL:urlLogo options:YYWebImageOptionSetImageWithFadeAnimation];
-}*/
 
 @end

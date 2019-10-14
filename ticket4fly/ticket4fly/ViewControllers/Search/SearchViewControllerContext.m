@@ -18,7 +18,7 @@
     
     SearchViewController* viewController = [SearchViewController new];
     viewController.fromIATA = @"DME";
-    viewController.toIATA = @"DPS";
+    viewController.toIATA = @"DXB";
     return viewController;
     /*
      if (self.fromAirport == nil && self.fromCity == nil) {

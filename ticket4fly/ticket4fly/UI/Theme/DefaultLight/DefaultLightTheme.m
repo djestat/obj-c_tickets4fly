@@ -20,7 +20,7 @@
 - (nonnull UIColor*) textActiveColor   { return UIColor.darkTextColor; }
 - (nonnull UIColor*) textInactiveColor { return UIColor.lightTextColor; }
 
-- (CGFloat) actionCornerRadius  { return 0; }
+- (CGFloat) actionCornerRadius  { return 4; }
 
 - (CGFloat) horizontalEdgeInset { return 20; }
 

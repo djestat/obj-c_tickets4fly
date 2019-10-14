@@ -164,14 +164,14 @@
 - (void) didReceiveCities {
     //NSLog(@"%@", [NSThread callStackSymbols]);
     
-    //NSLog(@"didReceiveCities %@", self.dataManager.cities);
+//    NSLog(@"didReceiveCities %@", self.dataManager.cities);
     [self reloadData];
 }
 
 - (void) didReceiveAirports {
     //NSLog(@"%@", [NSThread callStackSymbols]);
     
-    //    NSLog(@"didReceiveAirports %@", self.dataManager.airports);
+//        NSLog(@"didReceiveAirports %@", self.dataManager.airports);
     [self reloadData];
 }
 

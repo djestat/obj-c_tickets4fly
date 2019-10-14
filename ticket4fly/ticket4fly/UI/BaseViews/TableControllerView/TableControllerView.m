@@ -11,6 +11,8 @@
 #import "PlaceTableViewCell.h"
 #import "PlaceCellModel.h"
 
+#import "RouteTableViewCell.h"
+#import "RouteCellModel.h"
 
 @interface TableControllerView () <UITableViewDelegate, UITableViewDataSource>
 
@@ -74,6 +76,8 @@
     NSString* placeCellID = NSStringFromClass([PlaceTableViewCell class]);
     [self.tableView registerClass: [PlaceTableViewCell class] forCellReuseIdentifier: placeCellID];
         
+    NSString* routeCellID = NSStringFromClass([RouteTableViewCell class] );
+    [self.tableView registerClass: [RouteTableViewCell class] forCellReuseIdentifier: routeCellID];
 }
 
 #pragma mark - Theme
@@ -85,10 +89,11 @@
     self.backgroundColor = viewBackgroundColor;
     self.tableView.backgroundColor = viewBackgroundColor;
     
+    /*
     self.layer.cornerRadius = [activeTheme actionCornerRadius];
     self.layer.borderColor = [UIColor whiteColor].CGColor;
     self.layer.borderWidth = 1.0f;
-    self.layer.masksToBounds = YES;
+    self.layer.masksToBounds = YES; */
 }
 
 #pragma mark - Notifications
@@ -134,6 +139,13 @@
         
         PlaceTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: placeCellID forIndexPath: indexPath];
         [cell configureWith: (PlaceCellModel*)model];
+        return cell;
+    }
+    
+    if ([model isKindOfClass: [RouteCellModel class]]) {
+        NSString* routeCellID = NSStringFromClass([RouteTableViewCell class] );
+        RouteTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: routeCellID forIndexPath: indexPath];
+        [cell configureWith: (RouteCellModel*)model];
         return cell;
     }
     

@@ -11,12 +11,14 @@
 
 @interface RouteCellModel ()
 
-@property (nonatomic, strong, readwrite) NSString* info;
-
-@property (nonatomic, strong) UIImageView *airlineLogoView;
-@property (nonatomic, strong) UILabel *priceLabel;
-@property (nonatomic, strong) UILabel *placesLabel;
-@property (nonatomic, strong) UILabel *dateLabel;
+@property (nonatomic, strong, readwrite) NSNumber *price;
+@property (nonatomic, strong, readwrite) NSString *airline;
+@property (nonatomic, strong, readwrite) NSDate *departure;
+@property (nonatomic, strong, readwrite) NSDate *expires;
+@property (nonatomic, strong, readwrite) NSNumber *flightNumber;
+@property (nonatomic, strong, readwrite) NSDate *returnDate;
+@property (nonatomic, strong, readwrite) NSString *from;
+@property (nonatomic, strong, readwrite) NSString *to;
 
 @end
 
@@ -29,7 +31,14 @@
 
 + (RouteCellModel*) createWith: (Route*) route {
     RouteCellModel* cellModel = [RouteCellModel new];
-    cellModel.info = [NSString stringWithFormat: @"%@ - %@", route.price, route.airline];
+    cellModel.price = route.price;
+    cellModel.airline = route.airline;
+    cellModel.departure = route.departure;
+    cellModel.expires = route.expires;
+    cellModel.flightNumber = route.flightNumber;
+    cellModel.returnDate = route.returnDate;
+    cellModel.from = route.from;
+    cellModel.to = route.to;
     NSLog(@"%@", route.airline);
     return cellModel;
 }

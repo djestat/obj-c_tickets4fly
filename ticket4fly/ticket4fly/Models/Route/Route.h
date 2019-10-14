@@ -12,10 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Route : NSObject
 
-
-@property (nonatomic, strong, readonly) NSNumber* aTime;
-@property (nonatomic, strong, readonly) NSNumber* dTime;
-
 @property (nonatomic, strong, readonly) NSNumber *price;
 @property (nonatomic, strong, readonly) NSString *airline;
 @property (nonatomic, strong, readonly) NSDate *departure;

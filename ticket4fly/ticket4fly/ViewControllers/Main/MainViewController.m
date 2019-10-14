@@ -87,11 +87,16 @@
     }
     
     TravelDirectionsView* view = [TravelDirectionsView new];
+    view.layer.cornerRadius = 6.0;
+    view.layer.shadowColor = [[UIColor blackColor] CGColor];
+    view.layer.shadowOffset = CGSizeZero;
+    view.layer.shadowOpacity = 10.0;
+    view.layer.shadowRadius = 10.0;
     [self.view addSubview: view];
     self.travelDirectionView = view;
     
     view.delegate = self;
-    
+    /*
     // Animation
     CGFloat width = view.frame.size.width;
     CGFloat height = view.frame.size.height;
@@ -112,6 +117,8 @@
         view.alpha = 1.0;
         view.frame = CGRectMake(positionX, positionY, width, height);
     }];
+    */
+    
 }
 
 

@@ -39,7 +39,9 @@
     [self removeNotifications];
 }
 
-#pragma mark -
+#pragma mark - Control Button Title insert and Searching
+
+#warning Enable search button
 
 - (void) enableSearchButton {
 
@@ -92,6 +94,12 @@
     }
     
     DirectionButton* button = [DirectionButton buttonWithType: UIButtonTypeCustom];
+    
+    button.layer.shadowColor = [[[UIColor whiteColor] colorWithAlphaComponent:0.9] CGColor];
+    button.layer.shadowOffset = CGSizeZero;
+    button.layer.shadowRadius = 3.0;
+    button.layer.shadowOpacity = 1.0;
+    
     [self addSubview: button];
     self.fromButton = button;
     
@@ -105,6 +113,12 @@
     }
     
     DirectionButton* button = [DirectionButton buttonWithType: UIButtonTypeCustom];
+    
+    button.layer.shadowColor = [[[UIColor whiteColor] colorWithAlphaComponent:0.9] CGColor];
+    button.layer.shadowOffset = CGSizeZero;
+    button.layer.shadowRadius = 3.0;
+    button.layer.shadowOpacity = 1.0;
+    
     [self addSubview: button];
     self.toButton = button;
     
@@ -118,6 +132,7 @@
     }
     
     SubmitButton* button = [SubmitButton buttonWithType: UIButtonTypeCustom];
+    
     [self addSubview: button];
     self.searchButton = button;
     
