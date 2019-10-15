@@ -36,7 +36,7 @@
         
         NSPersistentStoreDescription* storeDescription = [NSPersistentStoreDescription persistentStoreDescriptionWithURL: fileURL];
         
-        shared.container = [NSPersistentContainer persistentContainerWithName: @"ticket4fly"];
+        shared.container = [NSPersistentContainer persistentContainerWithName: @"DataBaseModel"];
         shared.container.persistentStoreDescriptions = @[storeDescription];
         
         [shared.container loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription * storeDescription, NSError * error) {
@@ -136,7 +136,7 @@
     
     NSString* filePath = [documentPath stringByAppendingPathComponent: @"ticket4fly.sqlite"];
     
-    
+    /*
     if (NO == [[NSFileManager defaultManager] fileExistsAtPath: filePath]) {
         
         NSError* error = nil;
@@ -149,7 +149,7 @@
         NSString* walFilePath = [documentPath stringByAppendingPathComponent: @"ticket4fly.sqlite-wal"];
         [[NSFileManager defaultManager] copyItemAtPath: sqliteWalFile toPath: walFilePath error: &error];
         NSLog(@"Copy ticket4fly.sqlite-wal %@", error);
-    }
+    }*/
     
     return [NSURL fileURLWithPath: filePath];
 }

@@ -87,32 +87,32 @@
         [self.delegate didReceivedCities];
     }];
     
-    //    NSString* fileName = @"Cities";
-    //
-    //    NSMutableArray<City*>* cities = [NSMutableArray new];
-    //    NSArray* json = [self jsonFromFileName: fileName];
-    //    if ([json isKindOfClass: [NSArray class]]) {
-    //        for (NSDictionary* dictionary in json) {
-    //            if (NO == [dictionary isKindOfClass: [NSDictionary class]]) { continue; }
-    //            City* city = [City createWithDictionary: dictionary];
-    //            if (nil != city) {
-    //                [cities addObject: city];
-    //            }
-    //        }
-    //    } else {
-    //        NSLog(@"Wrong data in %@: %@", fileName, json);
-    //    }
-    //
-    //    self.cities = cities;
-    //
-    //    dispatch_async(dispatch_get_main_queue(), ^{
-    //        //NSLog(@"postNotificationName %@", [self didLoadCitiesNotificationName]);
-    //        //[[NSNotificationCenter defaultCenter] postNotificationName: [self didLoadCitiesNotificationName] object: nil];
-    //
-    //        [self.delegate didReceivedCities];
-    //    });
-    //
-    //    [[DataBaseManager shared] saveCities: cities];
+        NSString* fileName = @"Cities";
+    
+        NSMutableArray<City*>* cities = [NSMutableArray new];
+        NSArray* json = [self jsonFromFileName: fileName];
+        if ([json isKindOfClass: [NSArray class]]) {
+            for (NSDictionary* dictionary in json) {
+                if (NO == [dictionary isKindOfClass: [NSDictionary class]]) { continue; }
+                City* city = [City createWithDictionary: dictionary];
+                if (nil != city) {
+                    [cities addObject: city];
+                }
+            }
+        } else {
+            NSLog(@"Wrong data in %@: %@", fileName, json);
+        }
+    
+        self.cities = cities;
+    
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //NSLog(@"postNotificationName %@", [self didLoadCitiesNotificationName]);
+            //[[NSNotificationCenter defaultCenter] postNotificationName: [self didLoadCitiesNotificationName] object: nil];
+    
+            [self.delegate didReceivedCities];
+        });
+    
+        [[DataBaseManager shared] saveCities: cities];
 }
 
 - (void) loadCountries {

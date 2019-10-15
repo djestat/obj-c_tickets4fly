@@ -28,62 +28,62 @@
 
 + (nullable Airport*) createWithDictionary: (NSDictionary*) dictionary {
     if (NO == [dictionary isKindOfClass: [NSDictionary class]]) {
-        NSLog(@"Airport wrong dictionary %@", dictionary);
+//        NSLog(@"Airport wrong dictionary %@", dictionary);
         return nil;
     }
     
     
     NSString* name = [dictionary objectForKey: @"name"];
     if (NO == [name isKindOfClass: [NSString class]]) {
-        NSLog(@"Airport wrong name %@", name);
+//        NSLog(@"Airport wrong name %@", name);
         return nil;
     }
     
     NSString* code = [dictionary objectForKey: @"code"];
     if (NO == [code isKindOfClass: [NSString class]]) {
-        NSLog(@"Airport wrong code %@", code);
+//        NSLog(@"Airport wrong code %@", code);
         return nil;
     }
     
     NSDictionary* translations = [dictionary objectForKey: @"name_translations"];
     if (NO == [translations isKindOfClass: [NSDictionary class]]) {
-        NSLog(@"Airport wrong translations %@", translations);
+//        NSLog(@"Airport wrong translations %@", translations);
         return nil;
     }
     
     NSDictionary* coordinates = [dictionary objectForKey: @"coordinates"];
     if (NO == [coordinates isKindOfClass: [NSDictionary class]]) {
-        NSLog(@"Airport wrong coordinates %@", coordinates);
+//        NSLog(@"Airport wrong coordinates %@", coordinates);
         return nil;
     }
     
     NSNumber* lon = [coordinates objectForKey: @"lon"];
     if (NO == [lon isKindOfClass: [NSNumber class]]) {
-        NSLog(@"Airport wrong lon %@", lon);
+//        NSLog(@"Airport wrong lon %@", lon);
         return nil;
     }
     
     NSNumber* lat = [coordinates objectForKey: @"lat"];
     if (NO == [lat isKindOfClass: [NSNumber class]]) {
-        NSLog(@"Airport wrong lat %@", lat);
+//        NSLog(@"Airport wrong lat %@", lat);
         return nil;
     }
     
     NSString* timeZone = [dictionary objectForKey: @"time_zone"];
     if (NO == [timeZone isKindOfClass: [NSString class]]) {
-        NSLog(@"Airport wrong timeZone %@", timeZone);
+//        NSLog(@"Airport wrong timeZone %@", timeZone);
         return nil;
     }
     
     NSString* countryCode = [dictionary objectForKey: @"country_code"];
     if (NO == [countryCode isKindOfClass: [NSString class]]) {
-        NSLog(@"Airport wrong countryCode %@", countryCode);
+//        NSLog(@"Airport wrong countryCode %@", countryCode);
         return nil;
     }
     
     NSString* cityCode = [dictionary objectForKey: @"city_code"];
     if (NO == [cityCode isKindOfClass: [NSString class]]) {
-        NSLog(@"Airport wrong cityCode %@", cityCode);
+//        NSLog(@"Airport wrong cityCode %@", cityCode);
         return nil;
     }
     

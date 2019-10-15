@@ -33,7 +33,7 @@
 //    self.textLabel.text  = @"Text";
 //    self.detailTextLabel.text = @"Label";
     
-    self.placeNameLabel.text = [cellModel placeName];
+//    self.placeNameLabel.text = [cellModel placeName];
 
 }
 
@@ -45,7 +45,7 @@
 //    self.textLabel.frame = self.contentView.bounds;
 //    self.detailTextLabel.frame = self.contentView.bounds;
 
-    self.placeNameLabel.frame = self.contentView.bounds;
+//    self.placeNameLabel.frame = self.contentView.bounds;
 
 }
 
@@ -78,14 +78,14 @@
     [self.contentView addSubview: detailTextLabel];
     self.placeType = detailTextLabel;
     */
-    
+    /*
     if (nil != self.placeNameLabel) {
           return;
       }
       
       TitleLabel* label = [TitleLabel new];
       [self.contentView addSubview: label];
-      self.placeNameLabel = label;
+      self.placeNameLabel = label;*/
 }
 
 @end

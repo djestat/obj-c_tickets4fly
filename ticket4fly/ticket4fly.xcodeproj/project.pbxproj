@@ -30,8 +30,8 @@
 		CE2EBE90235379ED001C9AC3 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBE8F235379ED001C9AC3 /* LocationManager.m */; };
 		CE2EBE9323537AFB001C9AC3 /* MapViewControllerContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBE9223537AFB001C9AC3 /* MapViewControllerContext.m */; };
 		CE2EBE9623537B6B001C9AC3 /* MapPriceAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBE9523537B6B001C9AC3 /* MapPriceAnnotationView.m */; };
-		CE2EBE9A23537EEC001C9AC3 /* ticket4fly.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE2EBE9923537EE4001C9AC3 /* ticket4fly.sqlite */; };
-		CE2EBE9B23537EEF001C9AC3 /* ticket4fly.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = CE2EBE9823537EE4001C9AC3 /* ticket4fly.sqlite-wal */; };
+		CE3DFF2D23565B94001AE451 /* ticket4fly.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = CE034A8523552E0300516842 /* ticket4fly.sqlite-wal */; };
+		CE3DFF2E23565B97001AE451 /* ticket4fly.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE034A8323552DF800516842 /* ticket4fly.sqlite */; };
 		CE49EC422337A3AB00070AC0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC412337A3AB00070AC0 /* MapViewController.m */; };
 		CE793154235349AC00D02622 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE793153235349AC00D02622 /* SearchViewController.m */; };
 		CE79315723534AF800D02622 /* RouteCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79315623534AF800D02622 /* RouteCellModel.m */; };
@@ -72,6 +72,8 @@
 /* Begin PBXFileReference section */
 		CE019008233AA65F0028A1BB /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		CE019009233AA65F0028A1BB /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		CE034A8323552DF800516842 /* ticket4fly.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket4fly.sqlite; sourceTree = "<group>"; };
+		CE034A8523552E0300516842 /* ticket4fly.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ticket4fly.sqlite-wal"; sourceTree = "<group>"; };
 		CE0A3095232EA31A00527281 /* TravelDirectionsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TravelDirectionsView.h; sourceTree = "<group>"; };
 		CE0A3096232EA31A00527281 /* TravelDirectionsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelDirectionsView.m; sourceTree = "<group>"; };
 		CE0A3098232EB80600527281 /* DirectionButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectionButton.h; sourceTree = "<group>"; };
@@ -100,8 +102,6 @@
 		CE2EBE9223537AFB001C9AC3 /* MapViewControllerContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewControllerContext.m; sourceTree = "<group>"; };
 		CE2EBE9423537B6B001C9AC3 /* MapPriceAnnotationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPriceAnnotationView.h; sourceTree = "<group>"; };
 		CE2EBE9523537B6B001C9AC3 /* MapPriceAnnotationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPriceAnnotationView.m; sourceTree = "<group>"; };
-		CE2EBE9823537EE4001C9AC3 /* ticket4fly.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ticket4fly.sqlite-wal"; sourceTree = "<group>"; };
-		CE2EBE9923537EE4001C9AC3 /* ticket4fly.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ticket4fly.sqlite; sourceTree = "<group>"; };
 		CE2EBE9F2353A6FE001C9AC3 /* AirportEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirportEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
 		CE2EBEA02353A6FE001C9AC3 /* AirportEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirportEntity+CoreDataClass.h"; sourceTree = "<group>"; };
 		CE2EBEA12353A6FE001C9AC3 /* AirportEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AirportEntity+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -276,8 +276,8 @@
 		CE2EBE9723537ECD001C9AC3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				CE2EBE9923537EE4001C9AC3 /* ticket4fly.sqlite */,
-				CE2EBE9823537EE4001C9AC3 /* ticket4fly.sqlite-wal */,
+				CE034A8523552E0300516842 /* ticket4fly.sqlite-wal */,
+				CE034A8323552DF800516842 /* ticket4fly.sqlite */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -698,11 +698,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2EBE9A23537EEC001C9AC3 /* ticket4fly.sqlite in Resources */,
 				CED3B24923301F82007CCABE /* Cities.json in Resources */,
 				CE8AA2DD232984810075786A /* LaunchScreen.storyboard in Resources */,
 				CED3B24A23301F82007CCABE /* Airports.json in Resources */,
-				CE2EBE9B23537EEF001C9AC3 /* ticket4fly.sqlite-wal in Resources */,
+				CE3DFF2E23565B97001AE451 /* ticket4fly.sqlite in Resources */,
+				CE3DFF2D23565B94001AE451 /* ticket4fly.sqlite-wal in Resources */,
 				CED3B24823301F82007CCABE /* Countries.json in Resources */,
 				CE8AA2DA232984810075786A /* Assets.xcassets in Resources */,
 			);
