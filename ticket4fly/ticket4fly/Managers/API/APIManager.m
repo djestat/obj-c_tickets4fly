@@ -11,6 +11,7 @@
 #import "MapPrice.h"
 #import "Ticket.h"
 
+#define API_TOKEN @"TOKEN"
 
 @implementation APIManager
 
