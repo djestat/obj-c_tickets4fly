@@ -39,7 +39,7 @@
     cellModel.returnDate = route.returnDate;
     cellModel.from = route.from;
     cellModel.to = route.to;
-    NSLog(@"%@", route.airline);
+    NSLog(@"Airlines %@", route.airline);
     return cellModel;
 }
 

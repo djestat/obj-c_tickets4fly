@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) disableSearchButton;
 
 - (void) setFromTitle: (NSString*) title;
+- (void) setToTitle: (NSString*) title;
+
 
 @end
 

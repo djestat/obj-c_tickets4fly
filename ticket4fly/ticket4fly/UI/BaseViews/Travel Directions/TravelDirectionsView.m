@@ -44,15 +44,36 @@
 #warning Enable search button
 
 - (void) enableSearchButton {
-
+    if (nil != _fromButton && nil != _toButton) {
+        _searchButton.enabled = YES;
+    }
 }
+
 - (void) disableSearchButton {
-    
+    NSLog(@"🛫 disableSearchButton %@", _fromButton);
+    if (nil == _fromButton && nil == _toButton) {
+        _searchButton.enabled = NO;
+        _searchButton.backgroundColor = [UIColor grayColor];
+    }
 }
 
 - (void) setFromTitle: (NSString*) title {
-    
+    if (nil == title) {
+        [_fromButton setTitle:@"From 🛫" forState: UIControlStateNormal];
+    } else {
+        [_fromButton setTitle: title forState: UIControlStateNormal];
+    }
 }
+
+- (void) setToTitle: (NSString*) title {
+    if (nil == title) {
+        [_toButton setTitle:@"To 🛬" forState: UIControlStateNormal];
+    } else {
+        [_toButton setTitle: title forState: UIControlStateNormal];
+    }
+}
+
+
 
 #pragma mark - Layout
 
@@ -60,7 +81,6 @@
     [super layoutSubviews];
     
     CGFloat width = self.frame.size.width;
-//    CGFloat height = self.frame.size.height;
     
     CGFloat inset = 10;
     CGFloat x = 20;
@@ -102,8 +122,10 @@
     
     [self addSubview: button];
     self.fromButton = button;
+    button.titleLabel.preferredMaxLayoutWidth = _fromButton.bounds.size.width - 10;
+    [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
     
-    [button setTitle:@"From" forState: UIControlStateNormal];
+    [button setTitle:@"From 🛫" forState: UIControlStateNormal];
     [button addTarget: self action: @selector(fromButtonAction) forControlEvents: UIControlEventTouchUpInside];
 }
 
@@ -122,7 +144,10 @@
     [self addSubview: button];
     self.toButton = button;
     
-    [button setTitle:@"To" forState: UIControlStateNormal];
+    button.titleLabel.preferredMaxLayoutWidth = _fromButton.bounds.size.width - 10;
+    [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    
+    [button setTitle:@"To 🛬" forState: UIControlStateNormal];
     [button addTarget: self action: @selector(toButtonAction) forControlEvents: UIControlEventTouchUpInside];
 }
 

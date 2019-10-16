@@ -57,6 +57,7 @@
         
         _priceLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _priceLabel.font = [UIFont systemFontOfSize:24.0 weight:UIFontWeightBold];
+        _priceLabel.textColor = [UIColor blueColor];
         [self.contentView addSubview:_priceLabel];
         
         _airlineLogoView = [[UIImageView alloc] initWithFrame:self.bounds];
@@ -70,6 +71,7 @@
         
         _dateLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _dateLabel.font = [UIFont systemFontOfSize:15.0 weight:UIFontWeightRegular];
+        _dateLabel.textColor = [UIColor darkGrayColor];
         [self.contentView addSubview:_dateLabel];
         
     }

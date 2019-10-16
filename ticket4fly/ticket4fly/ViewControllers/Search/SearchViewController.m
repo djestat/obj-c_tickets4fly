@@ -53,7 +53,17 @@
         [cellModels addObject: cellModel];
     }
     
-    [self.tableControllerView reload: cellModels];
+    NSLog(@"Tikets count is %ld", cellModels.count);
+    
+    if (cellModels.count > 0) {
+        [self.tableControllerView reload: cellModels];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Увы!" message:@"По данному направлению билетов не найдено" preferredStyle: UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть" style:(UIAlertActionStyleDefault) handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+
 }
 
 #pragma mark - Layout

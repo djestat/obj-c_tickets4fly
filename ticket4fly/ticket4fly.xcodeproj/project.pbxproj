@@ -143,7 +143,6 @@
 		CE8E5EC2234124780009425F /* DataBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseManager.h; sourceTree = "<group>"; };
 		CE8E5EC3234124780009425F /* DataBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataBaseManager.m; sourceTree = "<group>"; };
 		CE8E5ED42341397B0009425F /* DataBaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBaseModel.xcdatamodel; sourceTree = "<group>"; };
-		CE8E5ED6234139F00009425F /* ticket4fly-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ticket4fly-Bridging-Header.h"; sourceTree = "<group>"; };
 		CE8E5EDB23413A790009425F /* FavotitesEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavotitesEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
 		CE8E5EDC23413A790009425F /* FavotitesEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavotitesEntity+CoreDataClass.h"; sourceTree = "<group>"; };
 		CE8E5EDD23413A790009425F /* FavotitesEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavotitesEntity+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -362,7 +361,6 @@
 			children = (
 				CE8AA2CF232984800075786A /* ticket4fly */,
 				CE8AA2CE232984800075786A /* Products */,
-				CE8E5ED6234139F00009425F /* ticket4fly-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};

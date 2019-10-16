@@ -136,9 +136,28 @@
     self.settingsButton = settingsButton;
 }
 
+#warning Update here search
 - (void) updateDirectionView {
-    [self.travelDirectionView setFromTitle: self.searchViewControllerContext.fromCity.name];
     
+    if (nil != self.searchViewControllerContext.fromCity.name) {
+        [self.travelDirectionView setFromTitle: self.searchViewControllerContext.fromCity.name];
+    } else if (nil != self.searchViewControllerContext.fromAirport.code) {
+        [self.travelDirectionView setFromTitle: self.searchViewControllerContext.fromAirport.code];
+    }
+    
+    if (nil != self.searchViewControllerContext.toCity.name) {
+        [self.travelDirectionView setToTitle: self.searchViewControllerContext.toCity.name];
+    } else if (nil != self.searchViewControllerContext.toAirport.code) {
+        [self.travelDirectionView setToTitle: self.searchViewControllerContext.toAirport.code];
+    }
+        
+    NSLog(@" fromCity.name %@", self.searchViewControllerContext.fromCity.name);
+    NSLog(@" toCity.name %@", self.searchViewControllerContext.toCity.name);
+    NSLog(@" fromAirport.code %@", self.searchViewControllerContext.fromAirport.code);
+    NSLog(@" toAirport.code %@", self.searchViewControllerContext.toAirport.code);
+
+
+    [self.travelDirectionView disableSearchButton];
     [self.travelDirectionView enableSearchButton];
 }
 
@@ -168,6 +187,7 @@
     }
     
     [self updateDirectionView];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) didSelectAirport: (nonnull Airport*) airport reason: (PlaceReason) reason {
