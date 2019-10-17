@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (PlaceCellModel*) createWithCity: (City*) city;
 
 - (NSString*) placeName;
+- (NSString*) placeCode;
+
 
 @end
 

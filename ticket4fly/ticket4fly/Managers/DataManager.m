@@ -57,6 +57,11 @@
 }
 
 - (void) loadAirports {
+    [[DataBaseManager shared] loadAirportsWithQuery: nil completiom:^(NSArray<Airport *> * airports) {
+        self.airports = airports;
+        [self.delegate didReceivedAirports];
+    }];
+    
     NSString* fileName = @"Airports";
     
     NSMutableArray<Airport*>* airports = [NSMutableArray new];
@@ -76,9 +81,13 @@
     self.airports = airports;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"postNotificationName %@", [self didLoadAirportsNotificationName]);
-        [[NSNotificationCenter defaultCenter] postNotificationName: [self didLoadAirportsNotificationName] object: nil];
+//        NSLog(@"postNotificationName %@", [self didLoadAirportsNotificationName]);
+//        [[NSNotificationCenter defaultCenter] postNotificationName: [self didLoadAirportsNotificationName] object: nil];
+        [self.delegate didReceivedAirports];
     });
+    
+    [[DataBaseManager shared] saveAirports: airports];
+
 }
 
 - (void) loadCities {

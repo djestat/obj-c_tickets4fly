@@ -16,12 +16,13 @@
 
 - (nullable UIViewController*) viewController {
     
+    /*
     SearchViewController* viewController = [SearchViewController new];
     viewController.fromIATA = @"DME";
     viewController.toIATA = @"DXB";
     return viewController;
-     
-/*
+     */
+
      if (self.fromAirport == nil && self.fromCity == nil) {
      return nil;
      }
@@ -36,7 +37,7 @@
      viewController.fromIATA = self.fromAirport ? self.fromAirport.code : self.fromCity.code;
      viewController.toIATA = self.toAirport ? self.toAirport.code : self.toCity.code;
      
-     return viewController; */
+     return viewController;
 }
 
 @end

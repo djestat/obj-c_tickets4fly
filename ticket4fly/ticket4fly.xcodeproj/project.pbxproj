@@ -295,9 +295,9 @@
 		CE2EBE9D2353805F001C9AC3 /* Airport */ = {
 			isa = PBXGroup;
 			children = (
-				CE2EBE9F2353A6FE001C9AC3 /* AirportEntity+CoreDataProperties.h */,
 				CE2EBEA02353A6FE001C9AC3 /* AirportEntity+CoreDataClass.h */,
 				CE2EBEA12353A6FE001C9AC3 /* AirportEntity+CoreDataClass.m */,
+				CE2EBE9F2353A6FE001C9AC3 /* AirportEntity+CoreDataProperties.h */,
 				CE2EBEA22353A6FE001C9AC3 /* AirportEntity+CoreDataProperties.m */,
 			);
 			path = Airport;

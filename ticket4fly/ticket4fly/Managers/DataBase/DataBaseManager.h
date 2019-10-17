@@ -11,9 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class City;
+@class Airport;
 
 typedef void(^DataBaseManager_CitiesCompletion)(NSArray<City*>*);
-//typedef void(^DataBaseManager_CitiesCompletion)(NSArray<City*>*);
+typedef void(^DataBaseManager_AirportsCompletion)(NSArray<Airport*>*);
 
 @interface DataBaseManager : NSObject
 
@@ -21,6 +22,9 @@ typedef void(^DataBaseManager_CitiesCompletion)(NSArray<City*>*);
 
 - (void) saveCities: (NSArray<City*>*) cities;
 - (void) loadCitiesWithQuery: (nullable NSString*) query completiom: (DataBaseManager_CitiesCompletion) completion;
+
+- (void) saveAirports: (NSArray<Airport*>*) cities;
+- (void) loadAirportsWithQuery: (nullable NSString*) query completiom: (DataBaseManager_AirportsCompletion) completion;
 /*
 - (void) saveTickets: (NSArray<City*>*) cities;
 - (void) loadFavoritesTickets: (nullable NSString*) query completiom: (DataBaseManager_CitiesCompletion) completion;

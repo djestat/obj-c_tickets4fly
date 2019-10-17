@@ -28,7 +28,7 @@
 
 - (void) configureWith: (PlaceCellModel*) cellModel {
     self.textLabel.text = [cellModel placeName];
-    self.detailTextLabel.text = [cellModel placeName];
+    self.detailTextLabel.text = [cellModel placeCode];
     
 //    self.textLabel.text  = @"Text";
 //    self.detailTextLabel.text = @"Label";

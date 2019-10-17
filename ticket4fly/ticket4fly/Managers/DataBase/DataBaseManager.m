@@ -11,12 +11,14 @@
 #import <CoreData/CoreData.h>
 
 #import "CityEntity+CoreDataProperties.h"
+#import "AirportEntity+CoreDataProperties.h"
 
 @interface DataBaseManager () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSPersistentContainer* container;
 
 @property (nonatomic, strong) NSFetchedResultsController* citiesSearchFetchedResultsController;
+@property (nonatomic, strong) NSFetchedResultsController* airportsSearchFetchedResultsController;
 
 @property (nonatomic, strong) NSFetchedResultsController* favoritesFetchedResultsController;
 
@@ -63,6 +65,23 @@
     return _citiesSearchFetchedResultsController;
 }
 
+- (NSFetchedResultsController *)airportsSearchFetchedResultsController {
+    if (nil == _airportsSearchFetchedResultsController) {
+        NSFetchRequest *fetchRequest = [AirportEntity fetchRequest];
+        fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES] ];
+         
+        NSManagedObjectContext* context = self.container.viewContext;
+        self.airportsSearchFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: fetchRequest
+                                                                                        managedObjectContext: context
+                                                                                          sectionNameKeyPath: nil
+                                                                                                   cacheName: nil];
+        
+        // Configure Fetched Results Controller
+        [self.airportsSearchFetchedResultsController setDelegate: self];
+    }
+    return _airportsSearchFetchedResultsController;
+}
+
 #pragma mark - NSFetchedResultsControllerDelegate
 
 - (void)controller: (NSFetchedResultsController *)controller
@@ -74,7 +93,7 @@
 
 #pragma mark - Cities
 
-- (void) update: (NSString*) query {
+- (void) updateCities: (NSString*) query {
     [self.citiesSearchFetchedResultsController performFetch: nil];
 }
 
@@ -127,8 +146,62 @@
     }];
 }
 
+#pragma mark - Airports
 
-// MARK: -
+- (void) updateAirports: (NSString*) query {
+    [self.airportsSearchFetchedResultsController performFetch: nil];
+}
+
+- (void) requestAirports {
+    [self.airportsSearchFetchedResultsController performFetch: nil];
+}
+
+- (void) saveAirports: (NSArray<Airport*>*) airports {
+    [self.container performBackgroundTask:^(NSManagedObjectContext * context) {
+        
+        for (Airport* airport in airports) {
+            [AirportEntity createFrom: airport context: context];
+        }
+        
+        NSError* error = nil;
+        [context save: &error];
+        NSLog(@"saveAirports, error %@", error);
+    }];
+}
+
+- (void) loadAirportsWithQuery: (nullable NSString*) query completiom: (DataBaseManager_AirportsCompletion) completion {
+    
+    
+    [self.container performBackgroundTask:^(NSManagedObjectContext * context) {
+        NSFetchRequest* fetchRequest = [AirportEntity fetchRequest];
+        if (nil != query && query.length > 0) {
+            NSPredicate* namePredicate = [NSPredicate predicateWithFormat: @"name CONTAINS[c] %@", query];
+            NSPredicate* codePredicate = [NSPredicate predicateWithFormat: @"code CONTAINS[c] %@", query];
+            fetchRequest.predicate = [NSCompoundPredicate orPredicateWithSubpredicates: @[namePredicate, codePredicate]];
+        }
+        
+        fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES] ];
+        
+        NSError* error = nil;
+        NSArray* result = [context executeFetchRequest: fetchRequest error: &error];
+        NSLog(@"%s %@", __FUNCTION__, error);
+        
+        NSMutableArray* airports = [NSMutableArray new];
+        for (AirportEntity* entity in result) {
+            if (NO == [entity isKindOfClass: [AirportEntity class]]) { continue; }
+            Airport* airport = [entity create];
+            [airports addObject: airport];
+        }
+        
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            completion(airports);
+        }];
+    }];
+}
+
+#pragma mark - File db SQLite
+
 
 + (NSURL*) dbFile {
     NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

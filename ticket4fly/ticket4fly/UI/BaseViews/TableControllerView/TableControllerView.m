@@ -87,7 +87,7 @@
     
     UIColor* viewBackgroundColor = [activeTheme viewBackgroundColor];
     self.backgroundColor = viewBackgroundColor;
-    self.tableView.backgroundColor = viewBackgroundColor;
+    self.tableView.backgroundColor = [UIColor whiteColor];
     
     /*
     self.layer.cornerRadius = [activeTheme actionCornerRadius];
@@ -146,6 +146,7 @@
         NSString* routeCellID = NSStringFromClass([RouteTableViewCell class] );
         RouteTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: routeCellID forIndexPath: indexPath];
         [cell configureWith: (RouteCellModel*)model];
+        tableView.separatorColor = [UIColor clearColor];
         return cell;
     }
     

@@ -23,7 +23,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) double lon;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, copy) NSString *timeZone;
-@property (nullable, nonatomic, retain) TranslationEntity *translations;
+@property (nullable, nonatomic, retain) NSSet<TranslationEntity *> *translations;
+
+@end
+
+@interface AirportEntity (CoreDataGeneratedAccessors)
+
+- (void)addTranslationsObject:(TranslationEntity *)value;
+- (void)removeTranslationsObject:(TranslationEntity *)value;
+- (void)addTranslations:(NSSet<TranslationEntity *> *)values;
+- (void)removeTranslations:(NSSet<TranslationEntity *> *)values;
 
 @end
 

@@ -169,6 +169,12 @@
     [self.locationManager requestCurrentLocation];
 }
 
+- (void)didReceivedAirports {
+    NSLog(@"didReceiveAirports %lu", (unsigned long)[self.dataManager.airports count]);
+    
+    [self.locationManager requestCurrentLocation];
+}
+
 #pragma mark - PlaceViewControllerDelegate
 
 - (void) didSelectCity: (nonnull City*) city reason: (PlaceReason) reason {
@@ -206,6 +212,7 @@
     }
     
     [self updateDirectionView];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - TravelDirectionsView

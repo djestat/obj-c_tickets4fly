@@ -54,20 +54,26 @@
 
 -(void) addHeader {
 
-    CGFloat headerHeight = 50;
+    CGFloat headerHeight = 90;
+    /*
     UIView *headerView = ({
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(0, -headerHeight, self.collectionView.frame.size.width, headerHeight);
         view;
-    });
+    });*/
         
-    [_collectionView addSubview: headerView];
-    _collectionView.contentInset = UIEdgeInsetsMake(headerHeight, 0, 0, 0);
+    UIView* headerView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, headerHeight)];
+    headerView.backgroundColor = [UIColor systemGreenColor];
+    [self.view addSubview: headerView];
+
+//    [self.collectionView addSubview: headerView];
+//    [self.view insertSubview: headerView aboveSubview: self.collectionView];
+    _collectionView.contentInset = UIEdgeInsetsMake(headerHeight / 2, 0, 0, 0);
     _segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All", @"Searched", @"MAP", nil]];
-    CGFloat segmentedControlWidth = 220;
+    CGFloat segmentedControlWidth = 240;
     CGFloat segmentedControlHeight = 30;
-    CGFloat segmentedControlX = (self.collectionView.frame.size.width - segmentedControlWidth) / 2;
-    CGFloat segmentedControlY = (headerHeight - segmentedControlHeight) / 2;
+    CGFloat segmentedControlX = (self.view.frame.size.width - segmentedControlWidth) / 2;
+    CGFloat segmentedControlY = headerHeight - segmentedControlHeight * 1.25;
 
     _segmentedControl.frame = CGRectMake(segmentedControlX, segmentedControlY, segmentedControlWidth, segmentedControlHeight);
     _segmentedControl.selectedSegmentIndex = 0;

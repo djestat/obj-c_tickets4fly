@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol DataManagerDelegate <NSObject>
 
 - (void) didReceivedCities;
+- (void) didReceivedAirports;
+
 
 @end
 

@@ -14,7 +14,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class Airport;
+
 @interface AirportEntity : NSManagedObject
+
+- (Airport*) create;
+
++ (AirportEntity*) createFrom: (Airport*) airport context: (NSManagedObjectContext*) context;
+
 
 @end
 

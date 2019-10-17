@@ -23,6 +23,7 @@
 @implementation RouteTableViewCell
 
 - (void) configureWith: (RouteCellModel*) cellModel {
+    
     _priceLabel.text = [NSString stringWithFormat:@"%@ руб.", cellModel.price];
     _placesLabel.text = [NSString stringWithFormat:@"%@ - %@", cellModel.from, cellModel.to];
     
@@ -31,7 +32,7 @@
     _dateLabel.text = [dateFormatter stringFromDate:cellModel.departure];
     
     
-    NSString *airline = [NSString stringWithFormat:@"https://pics.avs.io/80/80/%@.png", cellModel.airline];
+    NSString *airline = [NSString stringWithFormat:@"https://pics.avs.io/160/160/%@.png", cellModel.airline];
     NSURL *url = [NSURL URLWithString: airline];
 
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
@@ -57,7 +58,7 @@
         
         _priceLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _priceLabel.font = [UIFont systemFontOfSize:24.0 weight:UIFontWeightBold];
-        _priceLabel.textColor = [UIColor blueColor];
+        _priceLabel.textColor = [UIColor systemBlueColor];
         [self.contentView addSubview:_priceLabel];
         
         _airlineLogoView = [[UIImageView alloc] initWithFrame:self.bounds];

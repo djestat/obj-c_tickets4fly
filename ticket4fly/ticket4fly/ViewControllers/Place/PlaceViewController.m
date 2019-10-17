@@ -58,6 +58,7 @@
 - (void) reloadData {
     
     NSString* text = self.navigationItem.searchController.searchBar.text;
+    /*
     [self.dataBaseManager loadCitiesWithQuery: text completiom:^(NSArray<City *> * cities) {
         NSMutableArray<CellModel*>* cellModels = [NSMutableArray new];
         for (City* city in cities) {
@@ -66,7 +67,36 @@
             [cellModels addObject: placeCellModel];
         }
         [self.tableControllerView reload: cellModels];
-    }];
+    }];*/
+    
+    ////New Realisation
+    
+    switch (self.placeTypeSegment.selectedSegmentIndex) {
+        case 0: {
+            [self.dataBaseManager loadCitiesWithQuery: text completiom:^(NSArray<City *> * cities) {
+                NSMutableArray<CellModel*>* cellModels = [NSMutableArray new];
+                for (City* city in cities) {
+                    PlaceCellModel* placeCellModel = [PlaceCellModel createWithCity: city];
+                    placeCellModel.delegate = self;
+                    [cellModels addObject: placeCellModel];
+                }
+                [self.tableControllerView reload: cellModels];
+            }];
+            break;
+        }
+        case 1: {
+            [self.dataBaseManager loadAirportsWithQuery: text completiom:^(NSArray<Airport *> * airports) {
+                NSMutableArray<CellModel*>* cellModels = [NSMutableArray new];
+                for (Airport* airport in airports) {
+                    PlaceCellModel* placeCellModel = [PlaceCellModel createWithAirport: airport];
+                    placeCellModel.delegate = self;
+                    [cellModels addObject: placeCellModel];
+                }
+                [self.tableControllerView reload: cellModels];
+            }];
+            break;
+        }
+    }
 }
 
 - (void) _reloadData {

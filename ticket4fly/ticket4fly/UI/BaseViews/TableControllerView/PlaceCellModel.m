@@ -37,11 +37,23 @@
 
 - (NSString*) placeName {
     if (nil != self.airport) {
-        return [NSString stringWithFormat: @"Airport %@ [%@]", self.airport.name, self.airport.code];
+        return [NSString stringWithFormat: @"%@", self.airport.name];
     }
     
     if (nil != self.city) {
-        return [NSString stringWithFormat: @"City %@ [%@]", self.city.name, self.city.code];
+        return [NSString stringWithFormat: @"%@", self.city.name];
+    }
+    
+    return @"";
+}
+
+- (NSString*) placeCode {
+    if (nil != self.airport) {
+        return [NSString stringWithFormat: @"Airport code [%@]", self.airport.code];
+    }
+    
+    if (nil != self.city) {
+        return [NSString stringWithFormat: @"City code [%@]", self.city.code];
     }
     
     return @"";
