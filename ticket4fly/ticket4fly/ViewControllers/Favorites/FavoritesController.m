@@ -11,13 +11,15 @@
 
 #import "LocalNotificationManager.h"
 
+#import "DataBaseManager.h"
 
-
-@interface FavoritesController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface FavoritesController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UISegmentedControl* segmentedControl;
-@property (nonatomic, strong) NSMutableArray* ticketsCollection;
-@property (strong, nonatomic) UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray<Ticket *>* tickets;
+@property (strong, nonatomic) UITableView* tableView;
+
+@property (nonatomic, weak, readwrite) DataBaseManager* dataBaseManager;
 
 @end
 
@@ -28,22 +30,21 @@
     // Do any additional setup after loading the view.
     self.title = @"Favorites";
     
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.minimumLineSpacing = 20.0;
-    layout.minimumInteritemSpacing = 20.0;
-    layout.sectionInset = UIEdgeInsetsMake(10.0, 0, 0, 0);
-    layout.itemSize = CGSizeMake((self.view.bounds.size.width - 40.0), (self.view.bounds.size.height / 5));
-    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self.dataBaseManager = [DataBaseManager shared];
     
-    _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    _collectionView.backgroundColor = [UIColor whiteColor];
-    _collectionView.delegate = self;
-    _collectionView.dataSource = self;
-    [_collectionView registerClass:[FavoriteTicketCell class] forCellWithReuseIdentifier:@"ReuseIdentifier"];
-
-    [self.view addSubview: _collectionView];
+    _tableView = [UITableView new];
+    _tableView.backgroundColor = [UIColor whiteColor];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    NSString* favoriteTicketCellID = NSStringFromClass([FavoriteTicketCell class]);
+    [self.tableView registerClass: [FavoriteTicketCell class] forCellReuseIdentifier: favoriteTicketCellID];
+     
+    [self.view addSubview: _tableView];
     
     [self addSubviews];
+    
+    [self sortingSegmentControl];
 }
 
 #pragma mark - Subviews
@@ -55,20 +56,12 @@
 -(void) addHeader {
 
     CGFloat headerHeight = 90;
-    /*
-    UIView *headerView = ({
-        UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, -headerHeight, self.collectionView.frame.size.width, headerHeight);
-        view;
-    });*/
         
     UIView* headerView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, headerHeight)];
     headerView.backgroundColor = [UIColor systemGreenColor];
     [self.view addSubview: headerView];
 
-//    [self.collectionView addSubview: headerView];
-//    [self.view insertSubview: headerView aboveSubview: self.collectionView];
-    _collectionView.contentInset = UIEdgeInsetsMake(headerHeight / 2, 0, 0, 0);
+    _tableView.contentInset = UIEdgeInsetsMake(headerHeight / 2, 0, 0, 0);
     _segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"All", @"Searched", @"MAP", nil]];
     CGFloat segmentedControlWidth = 240;
     CGFloat segmentedControlHeight = 30;
@@ -81,57 +74,86 @@
     [headerView addSubview: _segmentedControl];
 }
 
+#pragma mark - Segment controller
 
 #warning segment controller sort All/Search/Map
 -(void) sortingSegmentControl {
     
+    NSString* text = NULL;
+    
     switch (_segmentedControl.selectedSegmentIndex) {
-    case 1:
-            NSLog(@"Sort by search");
-
+        case 1:{
+            NSLog(@"Filter by search");
+            text = @"search";
+            [self.dataBaseManager loadFavoritesTickets: text completiom:^(NSArray<Ticket *> * tickets) {
+                self.tickets = [NSMutableArray arrayWithArray: tickets];
+                NSLog(@"Filter by search Tickets count %ld", tickets.count);
+                [self.tableView reloadData];
+            }];
             break;
-    case 2:
-            NSLog(@"Sort by map");
+        }
+        case 2: {
+            NSLog(@"Filter by map");
+            text = @"map";
+            [self.dataBaseManager loadFavoritesTickets: text completiom:^(NSArray<Ticket *> * tickets) {
+                self.tickets = [NSMutableArray arrayWithArray: tickets];
+                NSLog(@"Filter by map Tickets count %ld", tickets.count);
+                [self.tableView reloadData];
+            }];
+            
             break;
-
-    default:
-            NSLog(@"Sort for all");
-
+            
+        }
+        default: {
+            NSLog(@"Not filtered");
+            [self.dataBaseManager loadFavoritesTickets: text completiom:^(NSArray<Ticket *> * tickets) {
+                self.tickets = [NSMutableArray arrayWithArray: tickets];
+                NSLog(@"Not filtered Tickets count %ld", tickets.count);
+                [self.tableView reloadData];
+            }];
             break;
+        }
     }
 
 }
 
 
+#pragma mark - Table View Data Source
 
-
-#pragma mark Collection ViewData Source
-
-- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.ticketsCollection.count + 15;
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"%ld", self.tickets.count);
+    return self.tickets.count + 5;
 }
 
-- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    FavoriteTicketCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"ReuseIdentifier" forIndexPath:indexPath];
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    NSString* favoriteTicketCellID = NSStringFromClass([FavoriteTicketCell class]);
     
     // Configure the cell
-    cell.layer.cornerRadius = 10;
-    cell.backgroundColor = [UIColor lightGrayColor];
+    FavoriteTicketCell* cell = [tableView dequeueReusableCellWithIdentifier: favoriteTicketCellID forIndexPath: indexPath];
+//    cell.layer.cornerRadius = 10;
+//    cell.backgroundColor = [UIColor lightGrayColor];
+    tableView.separatorColor = [UIColor clearColor];
     
+    [cell configureWith: _tickets[indexPath.row]];
+
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-#warning notification - change TimeInterval to Date
+
+#pragma mark - Notification
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *text = [NSString stringWithFormat: @"Your ticket with row %ld", indexPath.item];
+//    NSString* route = @"Your ticket with row %ld", indexPath.row;
+    NSString *text = [NSString stringWithFormat: @"Your ticket with row %ld", indexPath.row];
     NSTimeInterval time = 5;
     
     [[LocalNotificationManager shared] requestPermissionsWithText: text after: time];
-
-    NSLog(@"Don't touch me");
     
+    NSLog(@"Don't touch me");
 }
+
 
 
 @end

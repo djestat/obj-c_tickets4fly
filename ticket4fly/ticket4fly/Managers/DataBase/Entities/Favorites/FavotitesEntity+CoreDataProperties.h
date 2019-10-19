@@ -2,7 +2,7 @@
 //  FavotitesEntity+CoreDataProperties.h
 //  ticket4fly
 //
-//  Created by Igor on 29/09/2019.
+//  Created by Igor on 19.10.2019.
 //  Copyright © 2019 Igorlab. All rights reserved.
 //
 //
@@ -16,9 +16,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<FavotitesEntity *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSDate *date;
-@property (nullable, nonatomic, copy) NSString *fromCity;
-@property (nullable, nonatomic, copy) NSString *toCity;
+@property (nullable, nonatomic, copy) NSString *airline;
+@property (nullable, nonatomic, copy) NSDate *departure;
+@property (nonatomic) double flightNumber;
+@property (nullable, nonatomic, copy) NSString *from;
+@property (nonatomic) double price;
+@property (nullable, nonatomic, copy) NSDate *returnDate;
+@property (nullable, nonatomic, copy) NSString *to;
+@property (nullable, nonatomic, copy) NSString *type;
 
 @end
 

@@ -9,7 +9,13 @@
 #import "RouteCellModel.h"
 #import "Route.h"
 
+#import "Ticket.h"
+
+#import "DataBaseManager.h"
+
 @interface RouteCellModel ()
+
+@property (nonatomic, strong, readwrite) Ticket* ticket;
 
 @property (nonatomic, strong, readwrite) NSNumber *price;
 @property (nonatomic, strong, readwrite) NSString *airline;
@@ -39,8 +45,40 @@
     cellModel.returnDate = route.returnDate;
     cellModel.from = route.from;
     cellModel.to = route.to;
+    
     NSLog(@"Airlines %@", route.airline);
+    
+    Ticket* ticket = [Ticket new];
+    ticket.price = route.price;
+    ticket.airline = route.airline;
+    ticket.departure = route.departure;
+    ticket.flightNumber = route.flightNumber;
+    ticket.returnDate = route.returnDate;
+    ticket.from = route.from;
+    ticket.to = route.to;
+    ticket.type = @"search";
+    
+    cellModel.ticket = ticket;
+    
     return cellModel;
 }
+
+- (void)didSelect {
+    [super didSelect];
+    
+    if (nil != self.ticket) {
+//    if (nil != self.ticket && [self.delegate respondsToSelector: @selector(didSelectTicket:)]) {
+        [self.delegate didSelectTicket: self.ticket];
+        NSLog(@"Ticket not nil");
+        
+        Ticket* ticket = self.ticket;
+//        NSMutableArray<Ticket*>* tickets = [NSMutableArray new];
+//        [tickets addObject: ticket];
+        [[DataBaseManager shared] saveTickets: ticket];
+    }
+    
+    NSLog(@"Ticket did select");
+}
+
 
 @end

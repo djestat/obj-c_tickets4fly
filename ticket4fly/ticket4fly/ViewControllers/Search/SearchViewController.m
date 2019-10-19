@@ -12,11 +12,15 @@
 #import "Route.h"
 #import "RouteCellModel.h"
 
+#import "DataBaseManager.h"
+
 #import "TableControllerView.h"
 
-@interface SearchViewController ()
+@interface SearchViewController () <RouteCellModelDelegate>
 
 @property (nonatomic, strong) APIManager* apiManager;
+
+@property (nonatomic, weak, readwrite) DataBaseManager* dataBaseManager;
 
 @property (nonatomic, weak) TableControllerView* tableControllerView;
 
@@ -40,6 +44,9 @@
     [self.apiManager getTicketsFrom: self.fromIATA to: self.toIATA completion:^(NSArray<Route *> * _Nonnull routes) {
         [weakSelf reloadWith: routes];
     }];
+    
+    self.dataBaseManager = [DataBaseManager shared];
+    
 }
 
 
@@ -90,5 +97,27 @@
     [self.view addSubview: tableControllerView];
     self.tableControllerView = tableControllerView;
 }
+
+#pragma mark - RouteCellModelDelegate
+
+/*- (void)didSelectTicket:(nonnull Ticket *)ticket {
+    NSLog(@"didSelectRoute s vc %@", ticket);
+//    [self.delegate didSelectTicket: ticket];
+}*/
+
+- (void)didSelectTicket:(nonnull Ticket *)ticket {
+    [self.delegate saveToDataBase: ticket];
+    NSLog(@"didSelectTicket s vc %@", ticket);
+}
+
+- (void)saveToDataBase:(nonnull Ticket *)ticket {
+    NSLog(@"saveToDataBase s vc %@", ticket);
+    
+//    NSMutableArray<Ticket*>* tickets = [NSMutableArray new];
+//    [tickets addObject: ticket];
+//    
+//    [self.dataBaseManager saveTickets: tickets];
+}
+
 
 @end

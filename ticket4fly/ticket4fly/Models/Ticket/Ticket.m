@@ -8,17 +8,23 @@
 
 #import "Ticket.h"
 
+@interface Ticket ()
+
+@end
+
 @implementation Ticket
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
+        _price = [dictionary valueForKey:@"price"];
         _airline = [dictionary valueForKey:@"airline"];
-        _expires = dateFromString([dictionary valueForKey:@"expires_at"]);
         _departure = dateFromString([dictionary valueForKey:@"departure_at"]);
         _flightNumber = [dictionary valueForKey:@"flight_number"];
-        _price = [dictionary valueForKey:@"price"];
         _returnDate = dateFromString([dictionary valueForKey:@"return_at"]);
+        _from = [dictionary valueForKey:@"from"];
+        _to = [dictionary valueForKey:@"to"];
+        _type = [dictionary valueForKey:@"type"];
     }
     return self;
 }

@@ -10,7 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FavoriteTicketCell : UICollectionViewCell
+@class Ticket;
+
+@interface FavoriteTicketCell : UITableViewCell
+
+@property (nonatomic, strong, readonly) Ticket* ticket;
+
+- (void) configureWith: (Ticket*) ticket;
 
 @end
 

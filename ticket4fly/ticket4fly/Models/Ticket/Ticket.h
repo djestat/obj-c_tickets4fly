@@ -12,16 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Ticket : NSObject
 
-@property (nonatomic, strong) NSNumber *price;
-@property (nonatomic, strong) NSString *airline;
-@property (nonatomic, strong) NSDate *departure;
-@property (nonatomic, strong) NSDate *expires;
-@property (nonatomic, strong) NSNumber *flightNumber;
-@property (nonatomic, strong) NSDate *returnDate;
-@property (nonatomic, strong) NSString *from;
-@property (nonatomic, strong) NSString *to;
+@property (nonatomic, strong, nonnull, readwrite) NSNumber *price;
+@property (nonatomic, strong, nonnull, readwrite) NSString *airline;
+@property (nonatomic, strong, nonnull, readwrite) NSDate *departure;
+@property (nonatomic, strong, nonnull, readwrite) NSNumber *flightNumber;
+@property (nonatomic, strong, nonnull, readwrite) NSDate *returnDate;
+@property (nonatomic, strong, nonnull, readwrite) NSString *from;
+@property (nonatomic, strong, nonnull, readwrite) NSString *to;
+@property (nonatomic, strong, nonnull, readwrite) NSString *type;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+//+ (nullable Ticket*) createWithDictionary: (NSDictionary*) dictionary;
+//- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 

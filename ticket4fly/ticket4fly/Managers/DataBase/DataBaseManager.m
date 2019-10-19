@@ -12,6 +12,7 @@
 
 #import "CityEntity+CoreDataProperties.h"
 #import "AirportEntity+CoreDataProperties.h"
+#import "FavotitesEntity+CoreDataProperties.h"
 
 @interface DataBaseManager () <NSFetchedResultsControllerDelegate>
 
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) NSFetchedResultsController* citiesSearchFetchedResultsController;
 @property (nonatomic, strong) NSFetchedResultsController* airportsSearchFetchedResultsController;
 
-@property (nonatomic, strong) NSFetchedResultsController* favoritesFetchedResultsController;
+@property (nonatomic, strong) NSFetchedResultsController* favoriteTicketsFetchedResultsController;
 
 @end
 
@@ -65,7 +66,7 @@
     return _citiesSearchFetchedResultsController;
 }
 
-- (NSFetchedResultsController *)airportsSearchFetchedResultsController {
+- (NSFetchedResultsController *) airportsSearchFetchedResultsController {
     if (nil == _airportsSearchFetchedResultsController) {
         NSFetchRequest *fetchRequest = [AirportEntity fetchRequest];
         fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey: @"name" ascending: YES] ];
@@ -80,6 +81,23 @@
         [self.airportsSearchFetchedResultsController setDelegate: self];
     }
     return _airportsSearchFetchedResultsController;
+}
+
+- (NSFetchedResultsController *) favoriteTicketsFetchedResultsController {
+    if (nil == _favoriteTicketsFetchedResultsController) {
+        NSFetchRequest *fetchRequest = [FavotitesEntity fetchRequest];
+        fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey: @"price" ascending: YES] ];
+         
+        NSManagedObjectContext* context = self.container.viewContext;
+        self.favoriteTicketsFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: fetchRequest
+                                                                                        managedObjectContext: context
+                                                                                          sectionNameKeyPath: nil
+                                                                                                   cacheName: nil];
+        
+        // Configure Fetched Results Controller
+        [self.favoriteTicketsFetchedResultsController setDelegate: self];
+    }
+    return _favoriteTicketsFetchedResultsController;
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -199,6 +217,52 @@
         }];
     }];
 }
+
+#pragma mark - Favorites Tickets
+
+- (void) saveTickets: (Ticket*) ticket {
+    [self.container performBackgroundTask:^(NSManagedObjectContext * context) {
+        
+        [FavotitesEntity createFrom: ticket context: context];
+
+        NSLog(@"saveTickets, FavotitesEntity createFrom %@", ticket);
+        
+        NSError* error = nil;
+        [context save: &error];
+        NSLog(@"saveTickets, error %@", error);
+    }];
+}
+
+- (void) loadFavoritesTickets:(nullable NSString *)query completiom:(DataBaseManager_TicketsCompletion)completion {
+    
+    
+    [self.container performBackgroundTask:^(NSManagedObjectContext * context) {
+        NSFetchRequest* fetchRequest = [FavotitesEntity fetchRequest];
+        if (nil != query && query.length > 0) {
+            NSPredicate* typePredicate = [NSPredicate predicateWithFormat: @"type CONTAINS[c] %@", query];
+            fetchRequest.predicate = typePredicate;
+        }
+        
+        fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey: @"price" ascending: YES] ];
+        
+        NSError* error = nil;
+        NSArray* result = [context executeFetchRequest: fetchRequest error: &error];
+        NSLog(@"%s %@", __FUNCTION__, error);
+        
+        NSMutableArray* tickets = [NSMutableArray new];
+        for (FavotitesEntity* entity in result) {
+            if (NO == [entity isKindOfClass: [FavotitesEntity class]]) { continue; }
+            Ticket* ticket = [entity create];
+            [tickets addObject: ticket];
+        }
+        NSLog(@"loadFavoritesTickets count %ld", tickets.count);
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            completion(tickets);
+        }];
+    }];
+}
+
 
 #pragma mark - File db SQLite
 

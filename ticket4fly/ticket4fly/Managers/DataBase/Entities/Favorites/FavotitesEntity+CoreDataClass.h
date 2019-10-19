@@ -12,7 +12,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class Ticket;
+
 @interface FavotitesEntity : NSManagedObject
+
+- (Ticket*) create;
+
++ (FavotitesEntity*) createFrom: (Ticket*) ticket context: (NSManagedObjectContext*) context;
 
 @end
 

@@ -12,17 +12,24 @@
 #import "Airport.h"
 #import "City.h"
 
+@interface SearchViewControllerContext ()
+
+@property (nonatomic, weak) NSObject<SearchViewControllerDelegate>* delegate;
+
+@end
+
 @implementation SearchViewControllerContext
 
 - (nullable UIViewController*) viewController {
     
-    /*
+    
     SearchViewController* viewController = [SearchViewController new];
     viewController.fromIATA = @"DME";
     viewController.toIATA = @"DXB";
+    viewController.delegate = self.delegate;
     return viewController;
-     */
-
+     
+/*
      if (self.fromAirport == nil && self.fromCity == nil) {
      return nil;
      }
@@ -36,8 +43,10 @@
      
      viewController.fromIATA = self.fromAirport ? self.fromAirport.code : self.fromCity.code;
      viewController.toIATA = self.toAirport ? self.toAirport.code : self.toCity.code;
-     
+     viewController.delegate = delegate;
+
      return viewController;
+     */
 }
 
 @end

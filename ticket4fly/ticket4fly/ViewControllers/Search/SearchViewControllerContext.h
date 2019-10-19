@@ -14,9 +14,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class Airport;
 @class City;
+@class Ticket;
+
+@protocol SearchViewControllerDelegate <NSObject>
+
+- (void) saveToDataBase: (nonnull Ticket*) ticket;
+
+@end
 
 @interface SearchViewControllerContext : NSObject <ViewControllerContext>
-
 
 @property (nonatomic, strong, nullable) Airport* fromAirport;
 @property (nonatomic, strong, nullable) Airport* toAirport;

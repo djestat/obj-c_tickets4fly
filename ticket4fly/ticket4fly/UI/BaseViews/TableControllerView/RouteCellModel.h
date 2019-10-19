@@ -11,8 +11,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class Route;
+@class Ticket;
+
+@protocol RouteCellModelDelegate <NSObject>
+
+- (void) didSelectTicket: (nonnull Ticket*) ticket;
+
+@end
 
 @interface RouteCellModel : CellModel
+
+@property (nonatomic, weak) NSObject<RouteCellModelDelegate>* delegate;
+
+@property (nonatomic, strong, readonly) Ticket* ticket;
 
 @property (nonatomic, strong, readonly) NSNumber *price;
 @property (nonatomic, strong, readonly) NSString *airline;

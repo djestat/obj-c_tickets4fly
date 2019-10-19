@@ -129,7 +129,6 @@
 
 #pragma mark - UITableViewDataSource
 
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
         
     CellModel* model = [self.models objectAtIndex: indexPath.row];
@@ -161,6 +160,27 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.models.count;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CellModel* model = [self.models objectAtIndex: indexPath.row];
+
+    if ([model isKindOfClass: [RouteCellModel class]]) {
+        
+        cell.contentView.transform = CGAffineTransformMakeRotation(M_PI_2);
+        cell.transform = CGAffineTransformMakeScale(0, 0);
+        
+        [UIView animateWithDuration:0.8
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+            cell.contentView.transform = CGAffineTransformIdentity;
+            cell.transform = CGAffineTransformIdentity;
+        }
+                         completion: nil];
+        
+    }
 }
 
 @end

@@ -214,12 +214,12 @@
 #pragma mark - PlaceCellModelDelegate
 
 - (void) didSelectCity: (nonnull City*) city {
-    NSLog(@"didSelectCity %@", city);
+    NSLog(@"didSelectCity p vc %@", city);
     [self.delegate didSelectCity: city reason: self.reason];
 }
 
 - (void) didSelectAirport: (nonnull Airport*) airport {
-    NSLog(@"didSelectAirport %@", airport);
+    NSLog(@"didSelectAirport p vc %@", airport);
     [self.delegate didSelectAirport: airport reason: self.reason];
 }
 

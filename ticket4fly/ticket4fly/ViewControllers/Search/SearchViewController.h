@@ -8,9 +8,13 @@
 
 #import "BaseViewController.h"
 
+#import "SearchViewControllerContext.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchViewController : BaseViewController
+
+@property (nonatomic, weak) NSObject<SearchViewControllerDelegate>* delegate;
 
 @property (nonatomic, strong) NSString* fromIATA;
 @property (nonatomic, strong) NSString* toIATA;

@@ -45,7 +45,7 @@
 - (void) addToFavorites {
 #warning Save to Core Data
     
-//    MKAnnotationView* view =  (MKAnnotationView *) self.mapView.selectedAnnotations.lastObject;
+//    MKAnnotationView* view =  (MKAnnotationView *) self.mapView.selectedAnnotations.firstObject;
     
 //    UIView* animationView = [_annotationView copy];
     
