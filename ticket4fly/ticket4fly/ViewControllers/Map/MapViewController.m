@@ -108,7 +108,7 @@
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)tap {
-    if (nil == self.currentCity) {
+    if (nil != self.currentCity) {
         [self reload];
     }
     [self centeredMyLocation];
