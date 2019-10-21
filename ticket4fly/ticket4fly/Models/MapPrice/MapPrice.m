@@ -27,11 +27,39 @@
         return nil;
     }
     
+    NSNumber* ttl = [dictionary objectForKey: @"ttl"];
+    if (NO == [ttl isKindOfClass: [NSNumber class]]) {
+        return nil;
+    }
+    
+    NSDate* departDate = convertDateToString([dictionary objectForKey: @"depart_date"]);
+    if (NO == [departDate isKindOfClass: [NSDate class]]) {
+        NSLog(@"MapPrice wrong departDate %@", departDate);
+        return nil;
+    }
+    NSDate* returnDate = convertDateToString([dictionary objectForKey: @"return_date"]);
+    if (NO == [returnDate isKindOfClass: [NSDate class]]) {
+        NSLog(@"MapPrice wrong returnDate %@", returnDate);
+        return nil;
+    }
+
     MapPrice* price = [MapPrice new];
     price.destinationIATA = destinationIATA;
-    price.value = [value integerValue];
+    price.flightNumber =ttl;
+    price.value = value;
     price.originIATA = origin;
+    price.returnDate = returnDate;
+    price.departDate = departDate;
     return price;
+}
+
+NSDate *convertDateToString(NSString *dateFromStringMapPrice) {
+    if (!dateFromStringMapPrice) { return  nil; }
+    NSDateFormatter *dateFormatterMapPrice = [[NSDateFormatter alloc] init];
+    NSString *correctSrtingDateMapPrice = [dateFromStringMapPrice stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    correctSrtingDateMapPrice = [correctSrtingDateMapPrice stringByReplacingOccurrencesOfString:@"Z" withString:@" "];
+    dateFormatterMapPrice.dateFormat = @"yyyy-MM-dd";
+    return [dateFormatterMapPrice dateFromString: correctSrtingDateMapPrice];
 }
 
 - (void) fillWithCities: (NSArray<City*>*) cities {

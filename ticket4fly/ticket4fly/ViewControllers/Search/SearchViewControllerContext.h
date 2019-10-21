@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol SearchViewControllerDelegate <NSObject>
 
-- (void) saveToDataBase: (nonnull Ticket*) ticket;
+- (void) didSelectTicket:(nonnull Ticket *)ticket;
+//- (void) saveToDataBase: (nonnull Ticket*) ticket;
 
 @end
 

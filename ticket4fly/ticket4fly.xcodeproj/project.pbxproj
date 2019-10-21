@@ -32,7 +32,7 @@
 		CE2EBE9623537B6B001C9AC3 /* MapPriceAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EBE9523537B6B001C9AC3 /* MapPriceAnnotationView.m */; };
 		CE305D14235B41E70042A66D /* ticket4fly.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = CE034A8523552E0300516842 /* ticket4fly.sqlite-wal */; };
 		CE305D15235B41EA0042A66D /* ticket4fly.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE034A8323552DF800516842 /* ticket4fly.sqlite */; };
-		CE49EC422337A3AB00070AC0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49EC412337A3AB00070AC0 /* MapViewController.m */; };
+		CE5C3935235C7B6900FB13C6 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5C3934235C7B6900FB13C6 /* MapViewController.m */; };
 		CE793154235349AC00D02622 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE793153235349AC00D02622 /* SearchViewController.m */; };
 		CE79315723534AF800D02622 /* RouteCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79315623534AF800D02622 /* RouteCellModel.m */; };
 		CE79315A23534BB500D02622 /* RouteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE79315923534BB500D02622 /* RouteTableViewCell.m */; };
@@ -44,7 +44,6 @@
 		CE8AA2E0232984810075786A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2DF232984810075786A /* main.m */; };
 		CE8AA2E92329898A0075786A /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2E82329898A0075786A /* RootNavigationController.m */; };
 		CE8AA2EE23298BE00075786A /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8AA2ED23298BE00075786A /* MainViewController.m */; };
-		CE8E5EC123410F270009425F /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EC023410F270009425F /* MapView.m */; };
 		CE8E5EC4234124780009425F /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5EC3234124780009425F /* DataBaseManager.m */; };
 		CE8E5ED52341397B0009425F /* DataBaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE8E5ED32341397B0009425F /* DataBaseModel.xcdatamodeld */; };
 		CE9F9273234FC16800A7354E /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F9272234FC16800A7354E /* APIManager.m */; };
@@ -114,8 +113,8 @@
 		CE2EBEB22353A7A8001C9AC3 /* TranslationEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TranslationEntity+CoreDataClass.h"; sourceTree = "<group>"; };
 		CE2EBEB32353A7A8001C9AC3 /* TranslationEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TranslationEntity+CoreDataClass.m"; sourceTree = "<group>"; };
 		CE2EBEB42353A7A8001C9AC3 /* TranslationEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TranslationEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
-		CE49EC402337A3AB00070AC0 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		CE49EC412337A3AB00070AC0 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		CE5C3933235C7B6900FB13C6 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		CE5C3934235C7B6900FB13C6 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		CE793152235349AC00D02622 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		CE793153235349AC00D02622 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		CE79315523534AF800D02622 /* RouteCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteCellModel.h; sourceTree = "<group>"; };
@@ -138,8 +137,6 @@
 		CE8AA2E82329898A0075786A /* RootNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		CE8AA2EC23298BE00075786A /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CE8AA2ED23298BE00075786A /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		CE8E5EBF23410F270009425F /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
-		CE8E5EC023410F270009425F /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		CE8E5EC2234124780009425F /* DataBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseManager.h; sourceTree = "<group>"; };
 		CE8E5EC3234124780009425F /* DataBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataBaseManager.m; sourceTree = "<group>"; };
 		CE8E5ED42341397B0009425F /* DataBaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBaseModel.xcdatamodel; sourceTree = "<group>"; };
@@ -317,23 +314,14 @@
 		CE49EC3F2337A35A00070AC0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				CE49EC402337A3AB00070AC0 /* MapViewController.h */,
-				CE49EC412337A3AB00070AC0 /* MapViewController.m */,
+				CE5C3933235C7B6900FB13C6 /* MapViewController.h */,
+				CE5C3934235C7B6900FB13C6 /* MapViewController.m */,
 				CE2EBE9123537AFB001C9AC3 /* MapViewControllerContext.h */,
 				CE2EBE9223537AFB001C9AC3 /* MapViewControllerContext.m */,
 				CE2EBE9423537B6B001C9AC3 /* MapPriceAnnotationView.h */,
 				CE2EBE9523537B6B001C9AC3 /* MapPriceAnnotationView.m */,
 			);
 			path = Map;
-			sourceTree = "<group>";
-		};
-		CE49EC462337A95600070AC0 /* MapView */ = {
-			isa = PBXGroup;
-			children = (
-				CE8E5EBF23410F270009425F /* MapView.h */,
-				CE8E5EC023410F270009425F /* MapView.m */,
-			);
-			path = MapView;
 			sourceTree = "<group>";
 		};
 		CE49EC472337AD2100070AC0 /* Location */ = {
@@ -578,7 +566,6 @@
 			isa = PBXGroup;
 			children = (
 				CE0CC5372340D41800B1344D /* FavoritesTickets */,
-				CE49EC462337A95600070AC0 /* MapView */,
 				CE0A30A5232ED0C800527281 /* TableControllerView */,
 				CE0A3091232EA28600527281 /* Travel Directions */,
 				CED130C4232E6AE0007FBE47 /* Label */,
@@ -718,7 +705,6 @@
 				CE9F9277234FC25F00A7354E /* Route.m in Sources */,
 				CED130D2232E6C82007FBE47 /* BaseTheme.m in Sources */,
 				CED130C7232E6B3B007FBE47 /* TitleLabel.m in Sources */,
-				CE8E5EC123410F270009425F /* MapView.m in Sources */,
 				CE793163235355F400D02622 /* PlaceViewControllerContext.m in Sources */,
 				CE8E5EC4234124780009425F /* DataBaseManager.m in Sources */,
 				CE79315A23534BB500D02622 /* RouteTableViewCell.m in Sources */,
@@ -734,6 +720,7 @@
 				CE8AA2E0232984810075786A /* main.m in Sources */,
 				CE0A30A0232EC91D00527281 /* SubmitButton.m in Sources */,
 				CE9F927F234FC9B200A7354E /* Ticket.m in Sources */,
+				CE5C3935235C7B6900FB13C6 /* MapViewController.m in Sources */,
 				CE0D326B2353ACA200316486 /* TranslationEntity+CoreDataClass.m in Sources */,
 				CE79315D23534E1100D02622 /* SearchViewControllerContext.m in Sources */,
 				CE0D326E2353ACB100316486 /* FavotitesEntity+CoreDataClass.m in Sources */,
@@ -743,7 +730,6 @@
 				CE0D32672353AB7200316486 /* AirportEntity+CoreDataProperties.m in Sources */,
 				CE8AA2E92329898A0075786A /* RootNavigationController.m in Sources */,
 				CE0D326C2353ACA400316486 /* TranslationEntity+CoreDataProperties.m in Sources */,
-				CE49EC422337A3AB00070AC0 /* MapViewController.m in Sources */,
 				CE79315723534AF800D02622 /* RouteCellModel.m in Sources */,
 				CED130BA232E68E5007FBE47 /* Airport.m in Sources */,
 				CE0A30B2232EDEB400527281 /* PlaceTableViewCell.m in Sources */,

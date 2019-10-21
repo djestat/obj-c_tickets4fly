@@ -8,6 +8,8 @@
 
 #import "FavoriteTicketCell.h"
 
+#import "Ticket.h"
+
 @interface FavoriteTicketCell ()
 
 @property (nonatomic, strong, readwrite) Ticket* ticket;
@@ -27,7 +29,7 @@
 }
 
 - (void) configureWith: (Ticket*) ticket {
-        /*
+    
     _priceLabel.text = [NSString stringWithFormat:@"%@ руб.", ticket.price];
     _placesLabel.text = [NSString stringWithFormat:@"%@ - %@", ticket.from, ticket.to];
     
@@ -39,15 +41,26 @@
     NSString *airline = [NSString stringWithFormat:@"https://pics.avs.io/160/160/%@.png", ticket.airline];
     NSURL *url = [NSURL URLWithString: airline];
     
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            [self.airlineLogoView setImage:image];
+    if ([ticket.airline isEqualToString: @"mapTicket"]) {
+        self.airlineLogoView.image = [UIImage imageNamed: @"mapTicket"];
+    } else {
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            UIImage *image = [UIImage imageWithData:data];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [self.airlineLogoView setImage:image];
+            });
         });
-    }); */
+    }
     
+    /*
+    _priceLabel.text = @"%@ руб.";
+    _placesLabel.text = @"%@ - %@";
+    _dateLabel.text = @"dd MMMM yyyy hh:mm";
+   */
 }
+
+
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -89,7 +102,7 @@
     self.contentView.frame = CGRectMake(10.0, 10.0, [UIScreen mainScreen].bounds.size.width - 20.0, self.frame.size.height - 20.0);
     _priceLabel.frame = CGRectMake(10.0, 10.0, self.contentView.frame.size.width - 110.0, 40.0);
     _airlineLogoView.frame = CGRectMake(CGRectGetMaxX(_priceLabel.frame) + 10.0, 10.0, 80.0, 80.0);
-    _placesLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_priceLabel.frame) + 16.0, 100.0, 20.0);
+    _placesLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_priceLabel.frame) + 16.0, self.contentView.frame.size.width - 110.0, 20.0);
     _dateLabel.frame = CGRectMake(10.0, CGRectGetMaxY(_placesLabel.frame) + 8.0, self.contentView.frame.size.width - 20.0, 20.0);
 }
 

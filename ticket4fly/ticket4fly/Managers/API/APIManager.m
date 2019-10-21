@@ -74,6 +74,7 @@
         }];
     }];
     [dataTask resume];
+    NSLog(@"Get map price");
 }
 
 - (void) getTicketsFrom2: (NSString*) fromIATA to: (NSString*) toIATA completion: (APIManager_GetTicketsCompletion) completion {
@@ -119,7 +120,6 @@
     NSURLSession* session = [NSURLSession sharedSession];
     NSString* urlString = [NSString stringWithFormat: @"https://api.travelpayouts.com/v1/prices/cheap?origin=%@&destination=%@&token=%@", fromIATA, toIATA, API_TOKEN];
     
-#warning Replace with current date
 //http://api.travelpayouts.com/v1/prices/direct?origin=MOW&destination=LED&depart_date=2017-11&return_date=2017-12&token=PutHereYourToken
 
     NSURL* url = [NSURL URLWithString: urlString];

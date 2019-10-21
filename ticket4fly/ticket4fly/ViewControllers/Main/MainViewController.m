@@ -287,7 +287,7 @@
 }
 
 - (void) receiveLocation {
-
+    NSLog(@"receiveLocation");
 }
 
 @end

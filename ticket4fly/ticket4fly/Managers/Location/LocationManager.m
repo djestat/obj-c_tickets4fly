@@ -32,19 +32,25 @@
 - (CLLocationManager *)locationManager {
     if (nil == _locationManager) {
         _locationManager = [CLLocationManager new];
-        _locationManager.distanceFilter = 1000;
+        _locationManager.distanceFilter = 50000;
         _locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
         _locationManager.delegate = self;
     }
     return _locationManager;
 }
 
+- (CLLocation *) getCurrentLocation {
+    return self.currentLocation;
+}
+
+
 - (void) requestCurrentLocation {
     [self.locationManager requestAlwaysAuthorization];
 }
 
 - (nullable City*) nearestCityToCurrentLocation: (NSArray<City*>*) cities {
-    double minDistance = 10000;
+#warning - Distance to city !!!
+    double minDistance = 100000;
     City* currentCity = nil;
     for (City* city in cities) {
         CLLocation* cityLocation = [[CLLocation alloc] initWithLatitude: [city.lat doubleValue]

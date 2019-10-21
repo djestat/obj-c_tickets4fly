@@ -13,7 +13,8 @@
 - (void) configure {
     
     if (nil == self.image) {
-        self.image = [UIImage imageNamed: @"icn_mapAnnotation_city"];
+        self.image = [UIImage imageNamed: @"annotation"];
+        
     }
     
 }

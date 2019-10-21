@@ -11,6 +11,7 @@
 
 #import "Ticket.h"
 
+#import "SearchViewController.h"
 #import "DataBaseManager.h"
 
 @interface RouteCellModel ()
@@ -63,22 +64,26 @@
     return cellModel;
 }
 
+#warning MESS1 Так и не разобрался как отсюда передать данные на search view controller 
 - (void)didSelect {
     [super didSelect];
     
     if (nil != self.ticket) {
 //    if (nil != self.ticket && [self.delegate respondsToSelector: @selector(didSelectTicket:)]) {
-        [self.delegate didSelectTicket: self.ticket];
         NSLog(@"Ticket not nil");
         
         Ticket* ticket = self.ticket;
-//        NSMutableArray<Ticket*>* tickets = [NSMutableArray new];
-//        [tickets addObject: ticket];
+ 
         [[DataBaseManager shared] saveTickets: ticket];
+        
+        [self.delegate didSelectTicket: ticket];
+        
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"SaveFromSearch"
+         object:ticket];
     }
     
     NSLog(@"Ticket did select");
 }
-
 
 @end

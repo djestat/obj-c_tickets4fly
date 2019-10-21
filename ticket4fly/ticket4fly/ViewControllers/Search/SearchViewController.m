@@ -11,6 +11,7 @@
 
 #import "Route.h"
 #import "RouteCellModel.h"
+#import "Ticket.h"
 
 #import "DataBaseManager.h"
 
@@ -47,6 +48,8 @@
     
     self.dataBaseManager = [DataBaseManager shared];
     
+    [self addNotification];
+
 }
 
 
@@ -100,24 +103,31 @@
 
 #pragma mark - RouteCellModelDelegate
 
-/*- (void)didSelectTicket:(nonnull Ticket *)ticket {
-    NSLog(@"didSelectRoute s vc %@", ticket);
-//    [self.delegate didSelectTicket: ticket];
-}*/
 
+#warning MESS1 не смог сюда Сюда передать с RouteCellModel билет чтобы обработать
 - (void)didSelectTicket:(nonnull Ticket *)ticket {
-    [self.delegate saveToDataBase: ticket];
-    NSLog(@"didSelectTicket s vc %@", ticket);
-}
-
-- (void)saveToDataBase:(nonnull Ticket *)ticket {
-    NSLog(@"saveToDataBase s vc %@", ticket);
+//    [self.delegate didSelectTicket: ticket];
+//    NSLog(@"didSelectTicket s vc %@", ticket.price);
+    NSLog(@"didSelectTicket s vc ");
     
-//    NSMutableArray<Ticket*>* tickets = [NSMutableArray new];
-//    [tickets addObject: ticket];
-//    
-//    [self.dataBaseManager saveTickets: tickets];
+    
+    
 }
 
+- (void)didSelect {
+    NSLog(@"didSelect s vc");
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"YooHoo!" message:@"Ticket add to Favorites!" preferredStyle: UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Close" style:(UIAlertActionStyleDefault) handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+}
+
+- (void) addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                              selector: @selector(didSelect)
+                                                  name: @"SaveFromSearch"
+                                                object: nil];
+}
 
 @end

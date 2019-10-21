@@ -183,4 +183,26 @@
     }
 }
 
+- (void)didSelectTicket:(nonnull Ticket *)ticket {
+    NSLog(@"didSelectTicket t cv");
+           /*
+            NSString* message = [NSString stringWithFormat: @"Do you want add to favorites ticket: %@ - %@ price: %@ ", ticket.from, ticket.to, ticket.price];
+               
+               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add to favorites?" message: message preferredStyle:UIAlertControllerStyleAlert];
+               
+               UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                   //button click event
+                   NSLog(@"YES Add");
+                   [[DataBaseManager shared] saveTickets: ticket];
+               }];
+               UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+               [alert addAction:cancel];
+               [alert addAction:ok];
+               [self presentViewController:alert animated:YES completion:nil];
+            */
+    //        NSMutableArray<Ticket*>* tickets = [NSMutableArray new];
+    //        [tickets addObject: ticket];
+}
+
+
 @end
