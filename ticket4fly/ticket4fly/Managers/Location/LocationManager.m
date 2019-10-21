@@ -29,11 +29,12 @@
     return shared;
 }
 
+#warning - Location round !!!
 - (CLLocationManager *)locationManager {
     if (nil == _locationManager) {
         _locationManager = [CLLocationManager new];
-        _locationManager.distanceFilter = 50000;
-        _locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+        _locationManager.distanceFilter = 1000;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
         _locationManager.delegate = self;
     }
     return _locationManager;
@@ -48,8 +49,8 @@
     [self.locationManager requestAlwaysAuthorization];
 }
 
-- (nullable City*) nearestCityToCurrentLocation: (NSArray<City*>*) cities {
 #warning - Distance to city !!!
+- (nullable City*) nearestCityToCurrentLocation: (NSArray<City*>*) cities {
     double minDistance = 100000;
     City* currentCity = nil;
     for (City* city in cities) {

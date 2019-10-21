@@ -114,7 +114,6 @@
     self.settingsButton = settingsButton;
 }
 
-#warning Update here search
 - (void) updateDirectionView {
     
     if (nil != self.searchViewControllerContext.fromCity.name) {
@@ -134,9 +133,22 @@
     NSLog(@" fromAirport.code %@", self.searchViewControllerContext.fromAirport.code);
     NSLog(@" toAirport.code %@", self.searchViewControllerContext.toAirport.code);
 
-
-    [self.travelDirectionView disableSearchButton];
-    [self.travelDirectionView enableSearchButton];
+    NSString* fromCity =  self.searchViewControllerContext.fromCity.name;
+    NSString* toCity =  self.searchViewControllerContext.toCity.name;
+    NSString* fromAirport =  self.searchViewControllerContext.fromAirport.code;
+    NSString* toAirport =  self.searchViewControllerContext.toAirport.code;
+    
+    if (nil != fromCity && nil != toCity) {
+        [self.travelDirectionView enableSearchButton];
+    } else if (nil != fromCity && nil != toAirport) {
+        [self.travelDirectionView enableSearchButton];
+    } else if (nil != fromAirport && nil != toCity) {
+        [self.travelDirectionView enableSearchButton];
+    } else if (nil != fromAirport && nil != toAirport) {
+        [self.travelDirectionView enableSearchButton];
+    } else {
+        [self.travelDirectionView disableSearchButton];
+    }
 }
 
 #pragma mark - DataManagerDelegate

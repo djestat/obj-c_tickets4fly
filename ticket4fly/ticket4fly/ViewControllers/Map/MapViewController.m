@@ -49,7 +49,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
     
-//    [self reload];
+    [self reload];
+    [self centeredMyLocation];
+
 }
 
 - (void)viewDidLoad {
@@ -109,6 +111,7 @@
     if (nil == self.currentCity) {
         [self reload];
     }
+    [self centeredMyLocation];
     NSLog(@"! tapAction Refresh");
 }
 
@@ -152,7 +155,7 @@
         
         if(MKMapRectContainsPoint(self.mapView.visibleMapRect, MKMapPointForCoordinate(coordinate))) {
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-            annotation.subtitle = [NSString stringWithFormat:@"%@", price.value];
+            annotation.subtitle = [NSString stringWithFormat:@"%@ руб.", price.value];
             annotation.title = city.name;
             annotation.coordinate = coordinate;
             [self.mapView addAnnotation: annotation];
@@ -220,20 +223,33 @@
 }
 
 - (void) receiveLocation {
-    if (nil == self.currentCity) {
-        [self reload];
-    }
+    
+    static dispatch_once_t once;
+    dispatch_once(&once, ^ {
+      NSLog(@"Do it once");
+    });
+    /*
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+     // Do you work over here
+        if (nil == self.currentCity) {
+            [self reload];
+        }
+        [self centeredMyLocation];
+        NSLog(@"receiveLocation");
+    });*/
+//    NSLog(@"receiveLocation out block");
 }
 
 #pragma mark - My Current Place
 
 - (void) centeredMyLocation {
-    /*
+    
     CLLocation *currentLocation = [self.locationManager getCurrentLocation];
     
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 100000, 100000);
-    [_mapView setRegion: region animated: YES];
-    _mapView.showsUserLocation = YES; */
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 2000000, 2000000);
+    [self.mapView setRegion: region animated: YES];
+    self.mapView.showsUserLocation = NO;
+    
     
     /*
     if (nil == self.currentCity) {
@@ -242,10 +258,11 @@
         CLLocationCoordinate2D currentLocation = CLLocationCoordinate2DMake(lat, lon);
         
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation, 5000000, 5000000);
-        [_mapView setRegion: region animated: YES];
+        [self.mapView setRegion: region animated: YES];
         
-    }*/
-    
+    }
+     */
+
     
     NSLog(@"Centered MyLocation");
 

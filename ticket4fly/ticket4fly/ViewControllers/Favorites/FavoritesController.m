@@ -27,6 +27,13 @@
 
 @implementation FavoritesController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+
+    [self sortingSegmentControl];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -46,8 +53,6 @@
     [self.view addSubview: _tableView];
     
     [self addSubviews];
-    
-    [self sortingSegmentControl];
 }
 
 #pragma mark - Subviews

@@ -44,17 +44,19 @@
 #warning Enable search button
 
 - (void) enableSearchButton {
-    if (nil != _fromButton && nil != _toButton) {
-        _searchButton.enabled = YES;
-    }
+//    if (nil != _fromButton && nil != _toButton) {
+//    }
+//    _searchButton.enabled = YES;
+    self.searchButton.backgroundColor = [UIColor systemBlueColor];
+    NSLog(@"🛫 enableSearchButton");
 }
 
 - (void) disableSearchButton {
-    NSLog(@"🛫 disableSearchButton %@", _fromButton);
-    if (nil == _fromButton && nil == _toButton) {
-        _searchButton.enabled = NO;
-        _searchButton.backgroundColor = [UIColor grayColor];
-    }
+//    if (nil == _fromButton && nil == _toButton) {
+//    }
+//    _searchButton.enabled = NO;
+    self.searchButton.backgroundColor = [UIColor grayColor];
+    NSLog(@"🛫 disableSearchButton");
 }
 
 - (void) setFromTitle: (NSString*) title {
@@ -163,6 +165,7 @@
     
     [button setTitle:@"Search" forState: UIControlStateNormal];
     [button addTarget: self action: @selector(searchButtonAction) forControlEvents: UIControlEventTouchUpInside];
+    [self disableSearchButton];
 }
 
 #pragma mark - Theme
@@ -223,6 +226,23 @@
 - (void) searchButtonAction {
     if ([self.delegate respondsToSelector: @selector(searchButtonAction) ]) {
         [self.delegate searchButtonAction];
+    }
+    NSLog(@"searchButtonAction");
+
+    if (self.searchButton.backgroundColor == [UIColor grayColor]) {
+        NSLog(@"SearchButton disable");
+        
+        [UIView animateWithDuration: 0.6
+                              delay: 0
+                            options: UIViewAnimationOptionTransitionCurlDown
+                         animations:^{
+            self.fromButton.backgroundColor = [UIColor systemRedColor];
+            self.toButton.backgroundColor = [UIColor systemRedColor];
+        }
+                         completion:^(BOOL finished) {
+            self.fromButton.backgroundColor = [UIColor systemGreenColor];
+            self.toButton.backgroundColor = [UIColor systemGreenColor];
+        }];
     }
 }
 

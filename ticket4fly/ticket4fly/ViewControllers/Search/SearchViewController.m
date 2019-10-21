@@ -48,8 +48,6 @@
     
     self.dataBaseManager = [DataBaseManager shared];
     
-    [self addNotification];
-
 }
 
 
@@ -61,6 +59,8 @@
     for (Route* route in routes) {
         RouteCellModel* cellModel = [RouteCellModel createWith: route];
         [cellModels addObject: cellModel];
+#warning delegate cell
+        cellModel.delegate = self;
     }
     
     NSLog(@"Tikets count is %ld", cellModels.count);
@@ -104,30 +104,23 @@
 #pragma mark - RouteCellModelDelegate
 
 
-#warning MESS1 не смог сюда Сюда передать с RouteCellModel билет чтобы обработать
+#warning принял из ячейки билет
 - (void)didSelectTicket:(nonnull Ticket *)ticket {
-//    [self.delegate didSelectTicket: ticket];
-//    NSLog(@"didSelectTicket s vc %@", ticket.price);
-    NSLog(@"didSelectTicket s vc ");
+    NSLog(@"didSelectTicket s vc %@", ticket.price);
     
+    NSString* message = [NSString stringWithFormat: @"Do you want add to favorites ticket: %@ - %@ price: %@ ", ticket.from, ticket.to, ticket.price];
     
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add to favorites?" message: message preferredStyle:UIAlertControllerStyleAlert];
     
-}
-
-- (void)didSelect {
-    NSLog(@"didSelect s vc");
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"YooHoo!" message:@"Ticket add to Favorites!" preferredStyle: UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Close" style:(UIAlertActionStyleDefault) handler:nil]];
-    [self presentViewController:alertController animated:YES completion:nil];
-
-}
-
-- (void) addNotification {
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                              selector: @selector(didSelect)
-                                                  name: @"SaveFromSearch"
-                                                object: nil];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //button click event
+        NSLog(@"YES Add");
+        [[DataBaseManager shared] saveTickets: ticket];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancel];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

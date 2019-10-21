@@ -91,8 +91,6 @@
     return dictionary;
 }
 
-#warning New release
-
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {

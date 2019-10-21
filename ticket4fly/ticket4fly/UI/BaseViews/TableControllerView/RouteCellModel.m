@@ -64,26 +64,19 @@
     return cellModel;
 }
 
-#warning MESS1 Так и не разобрался как отсюда передать данные на search view controller 
+#warning передать данные на search view controller 
 - (void)didSelect {
     [super didSelect];
-    
-    if (nil != self.ticket) {
-//    if (nil != self.ticket && [self.delegate respondsToSelector: @selector(didSelectTicket:)]) {
-        NSLog(@"Ticket not nil");
-        
+    NSLog(@"Ticket did select");
+//    if (nil != self.ticket) {
+    if (nil != self.ticket && [self.delegate respondsToSelector: @selector(didSelectTicket:)]) {
+
         Ticket* ticket = self.ticket;
- 
-        [[DataBaseManager shared] saveTickets: ticket];
         
         [self.delegate didSelectTicket: ticket];
-        
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"SaveFromSearch"
-         object:ticket];
+        NSLog(@"Ticket not nil");
     }
     
-    NSLog(@"Ticket did select");
 }
 
 @end
