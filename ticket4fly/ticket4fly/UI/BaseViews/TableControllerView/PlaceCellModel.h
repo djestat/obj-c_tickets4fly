@@ -13,12 +13,23 @@ NS_ASSUME_NONNULL_BEGIN
 @class Airport;
 @class City;
 
+@protocol PlaceCellModelDelegate <NSObject>
+
+- (void) didSelectCity: (nonnull City*) city;
+- (void) didSelectAirport: (nonnull Airport*) airport;
+
+@end
+
 @interface PlaceCellModel : CellModel
+
+@property (nonatomic, weak) NSObject<PlaceCellModelDelegate>* delegate;
 
 + (PlaceCellModel*) createWithAirport: (Airport*) airport;
 + (PlaceCellModel*) createWithCity: (City*) city;
 
 - (NSString*) placeName;
+- (NSString*) placeCode;
+
 
 @end
 

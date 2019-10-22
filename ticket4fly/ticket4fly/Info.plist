@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -37,13 +39,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Show tickets price on map</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Show tickets price on map</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Show tickets price on map</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>NSPhotoLibraryUsageDescription</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Show tickets price on map</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Show tickets price on map</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Show tickets price on map</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>NSPhotoLibraryUsageDescription</string>
 </dict>
 </plist>

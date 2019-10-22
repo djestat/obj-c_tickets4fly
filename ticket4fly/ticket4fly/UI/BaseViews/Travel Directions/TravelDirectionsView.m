@@ -39,13 +39,50 @@
     [self removeNotifications];
 }
 
+#pragma mark - Control Button Title insert and Searching
+
+#warning Enable search button
+
+- (void) enableSearchButton {
+//    if (nil != _fromButton && nil != _toButton) {
+//    }
+//    _searchButton.enabled = YES;
+    self.searchButton.backgroundColor = [UIColor systemBlueColor];
+    NSLog(@"🛫 enableSearchButton");
+}
+
+- (void) disableSearchButton {
+//    if (nil == _fromButton && nil == _toButton) {
+//    }
+//    _searchButton.enabled = NO;
+    self.searchButton.backgroundColor = [UIColor grayColor];
+    NSLog(@"🛫 disableSearchButton");
+}
+
+- (void) setFromTitle: (NSString*) title {
+    if (nil == title) {
+        [_fromButton setTitle:@"From 🛫" forState: UIControlStateNormal];
+    } else {
+        [_fromButton setTitle: title forState: UIControlStateNormal];
+    }
+}
+
+- (void) setToTitle: (NSString*) title {
+    if (nil == title) {
+        [_toButton setTitle:@"To 🛬" forState: UIControlStateNormal];
+    } else {
+        [_toButton setTitle: title forState: UIControlStateNormal];
+    }
+}
+
+
+
 #pragma mark - Layout
 
 - (void) layoutSubviews {
     [super layoutSubviews];
     
     CGFloat width = self.frame.size.width;
-//    CGFloat height = self.frame.size.height;
     
     CGFloat inset = 10;
     CGFloat x = 20;
@@ -79,10 +116,18 @@
     }
     
     DirectionButton* button = [DirectionButton buttonWithType: UIButtonTypeCustom];
+    
+    button.layer.shadowColor = [[[UIColor whiteColor] colorWithAlphaComponent:0.9] CGColor];
+    button.layer.shadowOffset = CGSizeZero;
+    button.layer.shadowRadius = 3.0;
+    button.layer.shadowOpacity = 1.0;
+    
     [self addSubview: button];
     self.fromButton = button;
+    button.titleLabel.preferredMaxLayoutWidth = _fromButton.bounds.size.width - 10;
+    [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
     
-    [button setTitle:@"From" forState: UIControlStateNormal];
+    [button setTitle:@"From 🛫" forState: UIControlStateNormal];
     [button addTarget: self action: @selector(fromButtonAction) forControlEvents: UIControlEventTouchUpInside];
 }
 
@@ -92,10 +137,19 @@
     }
     
     DirectionButton* button = [DirectionButton buttonWithType: UIButtonTypeCustom];
+    
+    button.layer.shadowColor = [[[UIColor whiteColor] colorWithAlphaComponent:0.9] CGColor];
+    button.layer.shadowOffset = CGSizeZero;
+    button.layer.shadowRadius = 3.0;
+    button.layer.shadowOpacity = 1.0;
+    
     [self addSubview: button];
     self.toButton = button;
     
-    [button setTitle:@"To" forState: UIControlStateNormal];
+    button.titleLabel.preferredMaxLayoutWidth = _fromButton.bounds.size.width - 10;
+    [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    
+    [button setTitle:@"To 🛬" forState: UIControlStateNormal];
     [button addTarget: self action: @selector(toButtonAction) forControlEvents: UIControlEventTouchUpInside];
 }
 
@@ -105,11 +159,13 @@
     }
     
     SubmitButton* button = [SubmitButton buttonWithType: UIButtonTypeCustom];
+    
     [self addSubview: button];
     self.searchButton = button;
     
     [button setTitle:@"Search" forState: UIControlStateNormal];
     [button addTarget: self action: @selector(searchButtonAction) forControlEvents: UIControlEventTouchUpInside];
+    [self disableSearchButton];
 }
 
 #pragma mark - Theme
@@ -170,6 +226,23 @@
 - (void) searchButtonAction {
     if ([self.delegate respondsToSelector: @selector(searchButtonAction) ]) {
         [self.delegate searchButtonAction];
+    }
+    NSLog(@"searchButtonAction");
+
+    if (self.searchButton.backgroundColor == [UIColor grayColor]) {
+        NSLog(@"SearchButton disable");
+        
+        [UIView animateWithDuration: 0.6
+                              delay: 0
+                            options: UIViewAnimationOptionTransitionCurlDown
+                         animations:^{
+            self.fromButton.backgroundColor = [UIColor systemRedColor];
+            self.toButton.backgroundColor = [UIColor systemRedColor];
+        }
+                         completion:^(BOOL finished) {
+            self.fromButton.backgroundColor = [UIColor systemGreenColor];
+            self.toButton.backgroundColor = [UIColor systemGreenColor];
+        }];
     }
 }
 

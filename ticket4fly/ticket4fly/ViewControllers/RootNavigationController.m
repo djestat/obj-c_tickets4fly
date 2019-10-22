@@ -41,6 +41,7 @@
     self.view.backgroundColor = [activeTheme backgroundColor];
     
     self.navigationBar.tintColor = [activeTheme activeColor];
+    self.navigationBar.barTintColor = [UIColor systemGreenColor];
     
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];

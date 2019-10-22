@@ -11,6 +11,8 @@
 #import "PlaceTableViewCell.h"
 #import "PlaceCellModel.h"
 
+#import "RouteTableViewCell.h"
+#import "RouteCellModel.h"
 
 @interface TableControllerView () <UITableViewDelegate, UITableViewDataSource>
 
@@ -73,7 +75,9 @@
     
     NSString* placeCellID = NSStringFromClass([PlaceTableViewCell class]);
     [self.tableView registerClass: [PlaceTableViewCell class] forCellReuseIdentifier: placeCellID];
-    
+        
+    NSString* routeCellID = NSStringFromClass([RouteTableViewCell class] );
+    [self.tableView registerClass: [RouteTableViewCell class] forCellReuseIdentifier: routeCellID];
 }
 
 #pragma mark - Theme
@@ -83,12 +87,13 @@
     
     UIColor* viewBackgroundColor = [activeTheme viewBackgroundColor];
     self.backgroundColor = viewBackgroundColor;
-    self.tableView.backgroundColor = viewBackgroundColor;
+    self.tableView.backgroundColor = [UIColor whiteColor];
     
+    /*
     self.layer.cornerRadius = [activeTheme actionCornerRadius];
     self.layer.borderColor = [UIColor whiteColor].CGColor;
     self.layer.borderWidth = 1.0f;
-    self.layer.masksToBounds = YES;
+    self.layer.masksToBounds = YES; */
 }
 
 #pragma mark - Notifications
@@ -124,15 +129,23 @@
 
 #pragma mark - UITableViewDataSource
 
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
+        
     CellModel* model = [self.models objectAtIndex: indexPath.row];
     
     if ([model isKindOfClass: [PlaceCellModel class]]) {
         NSString* placeCellID = NSStringFromClass([PlaceTableViewCell class]);
+        
         PlaceTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: placeCellID forIndexPath: indexPath];
         [cell configureWith: (PlaceCellModel*)model];
+        return cell;
+    }
+    
+    if ([model isKindOfClass: [RouteCellModel class]]) {
+        NSString* routeCellID = NSStringFromClass([RouteTableViewCell class] );
+        RouteTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: routeCellID forIndexPath: indexPath];
+        [cell configureWith: (RouteCellModel*)model];
+        tableView.separatorColor = [UIColor clearColor];
         return cell;
     }
     
@@ -148,5 +161,48 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.models.count;
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CellModel* model = [self.models objectAtIndex: indexPath.row];
+
+    if ([model isKindOfClass: [RouteCellModel class]]) {
+        
+        cell.contentView.transform = CGAffineTransformMakeRotation(M_PI_2);
+        cell.transform = CGAffineTransformMakeScale(0, 0);
+        
+        [UIView animateWithDuration:0.8
+                              delay:0.0
+                            options: UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+            cell.contentView.transform = CGAffineTransformIdentity;
+            cell.transform = CGAffineTransformIdentity;
+        }
+                         completion: nil];
+        
+    }
+}
+
+- (void)didSelectTicket:(nonnull Ticket *)ticket {
+    NSLog(@"didSelectTicket t cv");
+           /*
+            NSString* message = [NSString stringWithFormat: @"Do you want add to favorites ticket: %@ - %@ price: %@ ", ticket.from, ticket.to, ticket.price];
+               
+               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add to favorites?" message: message preferredStyle:UIAlertControllerStyleAlert];
+               
+               UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                   //button click event
+                   NSLog(@"YES Add");
+                   [[DataBaseManager shared] saveTickets: ticket];
+               }];
+               UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+               [alert addAction:cancel];
+               [alert addAction:ok];
+               [self presentViewController:alert animated:YES completion:nil];
+            */
+    //        NSMutableArray<Ticket*>* tickets = [NSMutableArray new];
+    //        [tickets addObject: ticket];
+}
+
 
 @end

@@ -13,14 +13,14 @@
 - (nonnull NSString*) identifier { return ThemeIdentifier_DefaultLight; }
 
 - (nonnull UIColor*) backgroundColor     { return UIColor.whiteColor; }
-- (nonnull UIColor*) viewBackgroundColor { return UIColor.grayColor; }
-- (nonnull UIColor*) activeColor         { return UIColor.blueColor; }
+- (nonnull UIColor*) viewBackgroundColor { return UIColor.systemGreenColor; }
+- (nonnull UIColor*) activeColor         { return UIColor.systemBlueColor; }
 
 - (nonnull UIColor*) textActionColor   { return UIColor.darkTextColor; }
 - (nonnull UIColor*) textActiveColor   { return UIColor.darkTextColor; }
 - (nonnull UIColor*) textInactiveColor { return UIColor.lightTextColor; }
 
-- (CGFloat) actionCornerRadius  { return 0; }
+- (CGFloat) actionCornerRadius  { return 4; }
 
 - (CGFloat) horizontalEdgeInset { return 20; }
 

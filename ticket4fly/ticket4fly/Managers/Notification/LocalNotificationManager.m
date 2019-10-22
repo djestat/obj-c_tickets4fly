@@ -26,7 +26,7 @@
     return shared;
 }
 
-- (void) requestPermissionsWithText: (NSString*) text after: (NSTimeInterval) delay {
+- (void) requestPermissionsWithText: (NSString*) title sendBody: (NSString*) body after: (NSTimeInterval) delay {
 #warning Change DELAY to Date 
 
     UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
@@ -36,7 +36,7 @@
     [center requestAuthorizationWithOptions: options completionHandler:^(BOOL granted, NSError * _Nullable error) {
         if (granted) {
             NSLog(@"UNUserNotificationCenter requestAuthorizationWithOptions granted");
-            [self send: text after: delay];
+            [self sendTitle: title sendBody: body after: delay];
         } else {
             NSLog(@"UNUserNotificationCenter requestAuthorizationWithOptions error %@", error);
         }
@@ -44,12 +44,12 @@
 }
 
 
-- (void) send: (NSString*) text after: (NSTimeInterval) delay {
+- (void) sendTitle: (NSString*) title sendBody: (NSString*) body after: (NSTimeInterval) delay {
     UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
     
     UNMutableNotificationContent* content = [UNMutableNotificationContent new];
-    content.title = @"Hello from ticket4fly";
-    content.body = text;
+    content.title = title;
+    content.body = body;
     content.sound = [UNNotificationSound defaultSound];
     
     NSDate* date = [NSDate dateWithTimeIntervalSinceNow: delay];
@@ -66,7 +66,7 @@
     newComponents.second = components.second;
     UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents: newComponents
                                                                                                       repeats: NO];
-    
+
     UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier: @"Local notification"
                                                                           content: content
                                                                           trigger: trigger];

@@ -78,10 +78,13 @@
 
 #pragma mark - NotRouter
 
-- (void) openPlaceViewControllerWith: (PlaceReason) reason {
-    PlaceViewController* viewController = [PlaceViewController new];
-    viewController.reason = reason;
-    [self.navigationController pushViewController: viewController animated:YES];
+- (void) push: (NSObject<ViewControllerContext>*) context {
+    UIViewController* viewController = [context viewController];
+    if ([viewController isKindOfClass: [UIViewController class]]) {
+        [self.navigationController pushViewController: viewController animated: YES];
+    } else {
+        NSLog(@"Can not push %@ from %@", viewController, context);
+    }
 }
 
 @end

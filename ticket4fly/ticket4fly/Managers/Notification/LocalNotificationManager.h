@@ -14,10 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (LocalNotificationManager*) shared;
 
-- (void) requestPermissionsWithText: (NSString*) text after: (NSTimeInterval) delay;
+- (void) requestPermissionsWithText: (NSString*) title sendBody: (NSString*) body after: (NSTimeInterval) delay;
 
-- (void) send: (NSString*) text after: (NSTimeInterval) delay;
-
+- (void) sendTitle: (NSString*) title sendBody: (NSString*) body after: (NSTimeInterval) delay;
 
 @end
 

@@ -14,7 +14,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol DataManagerDelegate <NSObject>
+
+- (void) didReceivedCities;
+- (void) didReceivedAirports;
+
+
+@end
+
 @interface DataManager : NSObject
+
+@property (nonatomic, weak, readwrite) id<DataManagerDelegate> delegate;
 
 @property (nonatomic, strong, readonly) NSArray<Country*>* countries;
 @property (nonatomic, strong, readonly) NSArray<City*>* cities;

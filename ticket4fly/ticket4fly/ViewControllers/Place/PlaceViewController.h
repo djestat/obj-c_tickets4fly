@@ -8,12 +8,15 @@
 
 #import "BaseViewController.h"
 
+#import "PlaceViewControllerContext.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PlaceViewController : BaseViewController
 
 @property (nonatomic, assign) PlaceReason reason;
+@property (nonatomic, weak) NSObject<PlaceViewControllerDelegate>* delegate;
 
 @end
 

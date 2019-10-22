@@ -37,14 +37,36 @@
 
 - (NSString*) placeName {
     if (nil != self.airport) {
-        return self.airport.name;
+        return [NSString stringWithFormat: @"%@", self.airport.name];
     }
     
     if (nil != self.city) {
-        return self.city.name;
+        return [NSString stringWithFormat: @"%@", self.city.name];
     }
     
     return @"";
+}
+
+- (NSString*) placeCode {
+    if (nil != self.airport) {
+        return [NSString stringWithFormat: @"Airport code [%@]", self.airport.code];
+    }
+    
+    if (nil != self.city) {
+        return [NSString stringWithFormat: @"City code [%@]", self.city.code];
+    }
+    
+    return @"";
+}
+
+- (void)didSelect {
+    [super didSelect];
+    
+    if (nil != self.airport && [self.delegate respondsToSelector: @selector(didSelectAirport:)]) {
+        [self.delegate didSelectAirport: self.airport];
+    } else if (nil != self.city && [self.delegate respondsToSelector: @selector(didSelectCity:)]) {
+        [self.delegate didSelectCity: self.city];
+    }
 }
 
 @end

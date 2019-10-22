@@ -13,8 +13,8 @@
 - (nonnull NSString*) identifier { return ThemeIdentifier_DefaultDark; }
 
 - (nonnull UIColor*) backgroundColor     { return UIColor.blackColor; }
-- (nonnull UIColor*) viewBackgroundColor { return UIColor.grayColor; }
-- (nonnull UIColor*) activeColor         { return UIColor.redColor; }
+- (nonnull UIColor*) viewBackgroundColor { return UIColor.systemGrayColor; }
+- (nonnull UIColor*) activeColor         { return UIColor.systemRedColor; }
 
 - (nonnull UIColor*) textActionColor   { return UIColor.darkTextColor; }
 - (nonnull UIColor*) textActiveColor   { return UIColor.darkTextColor; }

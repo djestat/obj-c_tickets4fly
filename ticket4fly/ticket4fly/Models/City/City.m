@@ -10,16 +10,16 @@
 
 @interface City ()
 
-@property (nonatomic, strong, nonnull, readwrite) NSString* code;
-@property (nonatomic, strong, nonnull, readwrite) NSString* name;
-
-@property (nonatomic, strong, nonnull, readwrite) NSString* timeZone;
-@property (nonatomic, strong, nonnull, readwrite) NSString* countryCode;
-
-@property (nonatomic, strong, nonnull, readwrite) NSDictionary* translations;
-
-@property (nonatomic, strong, nonnull, readwrite) NSNumber* lon;
-@property (nonatomic, strong, nonnull, readwrite) NSNumber* lat;
+//@property (nonatomic, strong, nonnull, readwrite) NSString* code;
+//@property (nonatomic, strong, nonnull, readwrite) NSString* name;
+//
+//@property (nonatomic, strong, nonnull, readwrite) NSString* timeZone;
+//@property (nonatomic, strong, nonnull, readwrite) NSString* countryCode;
+//
+//@property (nonatomic, strong, nonnull, readwrite) NSDictionary* translations;
+//
+//@property (nonatomic, strong, nonnull, readwrite) NSNumber* lon;
+//@property (nonatomic, strong, nonnull, readwrite) NSNumber* lat;
 
 @end
 
@@ -27,56 +27,56 @@
 
 + (nullable City*) createWithDictionary: (NSDictionary*) dictionary {
     if (NO == [dictionary isKindOfClass: [NSDictionary class]]) {
-        NSLog(@"City wrong dictionary %@", dictionary);
+//        NSLog(@"City wrong dictionary %@", dictionary);
         return nil;
     }
     
     
     NSString* name = [dictionary objectForKey: @"name"];
     if (NO == [name isKindOfClass: [NSString class]]) {
-        NSLog(@"City wrong name %@", name);
+//        NSLog(@"City wrong name %@", name);
         return nil;
     }
     
     NSString* code = [dictionary objectForKey: @"code"];
     if (NO == [code isKindOfClass: [NSString class]]) {
-        NSLog(@"City wrong code %@", code);
+//        NSLog(@"City wrong code %@", code);
         return nil;
     }
     
     NSDictionary* translations = [dictionary objectForKey: @"name_translations"];
     if (NO == [translations isKindOfClass: [NSDictionary class]]) {
-        NSLog(@"City wrong translations %@", translations);
+//        NSLog(@"City wrong translations %@", translations);
         return nil;
     }
     
     NSDictionary* coordinates = [dictionary objectForKey: @"coordinates"];
     if (NO == [coordinates isKindOfClass: [NSDictionary class]]) {
-        NSLog(@"City wrong coordinates %@", coordinates);
+//        NSLog(@"City wrong coordinates %@", coordinates);
         return nil;
     }
     
     NSNumber* lon = [coordinates objectForKey: @"lon"];
     if (NO == [lon isKindOfClass: [NSNumber class]]) {
-        NSLog(@"City wrong lon %@", lon);
+//        NSLog(@"City wrong lon %@", lon);
         return nil;
     }
     
     NSNumber* lat = [coordinates objectForKey: @"lat"];
     if (NO == [lat isKindOfClass: [NSNumber class]]) {
-        NSLog(@"City wrong lat %@", lat);
+//        NSLog(@"City wrong lat %@", lat);
         return nil;
     }
     
     NSString* timeZone = [dictionary objectForKey: @"time_zone"];
     if (NO == [timeZone isKindOfClass: [NSString class]]) {
-        NSLog(@"City wrong timeZone %@", timeZone);
+//        NSLog(@"City wrong timeZone %@", timeZone);
         return nil;
     }
     
     NSString* countryCode = [dictionary objectForKey: @"country_code"];
     if (NO == [countryCode isKindOfClass: [NSString class]]) {
-        NSLog(@"City wrong countryCode %@", countryCode);
+//        NSLog(@"City wrong countryCode %@", countryCode);
         return nil;
     }
     

@@ -14,17 +14,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Airport : NSObject
 
-@property (nonatomic, strong, nonnull, readonly) NSString* code;
-@property (nonatomic, strong, nonnull, readonly) NSString* name;
+@property (nonatomic, strong, nonnull, readwrite) NSString* code;
+@property (nonatomic, strong, nonnull, readwrite) NSString* name;
 
-@property (nonatomic, strong, nonnull, readonly) NSString* timeZone;
-@property (nonatomic, strong, nonnull, readonly) NSString* countryCode;
-@property (nonatomic, strong, nonnull, readonly) NSString* cityCode;
+@property (nonatomic, strong, nonnull, readwrite) NSString* timeZone;
+@property (nonatomic, strong, nonnull, readwrite) NSString* countryCode;
+@property (nonatomic, strong, nonnull, readwrite) NSString* cityCode;
 
-@property (nonatomic, strong, nonnull, readonly) NSDictionary* translations;
+@property (nonatomic, strong, nonnull, readwrite) NSDictionary* translations;
 
-@property (nonatomic, strong, nonnull, readonly) NSNumber* lon;
-@property (nonatomic, strong, nonnull, readonly) NSNumber* lat;
+@property (nonatomic, strong, nonnull, readwrite) NSNumber* lon;
+@property (nonatomic, strong, nonnull, readwrite) NSNumber* lat;
 
 + (nullable Airport*) createWithDictionary: (NSDictionary*) dictionary;
 

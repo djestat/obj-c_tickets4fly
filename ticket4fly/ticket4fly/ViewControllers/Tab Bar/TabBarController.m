@@ -38,7 +38,7 @@
         favoritesController.tabBarItem = [[UITabBarItem alloc] initWithTitle: @"Favorites" image: [UIImage imageNamed: @"favorites"] tag: 2];
         
         self.viewControllers = @[rootNavigationController, mapViewController, favoritesController];
-        self.tabBar.tintColor = [UIColor redColor];
+        self.tabBar.tintColor = [UIColor systemGreenColor];
         self.selectedIndex = 0;
     }
     return self;
