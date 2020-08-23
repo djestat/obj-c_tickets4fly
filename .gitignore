@@ -76,8 +76,4 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
-ticket4fly/.DS_Store
-ticket4fly/.DS_Store
-ticket4fly/ticket4fly/.DS_Store
-ticket4fly/.DS_Store
-ticket4fly/.DS_Store
+*.DS_Store
